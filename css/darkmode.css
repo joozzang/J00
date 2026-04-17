@@ -1,0 +1,223 @@
+/* ------------------ Dark Mode ------------------ */
+body.dark-mode {
+  background-color: #121212;
+}
+body.dark-mode .name,
+body.dark-mode .profile-right h3,
+body.dark-mode .profile li,
+body.dark-mode h1,
+body.dark-mode .call h4,
+body.dark-mode .profile h3,
+body.dark-mode .profile p,
+body.dark-mode .profile li,
+body.dark-mode .career span:nth-of-type(1),
+body.dark-mode .career span:nth-of-type(2),
+body.dark-mode .career span:nth-of-type(3),
+body.dark-mode .project-description-inline,
+body.dark-mode .detail-btn {
+  color: #ffffff !important;
+  text-shadow: none;
+}
+body.dark-mode nav a {
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+}
+body.dark-mode nav a:hover {
+  background-color: #444 !important;
+}
+body.dark-mode .modal-content {
+  background: linear-gradient(#000, #000);
+  color: #ffffff;
+}
+body.dark-mode .close:hover {
+  color: #fff;
+}
+body.dark-mode p,
+body.dark-mode span {
+  color: #fff;
+}
+body.dark-mode .profile_img,
+body.dark-mode .career button:hover {
+  background-color: #919191;
+  box-shadow: 0 4px 10px rgba(185, 185, 185, 0.2);
+}
+body.dark-mode .career button,
+body.dark-mode .career button span {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+body.dark-mode .career button {
+  border: 1px solid #fff;
+}
+body.dark-mode .career .star-text .star-icon {
+  fill: #fff !important;
+}
+body.dark-mode .career button:hover .star-text .star-icon {
+  fill: #fff !important;
+}
+body.dark-mode .arrow-button {
+  color: #fff;
+}
+body.dark-mode .accordion {
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  color: #ffffff;
+}
+body.dark-mode .accordion:hover,
+body.dark-mode .accordion.active {
+  background-color: #2c2c2c;
+  color: #ffffff !important;
+  border: none;
+}
+body.dark-mode .accordion-icon {
+  fill: #ffffff;
+}
+body.dark-mode .accordion:hover .accordion-icon,
+body.dark-mode .accordion.active .accordion-icon {
+  fill: #ffffff !important;
+}
+body.dark-mode .panel {
+  background-color: #1f1f1f;
+  color: #dcdcdc;
+  border-radius: 10px;
+}
+body.dark-mode .panel p,
+body.dark-mode .panel ul li {
+  color: #dcdcdc;
+}
+body.dark-mode .panel strong {
+  color: #ffffff;
+}
+/* ---------- Slide / Slider 다크모드 ---------- */
+body.dark-mode .slider-section {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .slide,
+body.dark-mode .micro,
+body.dark-mode .oled {
+  scrollbar-color: #888 transparent;
+}
+body.dark-mode .slide::-webkit-scrollbar-thumb,
+body.dark-mode .micro::-webkit-scrollbar-thumb,
+body.dark-mode .oled::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+body.dark-mode .slide::-webkit-scrollbar-thumb:hover,
+body.dark-mode .micro::-webkit-scrollbar-thumb:hover,
+body.dark-mode .oled::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+body.dark-mode .tab-contents {
+  background-color: #2c2c2c;
+  border-color: #444;
+  color: #eaeaea;
+}
+body.dark-mode .tab-button {
+  background-color: #3a3a3a;
+  color: #ccc;
+  border-color: #555;
+}
+body.dark-mode .tab-button.active,
+body.dark-mode .tab-button:hover {
+  background-color: #555;
+  color: #fff;
+}
+body.dark-mode .accordion-item .panel {
+  background-color: #1f1f1f;
+  color: #ddd;
+}
+
+/* ---------- Arrow Buttons 다크모드 ---------- */
+body.dark-mode .arrow-button {
+  color: #ffffff;
+}
+body.dark-mode .arrow-button:hover {
+  color: #ffd700;
+}
+/* ------------------ Projects (다크모드) ------------------ */
+body.dark-mode .project-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .card-back {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .project-description-inline {
+  color: #ffffff;
+}
+
+body.dark-mode .project-instruction {
+  color: #cccccc;
+}
+
+body.dark-mode .detail-btn {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+}
+body.dark-mode .detail-btn:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* ------------------ Accordion 제목 (다크모드) ------------------ */
+body.dark-mode .accordion-item h3 {
+  color: #ffffff;
+}
+
+/* ------------------ Social Icons (다크모드) ------------------ */
+body.dark-mode .social-icons img {
+  filter: brightness(0.9) contrast(1.2);
+  transition: filter 0.3s ease;
+}
+body.dark-mode .social-icons img:hover {
+  filter: brightness(1.2);
+}
+
+/* ---------- Image Slide & Number 다크모드 ---------- */
+body.dark-mode .image-slide h3,
+body.dark-mode #pageImageNumber,
+body.dark-mode #jejupageImageNumber,
+body.dark-mode #lawpageImageNumber {
+  background: rgba(30, 30, 30, 0.8);
+  color: #f0f0f0;
+}
+
+/* ---------- Image Slide Controls 다크모드 ---------- */
+body.dark-mode .image-slider-controls button,
+body.dark-mode .image-slider-controls span {
+  background: rgba(50, 50, 50, 0.7);
+  color: #f0f0f0;
+}
+
+/* ---------- Modal 다크모드 ---------- */
+body.dark-mode .problem-modal-content {
+  background: linear-gradient(#1e1e1e, #2a2a2a);
+  color: #f0f0f0;
+}
+body.dark-mode .problem-modal-close {
+  color: #ccc;
+}
+body.dark-mode .problem-modal-close:hover {
+  color: #fff;
+}
+body.dark-mode .problem-modal-content h2 {
+  color: #fff;
+}
+body.dark-mode .problem-solving-row .label {
+  color: #fff;
+}
+body.dark-mode .open-problem-modal {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+body.dark-mode .open-problem-modal:hover,
+body.dark-mode .open-problem-modal.active {
+  background-color: #555;
+  color: #fff;
+}
