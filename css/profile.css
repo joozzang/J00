@@ -44,7 +44,7 @@
   width: 100%;
   max-width: 450px; /* 추가 */
   aspect-ratio: 9 / 11; /* 반응형 대응 */
-  background: url("/images/profile.png") center/cover no-repeat;
+  background: url("../images/profile.png") center/cover no-repeat;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 10px 10px 20px 10px;
