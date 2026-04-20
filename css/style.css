@@ -15,20 +15,22 @@
 }
 
 /* ------------------ Global Reset ------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  background-color: #0064ff;
+  background-color: #eaf4ff;
   font-family: "Gyeonggi_Title_Medium";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 body.modal-open {
   overflow: hidden;
 }
+
 /* ------------------ Container ------------------ */
 .container {
   display: flex;
@@ -40,14 +42,30 @@ body.modal-open {
   gap: 50px;
   transition: transform 0.8s ease-in-out;
 }
+#cc {
+  position: fixed; /* ⭐ 핵심 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 뒤로 보내기 */
+  pointer-events: none; /* 클릭 막지 않게 */
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
 /* ------------------ Title Animation ------------------ */
 .name {
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  color: #b3e0ff;
+  color: #1d77fd;
   font-size: 10em;
   font-weight: bold;
   text-align: center;
-  text-shadow: 0 8px 9px #0056cc, 0px -2px 1px #d9f1ff;
+  text-shadow:
+    0 8px 9px #d5e6ff,
+    0 -2px 1px #1d77fd;
   white-space: nowrap;
   margin: 100px 0 0;
   display: inline-block;
@@ -57,7 +75,7 @@ body.modal-open {
   content: "";
   display: inline-block;
   animation: blink 0.8s;
-  color: #b3e0ff;
+  color: #1d77fd;
 }
 @keyframes blink {
   0%,
@@ -72,28 +90,37 @@ body.modal-open {
 /* ------------------ Navigation ------------------ */
 nav {
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  font-weight: bold;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 50px;
+  gap: 100px;
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transition:
+    opacity 0.8s,
+    transform 0.8s;
 }
 nav a {
-  color: #0064ff;
-  background-color: #edfaff;
-  padding: 25px 50px;
-  font-size: 1.8em;
-  border-radius: 15px;
-  width: 200px;
+  padding: 25px 85px;
+  /* width: 400px; */
   text-align: center;
+  border-radius: 999px;
+  border: none;
+  color: #1d77fd;
+  background-color: #fff;
+  font-size: 2.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+  text-decoration: none;
 }
 nav a:hover {
   cursor: pointer;
   transform: scale(1.2);
-  background-color: rgb(255, 255, 148);
+  background: #1d77fd;
+  color: #fff;
 }
 .show-nav nav {
   opacity: 1;
@@ -101,54 +128,4 @@ nav a:hover {
 }
 .show-nav .name {
   transform: translateY(-50px);
-}
-
-/* ------------------ Modal ------------------ */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(76, 111, 121, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  overflow-y: auto !important;
-}
-.modal.show {
-  opacity: 1;
-  visibility: visible;
-}
-.modal-content {
-  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
-  position: relative;
-  background: linear-gradient(#ffffff, #a1dbff);
-  padding: 15px 35px;
-  border-radius: 15px;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-  max-height: 90vh;
-  height: auto;
-  overflow-y: auto; /* ✅ 스크롤 대상 */
-}
-h1 {
-  color: #3683f5;
-  margin: 10px 0;
-}
-.close {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  font-size: 2em;
-  color: #555;
-  cursor: pointer;
-}
-.close:hover {
-  color: #0064ff;
 }

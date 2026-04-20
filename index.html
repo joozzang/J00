@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body>
+    <canvas id="cc"></canvas>
     <div class="container">
       <button id="theme-toggle" class="theme-toggle">🌙</button>
 
@@ -26,14 +27,35 @@
 
     <div id="profileModal" class="modal">
       <div class="modal-content profile">
-        <div class="close" onclick="closeModal('profileModal')">&times;</div>
-        <h1>Profile</h1>
-        <p>
-          "데이터 신뢰성을 기반으로 문제를 재현 가능하게 해결하고, 시스템으로 확장하는 엔지니어 주가영입니다."
-        </p>
+        <div class="profile-header">
+      <h1>Profile</h1>
+      <div class="close" onclick="closeModal('profileModal')">&times;</div>
+    </div>
         <div class="profile-body">
           <div class="profile-left">
             <div class="profile_img"></div>
+            <div class="social-icons">
+              <a href="mailto:jooooooky415@gmail.com">
+              <img class="icon-img" data-light="images/mail.png" data-dark="images/mail-dark.png"
+                src="images/mail.png"
+                alt="email"
+            /></a>
+              <a
+                href="https://www.notion.so/Gayeong-s-Portfolio-5c6554701126473bbaa9787b083066fd"
+                target="_blank"
+              >
+                <img
+                   class="icon-img" data-light="images/notion.png" data-dark="images/notion-dark.png"
+                  src="images/notion.png"
+                  alt="notion--v1"
+              /></a>
+              <a href="https://github.com/joozzang/J00" target="_blank">
+                <img
+                 class="icon-img" data-light="images/github_blue.png" data-dark="images/github-dark.png"
+                  src="images/github.png"
+                  alt="github"
+              /></a> 
+            </div>
           </div>
           <div class="profile-right">
            <h3>🎓 Education</h3>
@@ -61,32 +83,6 @@
               <li>ITQ 한글엑셀 A등급</li>
               <li>ITQ 한글파워포인트 A등급</li>
             </ul>
-            <div class="social-icons">
-              <a href="mailto:jooooooky415@gmail.com">
-              <img
-                width="50"
-                height="50" class="icon-img" data-light="images/mail.png" data-dark="images/mail-dark.png"
-                src="images/mail.png"
-                alt="email"
-            /></a>
-              <a
-                href="https://www.notion.so/Gayeong-s-Portfolio-5c6554701126473bbaa9787b083066fd"
-                target="_blank"
-              >
-                <img
-                  width="48"
-                  height="48" class="icon-img" data-light="images/notion.png" data-dark="images/notion-dark.png"
-                  src="images/notion.png"
-                  alt="notion--v1"
-              /></a>
-              <a href="https://github.com/joozzang/J00" target="_blank">
-                <img
-                  width="43"
-                  height="43" class="icon-img" data-light="images/github_blue.png" data-dark="images/github-dark.png"
-                  src="images/github.png"
-                  alt="github"
-              /></a> 
-            </div>
           </div>
         </div>
       </div>
