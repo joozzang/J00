@@ -15,7 +15,9 @@
 }
 
 /* ------------------ Global Reset ------------------ */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,23 +27,12 @@ html {
 }
 body {
   background-color: #eaf4ff;
-  font-family: "Gyeonggi_Title_Medium";
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
 }
 body.modal-open {
   overflow: hidden;
 }
 
-/* ------------------ Container ------------------ */
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 90vh;
-  gap: 50px;
-  transition: transform 0.8s ease-in-out;
-}
 #cc {
   position: fixed; /* ⭐ 핵심 */
   top: 0;
@@ -52,9 +43,18 @@ body.modal-open {
   pointer-events: none; /* 클릭 막지 않게 */
 }
 
+/* ------------------ Container ------------------ */
 .container {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  gap: 50px;
+  transition: transform 0.8s ease-in-out;
 }
 /* ------------------ Title Animation ------------------ */
 .name {
@@ -128,4 +128,99 @@ nav a:hover {
 }
 .show-nav .name {
   transform: translateY(-50px);
+}
+/* ------------------ Dark mode ------------------ */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 2em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.theme-toggle:hover {
+  background: none;
+}
+/* ------------------ Tab Page Layout ------------------ */
+.layout-container {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  right: 120px;
+  bottom: 20px;
+  border: 3px solid #bbb9c7;
+  border-radius: 20px 20px 20px 20px;
+
+  padding-right: 80px;
+  width: auto;
+  height: auto;
+
+  max-width: none;
+  transform: none;
+}
+.layout-header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  top: 20px;
+  left: 0;
+  right: 100px;
+
+  margin: 20px 20px 0 20px; /* ⭐ 바깥 여백으로 위치 잡기 */
+
+  background-color: #0064ff;
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
+  z-index: 100;
+}
+
+.layout-header h1 {
+  margin: 0;
+  font-size: 2.4em;
+  color: #fff;
+}
+.bookmark-tabs {
+  position: absolute;
+  right: -75px; /* 밖으로 튀어나오게 */
+  top: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bookmark {
+  background-color: #0064ff;
+  border: 4px solid #0064ff;
+  padding: 15px 20px;
+  color: inherit;
+  border-radius: 0 10px 10px 0;
+  font-size: 2em;
+
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.bookmark:hover {
+  transform: translateX(-10px);
+  background-color: #fff;
+  color: #0064ff;
+}
+.bookmark.active {
+  background-color: #ffff94;
+  color: #0064ff;
+  border: 2px solid #0064ff;
+}
+.close {
+  margin: 0;
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff !important;
+}
+.close:hover {
+  transform: scale(1.2) !important;
+  color: #ffff94 !important;
 }

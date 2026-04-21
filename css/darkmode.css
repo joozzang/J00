@@ -1,8 +1,52 @@
 /* ------------------ Dark Mode ------------------ */
+/* ---------- Layout Dark Mode ---------- */
 body.dark-mode {
-  background-color: #121212;
+  background: #0f1115;
+  color: #e5e7eb;
 }
 
+/* 컨테이너 */
+body.dark-mode .layout-container {
+  background: #1a1d24;
+  border: 3px solid #2a2d36;
+}
+
+/* 헤더 */
+body.dark-mode .layout-header {
+  background-color: #1f3a8a;
+}
+
+body.dark-mode .layout-header h1 {
+  color: #f9fafb;
+}
+
+/* 북마크 */
+body.dark-mode .bookmark {
+  background-color: #1f3a8a;
+  border: 4px solid #1f3a8a;
+  color: #e5e7eb;
+}
+
+body.dark-mode .bookmark:hover {
+  background-color: #2a2d36;
+  color: #93c5fd;
+}
+
+/* 활성 북마크 */
+body.dark-mode .bookmark.active {
+  background-color: #374151;
+  color: #93c5fd;
+  border: 2px solid #1f3a8a;
+}
+
+/* 닫기 버튼 */
+body.dark-mode .close {
+  color: #e5e7eb !important;
+}
+
+body.dark-mode .close:hover {
+  color: #93c5fd !important;
+}
 /* 기본 텍스트 색상 */
 body.dark-mode .name,
 body.dark-mode h1,

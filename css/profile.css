@@ -41,7 +41,7 @@
 
 /* ------------------ Profile ------------------ */
 .profile {
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
   font-family: "Gyeonggi_Title_Medium";
   background: transparent;
@@ -135,7 +135,7 @@
 /* ------------------ Social Icons ------------------ */
 .social-icons {
   display: flex;
-  gap: 55px;
+  gap: 70px;
   margin-top: auto;
   padding: 16px 80px;
   background-color: rgba(255, 255, 255, 0.546);
