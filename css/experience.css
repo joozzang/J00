@@ -1,470 +1,403 @@
-/* ------------------ Career ------------------ */
-
-.career ul {
-  padding: 0;
+/* ================================================
+   회사 탭 스위처
+   ================================================ */
+.co-switcher {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-.career button {
-  font-family: "Gyeonggi_Title_Medium";
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 35px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-.career button:hover {
-  background-color: #3683f5;
-  cursor: pointer;
-}
-.star-icon {
-  position: absolute;
-  top: -12px;
-  left: -28px;
-  width: 30px;
-  height: 30px;
-  fill: #87cefa;
-}
-.star-text {
-  position: relative;
-  display: inline-block;
-  font-size: 1.2em;
-  color: #3b5fe0;
-}
-.career button:hover .star-text .star-icon {
-  fill: rgb(255, 255, 183) !important;
-}
-.career button:hover span {
-  color: #fff;
-}
-.career span:nth-of-type(1) {
-  font-size: 2em;
-  color: #3683f5;
-}
-.career span:nth-of-type(2) {
-  font-size: 1.6em;
-  color: #8a98b6;
-  margin-top: 25px;
-  display: block;
-}
-.career span:nth-of-type(3) {
-  font-size: 1.3em;
-  color: #a6b1c9;
-  margin-top: 10px;
-  display: block;
-}
-.how {
-  max-width: 900px;
-}
-.how-btn {
-  padding: 20px !important;
-  width: 540px; /* 혹은 원하는 만큼 늘리기 */
-  display: inline-block;
-  margin: 0 !important;
-}
-.how ul {
-  padding: 10px;
-  margin: 0;
-  line-height: 2;
-  list-style: none;
-  text-align: left;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
-.how-icon {
-  margin-right: 12px;
-  font-size: 1.5em;
-  line-height: 1.2;
-}
-
-.how ul li {
-  font-size: 1.2em;
-  font-family: "GyeonggiTitleLight";
-}
-.career li.how-item {
-  width: 100%;
-  text-align: center;
-}
-/* ------------------ Detail career ------------------ */
-.micro,
-.oled {
-  max-width: 700px;
-  overflow-y: auto;
-  max-height: 90vh;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #609bf5 transparent;
-  position: relative;
-}
-.modal-content.jeju,
-.modal-content.lawbot,
-.modal-content.drawry {
-  max-width: 850px;
-  overflow-y: auto;
-  max-height: 90vh;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #609bf5 transparent;
-  position: relative;
-}
-
-.micro::-webkit-scrollbar,
-.oled::-webkit-scrollbar,
-.modal-content.jeju::-webkit-scrollbar,
-.modal-content.lawbot::-webkit-scrollbar,
-.modal-content.drawry::-webkit-scrollbar {
-  width: 3px;
-}
-
-.micro::-webkit-scrollbar-track,
-.oled::-webkit-scrollbar-track,
-.modal-content.jeju::-webkit-scrollbar-track,
-.modal-content.lawbot::-webkit-scrollbar-track,
-.modal-content.drawry::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-.micro::-webkit-scrollbar-thumb,
-.oled::-webkit-scrollbar-thumb,
-.modal-content.jeju::-webkit-scrollbar-thumb,
-.modal-content.lawbot::-webkit-scrollbar-thumb,
-.modal-content.drawry::-webkit-scrollbar-thumb {
-  background-color: #609bf5;
-  border-radius: 10px;
-  border: none;
-}
-
-.micro::-webkit-scrollbar-thumb:hover,
-.oled::-webkit-scrollbar-thumb:hover,
-.modal-content.jeju::-webkit-scrollbar-thumb:hover,
-.modal-content.lawbot::-webkit-scrollbar-thumb:hover,
-.modal-content.drawry::-webkit-scrollbar-thumb:hover {
-  background-color: #3683f5;
-  border-radius: 10px;
-  border: none;
-}
-
-.micro:hover::-webkit-scrollbar-track,
-.oled:hover::-webkit-scrollbar-track,
-.modal-content.jeju::-webkit-scrollbar-track,
-.modal-content.lawbot::-webkit-scrollbar-track,
-.modal-content.drawry::-webkit-scrollbar-track {
-  background: none;
-  border: none;
-}
-
-.modal-content.jeju .slide,
-.modal-content.lawbot .slide,
-.modal-content.drawry .slide {
-  overflow-y: auto;
-  max-height: calc(90vh - 60px); /* 필요시 여백만큼 빼기 */
-  box-sizing: border-box;
-  padding: 20px; /* 예시 */
-}
-/* ------------------ Accordion ------------------ */
-.accordion-list {
-  padding: 0;
-  margin: 0;
-}
-.accordion-item {
-  margin-top: 2%;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.accordion {
-  font-family: "Gyeonggi_Title_Medium";
-  background: none;
-  color: #609bf5;
-  padding: 15px 20px;
-  width: 100%;
-  font-size: 1.5em;
-  border: none;
-  cursor: pointer;
+.co-tab {
+  flex: 1;
   display: flex;
-  align-items: center;
-  position: relative;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-.accordion span {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  transition:
-    transform 0.5s ease,
-    left 0.5s ease;
-}
-.accordion:hover,
-.accordion.active {
-  background-color: #3683f5;
-  color: rgb(255, 255, 183) !important;
-}
-.accordion.active span {
-  left: 0;
-  transform: translateX(10%);
-  text-align: left;
-}
-.accordion-icon {
-  margin-left: auto;
-  width: 30px;
-  height: 30px;
-  fill: #609bf5;
-  background: none;
-  transition: transform 0.4s ease;
-}
-.accordion:hover .accordion-icon,
-.accordion.active .accordion-icon {
-  fill: rgb(255, 255, 183) !important;
-}
-.accordion.active .accordion-icon {
-  transform: rotate(180deg);
-}
-
-.panel {
-  background-color: #ffffff;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition:
-    max-height 0.5s ease,
-    opacity 0.5s ease;
-  margin-bottom: 0;
-}
-.panel p {
-  font-family: "GyeonggiTitleLight";
-  font-size: 1.1em;
-  padding: 0;
-  margin: 15px 0;
-  line-height: 1.5;
-}
-.panel.open {
-  opacity: 1;
-  padding: 0 10px 10px 10px;
-  max-height: none;
-}
-.panel ul {
-  padding-left: 20px;
-  list-style: none;
-}
-.panel ul li {
-  font-family: "GyeonggiTitleLight";
-  font-size: 1.1em;
-  line-height: 1.5;
-  margin-top: 10px;
-}
-.panel strong {
-  font-size: 1.2em;
-  color: #4a6cd3;
-  margin-bottom: 5px;
-  display: block;
-}
-/* ------------------ Accordion ------------------ */
-.content {
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-}
-.accordion-list {
-  padding: 0;
-  margin: 0;
-}
-.accordion-item {
-  margin-top: 2%;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.accordion-list {
-  padding: 0;
-  margin: 0;
-}
-
-/* 공통 카드 스타일 */
-.accordion-item {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 마지막 항목: 주요 성과는 가로 한 줄 전체 */
-.accordion-item:last-child {
-  grid-column: 1 / -1; /* 전체 너비 차지 */
-}
-
-.accordion {
-  font-family: "Gyeonggi_Title_Medium";
-  background: none;
-  color: #609bf5;
-  padding: 15px 20px;
-  width: 100%;
-  font-size: 1.5em;
-  border: none;
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  gap: 6px;
+  padding: 20px 30px;
+  background: #f4f8ff;
   cursor: pointer;
+  border: 1.5px solid #dce8ff;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+
+.co-tab:hover {
+  transform: translateY(-2px);
+  background: #eaf2ff;
+  border-color: #b8d0ff;
+}
+
+.co-tab.active {
+  background: #ffffff;
+  border: 2px solid #0064ff;
+  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
+}
+
+.co-tab-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #8899bb;
+  letter-spacing: 0.01em;
+}
+.co-tab-main {
+  display: flex;
+  justify-content: space-between; /* name ↔ period 양쪽 */
+  align-items: baseline; /* 👈 핵심 */
+  width: 100%;
+}
+.co-tab-name {
+  padding-top: 10px;
+  font-size: 2.1em;
+  font-weight: bold;
+  color: #1a2a4a;
+  line-height: 1.2;
+  transition: color 0.18s;
+}
+
+.co-tab-period {
+  font-size: 1.8em;
+  white-space: nowrap;
+  color: #5577aa;
+  flex-shrink: 0;
+  text-align: right;
+  align-self: flex-end;
+}
+.co-tab.active .co-tab-title {
+  color: #0064ff;
+}
+
+.co-tab.active .co-tab-name {
+  color: #0040cc;
+}
+
+/* ================================================
+   슬라이드 뷰포트
+   ================================================ */
+.co-viewport {
+  flex: 1;
+  overflow: hidden;
+  border: 2px solid #0064ff;
+  border-radius: 16px;
+  min-height: 0;
+  background: #ffffff;
+}
+
+.co-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.co-panel {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #dce8ff transparent;
+}
+
+.co-panel::-webkit-scrollbar {
+  width: 4px;
+}
+.co-panel::-webkit-scrollbar-thumb {
+  background: #dce8ff;
+  border-radius: 4px;
+}
+
+/* ================================================
+   아코디언 리스트
+   ================================================ */
+.acc-list {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #dce8ff;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.acc-item {
+  background: #ffffff;
+  border-bottom: 1px solid #eef4ff;
+  transition: background 0.15s;
+}
+
+.acc-item:last-child {
+  border-bottom: none;
+}
+
+.acc-item.open {
+  background: #f7faff;
+}
+
+/* 하이라이트 (Python 항목) */
+.acc-item.hl {
+  background: #f0f6ff;
+}
+.acc-item.hl.open {
+  background: #e8f0ff;
+}
+.acc-item.hl .acc-title {
+  color: #0040cc;
+}
+.acc-item.hl.open .acc-head {
+  border-left: 3px solid #0064ff;
+}
+
+/* ── 헤더 ── */
+.acc-head {
   display: flex;
   align-items: center;
-  position: relative;
+  gap: 14px;
+  padding: 15px 20px;
+  cursor: pointer;
+  user-select: none;
+  border-left: 3px solid transparent;
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background 0.12s,
+    border-color 0.15s;
 }
-.accordion span {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+
+.acc-head:hover {
+  background: #eaf3ff;
+}
+.acc-item.open .acc-head {
+  background: #eaf3ff;
+  border-left-color: #0064ff;
+}
+
+/* 텍스트 묶음 */
+.acc-texts {
+  flex: 1;
+  min-width: 0;
+}
+
+.acc-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #1a2a4a;
+  line-height: 1.3;
+}
+
+.acc-sub {
+  font-size: 1.3em;
+  color: #8899bb;
+  margin-top: 10px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 화살표 */
+.acc-arrow {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: #c0cce0;
   transition:
-    transform 0.5s ease,
-    left 0.5s ease;
+    transform 0.22s ease,
+    color 0.15s;
 }
-.accordion:hover,
-.accordion.active {
-  background-color: #3683f5;
-  color: rgb(255, 255, 183) !important;
-}
-.accordion.active span {
-  left: 0;
-  transform: translateX(10%);
-  text-align: left;
-}
-.accordion-icon {
-  margin-left: auto;
-  width: 30px;
-  height: 30px;
-  fill: #609bf5;
-  background: none;
-  transition: transform 0.4s ease;
-}
-.accordion:hover .accordion-icon,
-.accordion.active .accordion-icon {
-  fill: rgb(255, 255, 183) !important;
-}
-.accordion.active .accordion-icon {
+
+.acc-item.open .acc-arrow {
   transform: rotate(180deg);
+  color: #0064ff;
 }
-.panel {
-  background-color: #ffffff;
+
+/* ── 본문 ── */
+.acc-body {
   max-height: 0;
   overflow: hidden;
-  opacity: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition:
-    max-height 0.5s ease,
-    opacity 0.5s ease,
-    padding 0.5s ease;
-  margin-bottom: 0;
-  padding: 0 10px; /* 기본 패딩 설정 필요 (수축될 때 높이 기준이 됨) */
+    max-height 0.32s ease,
+    padding 0.22s ease;
+  padding: 0 20px 0 23px; /* border-left 3px 보정 */
 }
 
-.panel.open {
-  max-height: 1000px; /* 충분히 큰 값으로 설정 */
-  opacity: 1;
-  padding: 10px;
+.acc-item.open .acc-body {
+  max-height: 600px;
+  padding: 6px 20px 18px 23px;
 }
 
-.panel p {
-  font-family: "GyeonggiTitleLight";
-  font-size: 1.1em;
-  padding: 0;
-  margin: 15px 0;
-  line-height: 1.5;
-}
-.panel ul {
-  padding-left: 20px;
+.acc-body ul {
   list-style: none;
-}
-.panel ul li {
-  font-family: "GyeonggiTitleLight";
-  font-size: 1.1em;
-  line-height: 1.5;
-  margin-top: 10px;
-}
-.panel strong {
-  font-size: 1.2em;
-  color: #4a6cd3;
-  margin-bottom: 5px;
-  display: block;
-}
-.timeline {
-  position: relative;
-  margin: 40px auto;
-  padding: 20px 0;
-  width: 80%;
-  border-left: 2px solid #1d77fd;
-}
-
-.timeline-item {
-  position: relative;
-  margin: 20px 0 20px 30px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 14px;
-  height: 14px;
-  background-color: #1d77fd;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.timeline-content {
-  padding-left: 15px;
-}
-
-.timeline-content h3 {
-  margin: 0;
-  font-size: 1.2em;
-  color: #1d77fd;
-}
-
-.timeline-content span {
-  font-size: 0.9em;
-  color: #777;
-}
-
-.timeline-content p {
-  margin-top: 8px;
-  line-height: 1.6;
-  font-family: "GyeonggiTitleLight";
-}
-.timeline-content {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  align-items: flex-start;
-  padding-left: 15px;
-  margin-bottom: 30px;
-  flex-wrap: wrap; /* 반응형 대응 */
+  flex-direction: column;
+  gap: 9px;
 }
-
-/* 왼쪽 텍스트 영역 */
-.timeline-left {
-  flex: 0 0 250px;
-}
-
-.timeline-left h3 {
+.acc-body li {
   font-size: 1.2em;
-  color: #1d77fd;
-  margin-bottom: 5px;
+  color: #3a4a6a;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.7;
+}
+.acc-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b8d4ff;
+}
+.acc-body li strong {
+  color: #0064ff;
 }
 
-.timeline-left span {
-  font-size: 0.9em;
-  color: #777;
+/* ================================================
+   다크모드
+   ================================================ */
+body.dark .co-tab {
+  background: #0d1520;
+  border-color: #1a2a4a;
+}
+body.dark .co-tab:hover {
+  background: #0a1828;
+  border-color: #223355;
+}
+body.dark .co-tab.active {
+  background: #0a1a38;
+  border-color: #0064ff;
+  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.2);
+}
+body.dark .co-tab-title {
+  color: #3a5a8a;
+}
+body.dark .co-tab-name {
+  color: #c8dcff;
+}
+body.dark .co-tab.active .co-tab-title {
+  color: #6ab0ff;
+}
+body.dark .co-tab.active .co-tab-name {
+  color: #90c8ff;
 }
 
-/* 오른쪽 accordion 영역 */
-.timeline-right {
-  flex: 1;
+body.dark .co-viewport {
+  border-color: #1a2a4a;
+}
+body.dark .co-panel::-webkit-scrollbar-thumb {
+  background: #1a2a4a;
+}
+
+body.dark .co-panel-header {
+  background: #0d1a2e;
+  border-color: #1a2a4a;
+}
+body.dark .co-panel-role {
+  color: #c8dcff;
+}
+body.dark .co-panel-divider {
+  background: #1a3a6a;
+}
+body.dark .co-panel-period {
+  color: #5a82aa;
+}
+
+body.dark .acc-list {
+  border-color: #1a2a4a;
+}
+body.dark .acc-item {
+  background: #0d1520;
+  border-color: #1a2a4a;
+}
+body.dark .acc-item.open {
+  background: #0d1a2e;
+}
+body.dark .acc-head:hover {
+  background: #0a1828;
+}
+body.dark .acc-item.open .acc-head {
+  background: #0a1828;
+}
+body.dark .acc-item.hl {
+  background: #0d1a30;
+}
+body.dark .acc-item.hl.open {
+  background: #0a1828;
+}
+body.dark .acc-title {
+  color: #c8dcff;
+}
+body.dark .acc-item.hl .acc-title {
+  color: #80b8ff;
+}
+body.dark .acc-sub {
+  color: #3a5a8a;
+}
+body.dark .acc-body li {
+  color: #7a9abb;
+}
+body.dark .acc-body li::before {
+  background: #1a3a6a;
+}
+body.dark .acc-body li strong {
+  color: #6ab0ff;
+}
+
+/* ================================================
+   반응형
+   ================================================ */
+@media (max-width: 900px) {
+  .co-panel-role {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    padding: 16px 14px 80px;
+    gap: 14px;
+  }
+  .co-tab {
+    padding: 14px 16px;
+  }
+  .co-tab-name {
+    font-size: 1.2em;
+  }
+  .co-panel {
+    padding: 16px 16px 22px;
+  }
+  .co-panel-header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .co-panel-role {
+    font-size: 1em;
+  }
+  .co-panel-period {
+    font-size: 1em;
+  }
+  .acc-head {
+    padding: 13px 16px;
+  }
+  .acc-sub {
+    display: none;
+  }
+  .acc-item.open .acc-body {
+    padding: 6px 16px 16px 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .co-tab-title {
+    display: none;
+  }
+  .co-tab-name {
+    font-size: 1em;
+  }
+  .co-panel-role {
+    white-space: normal;
+    font-size: 0.95em;
+  }
+  .acc-title {
+    font-size: 1.15em;
+  }
 }

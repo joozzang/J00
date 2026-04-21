@@ -1,358 +1,536 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello, I'm Gayeong.</title>
+    <title>Experience — Gayeong</title>
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/profile.css" />
-    <link rel="stylesheet" href="./css/experience.css" />
-    <link rel="stylesheet" href="./css/project.css" />
     <link rel="stylesheet" href="./css/darkmode.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/experience.css" />
   </head>
   <body>
     <button id="theme-toggle" class="theme-toggle">🌙</button>
+
     <div class="layout-header">
       <h1>Experience</h1>
-      <a href="index.html" class="close">X</a>
+      <a href="index.html" class="close">✕</a>
     </div>
+
     <div class="layout-container">
       <div class="bookmark-tabs">
-        <a href="index.html" class="bookmark">H</a>
-        <a href="experience.html" class="bookmark active">E</a>
-        <a href="profile.html" class="bookmark">M</a>
-        <a href="projects.html" class="bookmark">P</a>
+        <a href="index.html" data-icon="🏠" class="bookmark">Home</a>
+        <a href="experience.html" data-icon="✨" class="bookmark active"
+          >Career</a
+        >
+        <a href="profile.html" data-icon="👩🏻‍💻" class="bookmark">Profile</a>
+        <a href="projects.html" data-icon="🫧" class="bookmark">Project</a>
       </div>
-      <div class="content">
-        <h3>☁️ LG DISPLAY</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>Micro LED 개발 지원</h3>
-              <span>2023.07.20-2024.07.19</span>
-              <ul class="accordion-list">
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>📐 Electroluminescence 측정</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>LIV 및 IV Curve 측정</strong>
-                        <ul>
-                          <li>
-                            - 전압-전류(IV) 및 전압-휘도(LIV) 특성 측정 및 분석
-                          </li>
-                          <li>
-                            - 다양한 구동 조건에서 특성 파악 및 기준 Spec 설정
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>Micro LED 전기적 특성 분석</strong>
-                        <ul>
-                          <li>
-                            - 온도, 습도 등 다양한 환경 조건에서의 전기적 특성
-                            시험
-                          </li>
-                          <li>
-                            - 전기적 특성 효율 분석 및 이상 변화 원인 규명 후
-                            개선 방안 도출
-                          </li>
-                          <li>- 내구성 및 수명 평가</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
 
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>📏 Photoluminescence 측정</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>Chip의 외관 품질 확인 및 Spec 설정</strong>
-                        <ul>
-                          <li>
-                            - 광학 현미경 및 고해상도 장비를 이용한 외관 검사
-                          </li>
-                          <li>- 외관 결함 분석 및 판정 Spec 설정</li>
-                          <li>- 생산 공정 품질 관리 기준 수립</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>Micro LED 광소자 특성 파악 및 분석</strong>
-                        <ul>
-                          <li>
-                            - 파장, 스펙트럼 폭 등 광학적 특성 측정 및 분석
-                          </li>
-                          <li>
-                            - 물리적, 화학적 특성 변화 분석을 통한 제품 개선안
-                            도출
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>🔍 개발 Run 대응</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>개발 자재 관리</strong>
-                        <ul>
-                          <li>- 자재의 입고, 재고, 반출 등의 관리 체계 유지</li>
-                          <li>- 자재 품질 검사 및 보관 환경 관리</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>자재 이동 (반출, 출하)</strong>
-                        <ul>
-                          <li>- 반출 및 출하 절차 수립 및 시행</li>
-                          <li>- 물류 과정에서의 손상 방지 및 관리</li>
-                          <li>- 출하된 자재의 상태 및 운송 과정 모니터링</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>✔️ Module 구동 및 검토</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>휘도 측정</strong>
-                        <ul>
-                          <li>- 다양한 환경 조건에서의 구동 Test 시행</li>
-                          <li>
-                            - 광학적 특성 파악을 위한 휘도 균일성 및 신뢰성 평가
-                          </li>
-                          <li>
-                            - 측정 Data의 수집 및 분석을 통한 최적의 구동 조건
-                            도출
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>Module 관리</strong>
-                        <ul>
-                          <li>- 구동 상태 주기적 모니터링</li>
-                          <li>- 장기적 성능 유지보수</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>✨ 주요 성과 ✨</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <ul>
-                          <li>
-                            - 전기·광학 특성 데이터를 기반으로 정확한 특성 분석
-                            및 신뢰성 확보
-                          </li>
-                          <li>
-                            - 다양한 환경 조건에서의 정밀 시험을 통해 수명·성능
-                            향상 기여
-                          </li>
-                          <li>
-                            - 자재 및 물류 흐름의 체계적인 관리로 개발 공정
-                            안정화 실현
-                          </li>
-                          <li>
-                            - 구동 균일성과 장기 안정성 확보를 위한 최적 조건
-                            도출
-                          </li>
-                          <li>
-                            - Micro LED 제품의 품질 및 공정 신뢰성 향상에 실질적
-                            기여
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
+      <div class="layout-content">
+        <!-- ─── 회사 탭 스위처 ─── -->
+        <div class="co-switcher">
+          <button class="co-tab active" data-target="0">
+            <span class="co-tab-title">LG디스플레이</span>
+            <div class="co-tab-main">
+              <span class="co-tab-name">대형 ML 부품개발 Task</span>
+              <span class="co-tab-period">2023.07.20 – 2024.07.19</span>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>OLED 잔상 보상 개발 지원</h3>
-              <span>2022.07.20-2023.07.19</span>
-              <ul class="accordion-list">
-                <!-- 📏 Panel 측정 -->
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>📏 Panel 측정</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>휘도 측정</strong>
-                        <ul>
-                          <li>
-                            - 다양한 시청 환경에 맞춘 일관된 보상 데이터
-                            생성・관리 및 화질 검증
-                          </li>
-                          <li>
-                            - 휘도 저하에 따른 화면 품질 저하 방지 메커니즘 개발
-                            지원
-                          </li>
-                          <li>
-                            - 장시간 사용에 따른 열화 현상 최소화를 위한 보상
-                            테스트 및 장비 모니터링
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>전류 측정</strong>
-                        <ul>
-                          <li>
-                            - 균일도 보상을 위한 Panel 내의 영역별 전류 측정 및
-                            분석
-                          </li>
-                          <li>
-                            - 전류 분포에 따른 제품의 장기 신뢰성에 미치는 영향
-                            Test 및 개선
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <!-- 💻 Data 이력 관리 -->
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>💻 Data 이력 관리</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>Panel 양산 지원</strong>
-                        <ul>
-                          <li>
-                            - 생산 과정 발생 Data 분석을 통한 품질 이상 관리
-                          </li>
-                          <li>- Panel 양산 Data 이력 관리 체계 구축</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>측정 Data 관리</strong>
-                        <ul>
-                          <li>- 체계적 분석 및 기록</li>
-                          <li>- 분석 결과 시각화를 통한 품질 관리 효율 향상</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <!-- ⚙️ 측정 자산 유지 및 관리 -->
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>⚙️ 측정 자산 유지 및 관리</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <strong>측정 장비 유지 보수</strong>
-                        <ul>
-                          <li>- 정기적 점검 및 보수</li>
-                          <li>- 측정 장비 정확도, 신뢰성 유지</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>보드 납땜</strong>
-                        <ul>
-                          <li>- 전기적 연결 상태 유지</li>
-                          <li>- 결함 발생 최소화</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="accordion-item">
-                  <button class="accordion">
-                    <span>✨ 주요 성과 ✨</span>
-                    <svg class="accordion-icon" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </button>
-                  <div class="panel">
-                    <ul>
-                      <li>
-                        <ul>
-                          <li>
-                            - 실험 환경 최적화 및 신뢰성 높은 휘도 데이터 기반
-                            확보
-                          </li>
-                          <li>
-                            - 불균형 전류로 인한 성능 저하 예방 및 장기 내구성
-                            확보
-                          </li>
-                          <li>
-                            - 데이터 기반 공정 품질 안정화 및 생산성 향상 기여
-                          </li>
-                          <li>- 측정 장비 성능 최적화 및 장비 불량률 최소화</li>
-                          <li>
-                            - 실질적인 제품 성능 개선 및 양산 안정성 확보에 기여
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
+          </button>
+          <button class="co-tab" data-target="1">
+            <span class="co-tab-title">LG디스플레이</span>
+            <div class="co-tab-main">
+              <span class="co-tab-name">대형 잔상보상 Task</span>
+              <span class="co-tab-period">2022.07 – 2023.07</span>
             </div>
-          </div>
+          </button>
         </div>
+
+        <!-- ─── 슬라이드 뷰포트 ─── -->
+        <div class="co-viewport">
+          <div class="co-track">
+            <!-- ══ 패널 1 : ML 부품개발 ══ -->
+            <div class="co-panel">
+              <div class="acc-list">
+                <div class="acc-item hl">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">
+                        Wafer Level 전기·광학 특성 분석
+                      </div>
+                      <div class="acc-sub">
+                        EL 기반 I-V / L-I-V 정밀 측정 · EL Mapping 불량 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>
+                        EL(Electroluminescence) 기반 I-V / L-I-V 정밀 측정
+                      </li>
+                      <li>
+                        다양한 구동 조건(전압, 온도, 습도)에서 전기·광학 특성
+                        평가
+                      </li>
+                      <li>
+                        EL Mapping 분석을 통한 불량 위치 식별 및 이상 현상 규명
+                      </li>
+                      <li>
+                        재측정을 통한 False Fail 제거 및 데이터 정합성 검증
+                      </li>
+                      <li>
+                        전기적 효율 분석 및 이상 원인 도출 · 철저한 프로세스
+                        준수
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">
+                        Photoluminescence 및 외관 분석
+                      </div>
+                      <div class="acc-sub">
+                        광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>광학 현미경 및 고해상도 장비 기반 Chip 외관 검사</li>
+                      <li>파장, 스펙트럼 폭 등 광학 특성 측정 및 분석</li>
+                      <li>외관 결함 분류 및 품질 판정 기준(Spec) 수립</li>
+                      <li>
+                        물리·화학적 특성 변화 분석을 통한 제품 개선 방향 도출
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">Module 구동 및 신뢰성 평가</div>
+                      <div class="acc-sub">
+                        휘도 Uniformity · 가속 Aging 검증
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>Module 구동 환경 내 휘도 측정 및 분포 분석</li>
+                      <li>휘도 균일성(Uniformity) 정량 평가</li>
+                      <li>가속 구동 테스트 기반 장기 신뢰성(Aging) 검증</li>
+                      <li>구동 상태 주기적 모니터링 및 특성 변화 추적</li>
+                      <li>데이터 기반 최적 구동 조건 도출</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">데이터 분석 및 품질 관리</div>
+                      <div class="acc-sub">
+                        측정 데이터 이력 관리 · 기준 Spec 비교 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>측정 데이터 수집, 정합성 검증 및 이력 관리</li>
+                      <li>데이터 추이 분석을 통한 이상 징후 조기 포착</li>
+                      <li>
+                        기준 Spec 대비 비교 분석 및 품질 안정화 데이터 제공
+                      </li>
+                      <li>전 과정 메뉴얼화 → 팀 내 공식 가이드라인으로 채택</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">장비 운영 및 유지보수</div>
+                      <div class="acc-sub">
+                        Probe Station 셋업 · Calibration · 트러블슈팅
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>Probe Station 셋업 및 주기적 Calibration 수행</li>
+                      <li>Probe Tip 교체·정렬 및 미세 접촉 최적화</li>
+                      <li>Stage / Z축 조건 최적화 (접촉 조건 표준화)</li>
+                      <li>Dark Box 환경 유지 (광 노이즈 차단)</li>
+                      <li>Golden Sample 기반 장비 정밀도 데일리 체크</li>
+                      <li>장비·소프트웨어 오류 대응 (트러블슈팅)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">자재 및 개발 Run 관리</div>
+                      <div class="acc-sub">
+                        자재 입출고 · 보관 환경 · 물류 모니터링
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>개발 자재 입고 / 보관 / 반출 관리 체계 운영</li>
+                      <li>자재 품질 검사 및 보관 환경 관리</li>
+                      <li>출하 및 물류 과정 모니터링</li>
+                      <li>지그(Jig), 케이블, 커넥터 등 소모품 관리</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">Python 기반 자동화 및 개선</div>
+                      <div class="acc-sub">
+                        OpenCV 이미지 자동 보정 · 분석 리드타임 80% 단축
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>
+                        OpenCV 활용 이미지 자동 보정 프로그램 개발 (Python ·
+                        Tkinter)
+                      </li>
+                      <li>Module 측정 이미지 자동 정리 시스템 구현</li>
+                      <li>
+                        반복 수작업 자동화 → 분석 리드타임 약
+                        <strong>80% 단축</strong>
+                      </li>
+                      <li>측정 환경 효율화 및 팀 전체 작업 생산성 향상</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 1 -->
+
+            <!-- ══ 패널 2 : 잔상보상 ══ -->
+            <div class="co-panel">
+              <div class="acc-list">
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">
+                        OLED 패널 전기·광학 특성 측정 및 열화 분석
+                      </div>
+                      <div class="acc-sub">
+                        휘도·전류 정밀 측정 · Burn-in 추이 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>
+                        광학 측정 장비 및 구동 시스템 기반 패널 휘도·전류 정밀
+                        측정
+                      </li>
+                      <li>
+                        다양한 구동 조건(전류, 휘도, 환경)에서 패널 특성 평가
+                      </li>
+                      <li>
+                        장시간 구동 테스트를 통한 열화(Burn-in) 진행 추이 분석
+                      </li>
+                      <li>패널별 특성 차이 및 화질 유지력 평가</li>
+                      <li>반복 측정을 통한 데이터 일관성·재현성 검증</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">화질 보상 및 잔상 신뢰성 평가</div>
+                      <div class="acc-sub">
+                        열화 시뮬레이션 · 균일도 보상 데이터 검증
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>패널 열화 시뮬레이션 기반 잔상 심화 정도 평가</li>
+                      <li>
+                        다양한 조건에서 휘도 변화 측정 및 화질 안정성 검증
+                      </li>
+                      <li>화면 균일도 보상을 위한 데이터 생성 및 검증</li>
+                      <li>장기 사용 환경에서의 화질 유지 성능 평가</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">데이터 분석 및 이상 원인 규명</div>
+                      <div class="acc-sub">
+                        로그 분석 + 환경 요인 점검 기반 원인 추적
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>측정 데이터 이상치 발생 시 즉각적 원인 분석 수행</li>
+                      <li>구동 시스템 로그 분석 + 측정 환경 요인 선행 점검</li>
+                      <li>
+                        단순 재측정이 아닌 원인 차단 중심의 분석 프로세스 정립
+                      </li>
+                      <li>데이터 정합성 검증 및 최종 결과 신뢰성 확보</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">데이터 이력 관리 및 양산 지원</div>
+                      <div class="acc-sub">
+                        Panel 양산 DB화 · 데이터 시각화 품질 관리
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>방대한 측정 데이터 체계적 기록 및 DB화</li>
+                      <li>Panel 양산 데이터 이력 관리 체계 구축 및 운영</li>
+                      <li>생산 과정 데이터 분석을 통한 품질 이상 관리</li>
+                      <li>데이터 시각화를 통한 품질 관리 효율 향상</li>
+                      <li>이슈 발생 시 이력 기반 원인 추적 지원</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">측정 시스템 운영 및 유지보수</div>
+                      <div class="acc-sub">
+                        Calibration · 장비 부품 교체 · 보드 납땜
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>
+                        측정 설비 및 구동 장치 주기적 점검·Calibration 수행
+                      </li>
+                      <li>장비 정밀도 및 신뢰성 유지 관리</li>
+                      <li>장비 부품 교체 및 테스트 환경 정비</li>
+                      <li>
+                        보드 납땜을 통한 전기적 연결 상태 유지 및 결함 최소화
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">공정·평가 프로세스 개선</div>
+                      <div class="acc-sub">
+                        오류 사전 차단 · 재측정 최소화 · 신뢰성 향상
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>반복 측정 기반 데이터 정합성 검증 체계 구축</li>
+                      <li>평가 프로세스 내 오류 발생 요인 사전 차단</li>
+                      <li>불필요한 재측정 감소 → 리소스 절감</li>
+                      <li>평가 결과 유효성 및 신뢰성 향상</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="acc-item">
+                  <div class="acc-head">
+                    <div class="acc-texts">
+                      <div class="acc-title">Panel 구동 및 특성 분석</div>
+                      <div class="acc-sub">
+                        영역별 전류 분포 · 시청 환경 조건별 휘도 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="acc-arrow"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="acc-body">
+                    <ul>
+                      <li>패널 영역별 전류 측정 및 분포 분석</li>
+                      <li>전류 분포가 장기 신뢰성에 미치는 영향 평가</li>
+                      <li>다양한 시청 환경 조건 기반 휘도 특성 분석</li>
+                      <li>구동 조건별 최적 화질 유지 데이터 도출</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 2 -->
+          </div>
+          <!-- /co-track -->
+        </div>
+        <!-- /co-viewport -->
       </div>
+      <!-- /layout-content -->
     </div>
+    <!-- /layout-container -->
+
     <script src="script.js"></script>
+    <script>
+      /* ── 회사 탭 전환 ── */
+      const tabs = document.querySelectorAll(".co-tab");
+      const track = document.querySelector(".co-track");
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          track.style.transform = `translateX(${i === 0 ? "0" : "-50%"})`;
+        });
+      });
+
+      /* ── 아코디언 ── */
+      document.querySelectorAll(".acc-head").forEach((head) => {
+        head.addEventListener("click", () => {
+          head.closest(".acc-item").classList.toggle("open");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,470 @@
+/* ================================================
+   experience2.css
+   experience.html 전용 스타일
+   ================================================ */
+
+/* ---- layout-content 기본 ---- */
+.layout-content {
+  overflow-y: auto;
+  height: 100%;
+  padding: 32px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ================================================
+   COMPANY BLOCK
+   ================================================ */
+.company-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #d6e6ff;
+}
+
+/* ---- 회사 헤더 ---- */
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 28px;
+  background: #0064ff;
+}
+
+.company-logo-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.company-logo-text {
+  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+
+.company-info {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 2px;
+}
+
+.company-dept {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.company-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.company-period {
+  font-size: 0.8em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.company-role {
+  font-size: 0.72em;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+  max-width: 280px;
+}
+
+/* ---- 핵심기술 pill 행 ---- */
+.skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 28px;
+  background: #f0f7ff;
+  border-bottom: 1px solid #d6e6ff;
+}
+
+.skill-pill {
+  font-size: 0.75em;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: #fff;
+  color: #0064ff;
+  border: 1px solid #b8d4ff;
+  white-space: nowrap;
+}
+
+.skill-pill.highlight-pill {
+  background: #0064ff;
+  color: #fff;
+  border-color: #0064ff;
+}
+
+/* ================================================
+   JOB LIST & CARDS
+   ================================================ */
+.job-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- 카드 기본 ---- */
+.job-card {
+  border-bottom: 1px solid #e0eaff;
+  background: #fff;
+  transition: background 0.15s;
+}
+
+.job-card:last-child {
+  border-bottom: none;
+  border-radius: 0 0 16px 16px;
+}
+
+.job-card.highlight-card {
+  background: #f5f9ff;
+}
+
+.job-card.highlight-card .job-num.accent {
+  color: #fff;
+  background: #0064ff;
+}
+
+/* ---- 카드 헤더 (클릭 영역) ---- */
+.job-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  transition: background 0.15s;
+}
+
+.job-header:hover {
+  background: #eaf3ff;
+}
+
+.job-card.open .job-header {
+  background: #eaf3ff;
+  border-bottom: 1px solid #d6e6ff;
+}
+
+.job-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 번호 뱃지 */
+.job-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: #eaf3ff;
+  color: #0064ff;
+  font-size: 0.85em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.job-card.open .job-num {
+  background: #0064ff;
+  color: #fff;
+}
+
+.job-num.accent {
+  background: #eaf3ff;
+  color: #0064ff;
+}
+
+.job-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.job-title {
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-summary {
+  font-size: 0.75em;
+  color: #6b7a99;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 체브론 아이콘 */
+.chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: #9aadcc;
+  transition: transform 0.25s ease, color 0.15s;
+}
+
+.job-card.open .chevron {
+  transform: rotate(180deg);
+  color: #0064ff;
+}
+
+/* ================================================
+   ACCORDION BODY
+   ================================================ */
+.job-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0 28px;
+}
+
+.job-card.open .job-body {
+  max-height: 600px;
+  padding: 20px 28px 24px;
+}
+
+/* ---- 업무 목록 ---- */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-list li {
+  font-size: 0.88em;
+  color: #3a4a6b;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.task-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b8d4ff;
+}
+
+.task-list li strong {
+  color: #0064ff;
+}
+
+/* ---- 성과 chip (⑦번 전용) ---- */
+.achievement-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.achievement-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #0064ff;
+  min-width: 100px;
+}
+
+.ach-num {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.ach-label {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ================================================
+   다크모드 대응
+   ================================================ */
+body.dark .company-block {
+  border-color: #1a2a4a;
+}
+
+body.dark .skill-row {
+  background: #0d1a2e;
+  border-color: #1a2a4a;
+}
+
+body.dark .skill-pill {
+  background: #0d1a2e;
+  color: #6ab0ff;
+  border-color: #1a3a6a;
+}
+
+body.dark .job-card {
+  background: #0d1520;
+  border-color: #1a2a4a;
+}
+
+body.dark .job-card.highlight-card {
+  background: #0d1a2e;
+}
+
+body.dark .job-header:hover,
+body.dark .job-card.open .job-header {
+  background: #0a1a30;
+}
+
+body.dark .job-num {
+  background: #0d2040;
+  color: #6ab0ff;
+}
+
+body.dark .job-card.open .job-num {
+  background: #0064ff;
+  color: #fff;
+}
+
+body.dark .job-title {
+  color: #e0eaff;
+}
+
+body.dark .job-summary {
+  color: #5a7a9a;
+}
+
+body.dark .task-list li {
+  color: #8aabcc;
+}
+
+body.dark .task-list li::before {
+  background: #1a3a6a;
+}
+
+body.dark .task-list li strong {
+  color: #6ab0ff;
+}
+
+/* ================================================
+   반응형
+   ================================================ */
+@media (max-width: 900px) {
+  .company-role {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    padding: 20px 16px 80px;
+    gap: 28px;
+  }
+
+  .company-header {
+    padding: 16px 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .company-meta {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .skill-row {
+    padding: 12px 18px;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    font-size: 0.7em;
+  }
+
+  .job-header {
+    padding: 14px 18px;
+  }
+
+  .job-num {
+    width: 28px;
+    height: 28px;
+    font-size: 0.78em;
+  }
+
+  .job-title {
+    font-size: 0.88em;
+    white-space: normal;
+  }
+
+  .job-summary {
+    white-space: normal;
+  }
+
+  .job-card.open .job-body {
+    padding: 16px 18px 20px;
+  }
+
+  .achievement-row {
+    gap: 8px;
+  }
+
+  .achievement-chip {
+    padding: 10px 14px;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-name {
+    font-size: 1.1em;
+  }
+
+  .company-logo-wrap {
+    width: 40px;
+    height: 40px;
+  }
+
+  .job-summary {
+    display: none;
+  }
+}

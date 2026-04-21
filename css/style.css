@@ -147,16 +147,16 @@ nav a:hover {
 /* ------------------ Tab Page Layout ------------------ */
 .layout-container {
   position: fixed;
-  top: 100px;
+  top: 130px;
   left: 20px;
   right: 120px;
   bottom: 20px;
-  border: 3px solid #bbb9c7;
-  border-radius: 20px 20px 20px 20px;
+  border: 2px solid #bbb9c7;
+  border-radius: 0 0 20px 20px;
 
-  padding-right: 80px;
   width: auto;
   height: auto;
+  flex-direction: column;
 
   max-width: none;
   transform: none;
@@ -175,7 +175,7 @@ nav a:hover {
 
   background-color: #0064ff;
   border-radius: 15px 15px 0 0;
-  padding: 20px;
+  padding: 30px;
   z-index: 100;
 }
 
@@ -184,9 +184,17 @@ nav a:hover {
   font-size: 2.4em;
   color: #fff;
 }
+.layout-content {
+  overflow: hidden;
+  height: 100%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .bookmark-tabs {
   position: absolute;
-  right: -75px; /* 밖으로 튀어나오게 */
+  right: -92px; /* 밖으로 튀어나오게 */
   top: 40px;
   color: #fff;
   display: flex;
@@ -196,11 +204,11 @@ nav a:hover {
 .bookmark {
   background-color: #0064ff;
   border: 4px solid #0064ff;
-  padding: 15px 20px;
+  padding: 20px 10px;
   color: inherit;
   border-radius: 0 10px 10px 0;
-  font-size: 2em;
-
+  font-size: 1.2em;
+  text-align: center;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -210,7 +218,7 @@ nav a:hover {
   color: #0064ff;
 }
 .bookmark.active {
-  background-color: #ffff94;
+  background-color: #f8fbff;
   color: #0064ff;
   border: 2px solid #0064ff;
 }
@@ -223,4 +231,99 @@ nav a:hover {
 .close:hover {
   transform: scale(1.2) !important;
   color: #ffff94 !important;
+}
+
+/* ================================================
+   태블릿 (768px 이하)
+   ================================================ */
+@media (max-width: 768px) {
+  /* 레이아웃 컨테이너 — 오른쪽 여백 줄이고 하단에 탭바 공간 확보 */
+  .layout-container {
+    right: 20px;
+    bottom: 72px; /* 하단 탭바 높이만큼 */
+    padding-right: 20px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .layout-header {
+    right: 20px;
+    padding: 14px 18px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .layout-header h1 {
+    font-size: 1.6em;
+  }
+
+  /* 북마크 → 하단 탭바로 전환 */
+  .bookmark-tabs {
+    position: fixed;
+    inset: auto 0 0 0; /* 하단 고정 */
+    right: 0;
+    top: auto;
+    flex-direction: row;
+    gap: 0;
+    z-index: 200;
+    background-color: #0064ff;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .bookmark {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px 8px;
+    font-size: 1.2em;
+    text-align: center;
+    /* 텍스트가 길면 아이콘만 표시되도록 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bookmark:last-child {
+    border-right: none;
+  }
+
+  .bookmark:hover {
+    transform: translateY(-3px); /* 위로 살짝 */
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  .bookmark.active {
+    background-color: #ffff94;
+    color: #0064ff;
+    border: none;
+  }
+}
+
+/* ================================================
+   모바일 (480px 이하) — 텍스트 → 이모지/아이콘만
+   ================================================ */
+@media (max-width: 480px) {
+  .layout-header h1 {
+    font-size: 1.3em;
+  }
+
+  .close {
+    font-size: 1.5em;
+  }
+
+  /* 탭 텍스트 숨기고 data-icon 속성으로 이모지만 표시 */
+  .bookmark {
+    font-size: 0; /* 텍스트 숨김 */
+    padding: 16px 0;
+  }
+
+  /* HTML에서 <a class="bookmark" data-icon="📚"> 형태로 사용 */
+  .bookmark::before {
+    content: attr(data-icon);
+    font-size: 22px;
+  }
+
+  .layout-container {
+    bottom: 64px;
+  }
 }

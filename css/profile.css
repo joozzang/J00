@@ -23,7 +23,6 @@
   visibility: visible;
 }
 .modal-content {
-  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
   position: relative;
   background: linear-gradient(#ffffff, #a1dbff);
   padding: 15px 35px;
