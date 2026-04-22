@@ -21,10 +21,10 @@
     <div class="layout-container">
       <div class="bookmark-tabs">
         <a href="index.html" data-icon="🏠" class="bookmark">Home</a>
+        <a href="profile.html" data-icon="👩🏻‍💻" class="bookmark">Profile</a>
         <a href="experience.html" data-icon="✨" class="bookmark active"
           >Career</a
         >
-        <a href="profile.html" data-icon="👩🏻‍💻" class="bookmark">Profile</a>
         <a href="projects.html" data-icon="🫧" class="bookmark">Project</a>
       </div>
 
@@ -52,29 +52,144 @@
           <div class="co-track">
             <!-- ══ 패널 1 : ML 부품개발 ══ -->
             <div class="co-panel">
-              <div class="acc-list">
-                <div class="acc-item hl">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">
+              <!-- 패널 헤더 -->
+              <div class="co-panel-tags">
+                <span class="co-panel-tag">Micro LED</span>
+                <span class="co-panel-tag">EL / I-V / L-I-V</span>
+                <span class="co-panel-tag">Python · OpenCV</span>
+                <span class="co-panel-tag">데이터 신뢰성 확보</span>
+                <span class="co-panel-tag">불량 분석 정확도 향상</span>
+                <span class="co-panel-tag">Probe Calibration</span>
+                <span class="co-panel-tag">리드타임 80% 단축</span>
+              </div>
+
+              <div class="co-panel-divider"></div>
+
+              <div class="md-layout" id="md-panel-0">
+                <!-- ── 왼쪽: 타이틀 리스트 ── -->
+                <div class="md-list">
+                  <div class="md-item active" data-panel="0" data-idx="0">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
                         Wafer Level 전기·광학 특성 분석
-                      </div>
-                      <div class="acc-sub">
-                        EL 기반 I-V / L-I-V 정밀 측정 · EL Mapping 불량 분석
                       </div>
                     </div>
                     <svg
-                      class="acc-arrow"
+                      class="md-item-chevron"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2.2"
                     >
-                      <path d="M6 9l6 6 6-6" />
+                      <path d="M9 18l6-6-6-6" />
                     </svg>
                   </div>
-                  <div class="acc-body">
-                    <ul>
+                  <div class="md-item" data-panel="0" data-idx="1">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        Photoluminescence 및 외관 분석
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="2">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        Module 구동 및 신뢰성 평가
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="3">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">데이터 분석 및 품질 관리</div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="4">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">장비 운영 및 유지보수</div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="5">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">자재 및 개발 Run 관리</div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="6">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        Python 기반 자동화 및 개선
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- ── 오른쪽: 디테일 ── -->
+                <div class="md-detail">
+                  <div
+                    class="md-detail-content visible"
+                    data-panel="0"
+                    data-for="0"
+                  >
+                    <div class="md-detail-title">
+                      Wafer Level 전기·광학 특성 분석
+                    </div>
+                    <div class="md-detail-sub">
+                      EL 기반 I-V / L-I-V 정밀 측정 · EL Mapping 불량 분석
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>
                         EL(Electroluminescence) 기반 I-V / L-I-V 정밀 측정
                       </li>
@@ -94,30 +209,14 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">
-                        Photoluminescence 및 외관 분석
-                      </div>
-                      <div class="acc-sub">
-                        광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="1">
+                    <div class="md-detail-title">
+                      Photoluminescence 및 외관 분석
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>광학 현미경 및 고해상도 장비 기반 Chip 외관 검사</li>
                       <li>파장, 스펙트럼 폭 등 광학 특성 측정 및 분석</li>
                       <li>외관 결함 분류 및 품질 판정 기준(Spec) 수립</li>
@@ -126,28 +225,14 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">Module 구동 및 신뢰성 평가</div>
-                      <div class="acc-sub">
-                        휘도 Uniformity · 가속 Aging 검증
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="2">
+                    <div class="md-detail-title">
+                      Module 구동 및 신뢰성 평가
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      휘도 Uniformity · 가속 Aging 검증
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>Module 구동 환경 내 휘도 측정 및 분포 분석</li>
                       <li>휘도 균일성(Uniformity) 정량 평가</li>
                       <li>가속 구동 테스트 기반 장기 신뢰성(Aging) 검증</li>
@@ -155,28 +240,12 @@
                       <li>데이터 기반 최적 구동 조건 도출</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">데이터 분석 및 품질 관리</div>
-                      <div class="acc-sub">
-                        측정 데이터 이력 관리 · 기준 Spec 비교 분석
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="3">
+                    <div class="md-detail-title">데이터 분석 및 품질 관리</div>
+                    <div class="md-detail-sub">
+                      측정 데이터 이력 관리 · 기준 Spec 비교 분석
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <ul class="md-detail-ul">
                       <li>측정 데이터 수집, 정합성 검증 및 이력 관리</li>
                       <li>데이터 추이 분석을 통한 이상 징후 조기 포착</li>
                       <li>
@@ -185,28 +254,12 @@
                       <li>전 과정 메뉴얼화 → 팀 내 공식 가이드라인으로 채택</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">장비 운영 및 유지보수</div>
-                      <div class="acc-sub">
-                        Probe Station 셋업 · Calibration · 트러블슈팅
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="4">
+                    <div class="md-detail-title">장비 운영 및 유지보수</div>
+                    <div class="md-detail-sub">
+                      Probe Station 셋업 · Calibration · 트러블슈팅
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <ul class="md-detail-ul">
                       <li>Probe Station 셋업 및 주기적 Calibration 수행</li>
                       <li>Probe Tip 교체·정렬 및 미세 접촉 최적화</li>
                       <li>Stage / Z축 조건 최적화 (접촉 조건 표준화)</li>
@@ -215,56 +268,26 @@
                       <li>장비·소프트웨어 오류 대응 (트러블슈팅)</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">자재 및 개발 Run 관리</div>
-                      <div class="acc-sub">
-                        자재 입출고 · 보관 환경 · 물류 모니터링
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="5">
+                    <div class="md-detail-title">자재 및 개발 Run 관리</div>
+                    <div class="md-detail-sub">
+                      자재 입출고 · 보관 환경 · 물류 모니터링
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <ul class="md-detail-ul">
                       <li>개발 자재 입고 / 보관 / 반출 관리 체계 운영</li>
                       <li>자재 품질 검사 및 보관 환경 관리</li>
                       <li>출하 및 물류 과정 모니터링</li>
                       <li>지그(Jig), 케이블, 커넥터 등 소모품 관리</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">Python 기반 자동화 및 개선</div>
-                      <div class="acc-sub">
-                        OpenCV 이미지 자동 보정 · 분석 리드타임 80% 단축
-                      </div>
+                  <div class="md-detail-content" data-panel="0" data-for="6">
+                    <div class="md-detail-title">
+                      Python 기반 자동화 및 개선
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      OpenCV 이미지 자동 보정 · 분석 리드타임 80% 단축
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>
                         OpenCV 활용 이미지 자동 보정 프로그램 개발 (Python ·
                         Tkinter)
@@ -284,29 +307,149 @@
 
             <!-- ══ 패널 2 : 잔상보상 ══ -->
             <div class="co-panel">
-              <div class="acc-list">
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">
+              <!-- 패널 헤더 -->
+              <div class="co-panel-header">
+                <div class="co-panel-tags">
+                  <span class="co-panel-tag">OLED</span>
+                  <span class="co-panel-tag">Burn-in</span>
+                  <span class="co-panel-tag">휘도 / 전류 측정</span>
+                  <span class="co-panel-tag">Luminance Meter Calibration</span>
+                  <span class="co-panel-tag">화질 신뢰성 검증</span>
+                  <span class="co-panel-tag">데이터 신뢰성 향상</span>
+                  <span class="co-panel-tag">재측정 감소</span>
+                  <span class="co-panel-tag">장비 가동률 향상</span>
+                </div>
+              </div>
+
+              <div class="co-panel-divider"></div>
+
+              <div class="md-layout" id="md-panel-1">
+                <!-- ── 왼쪽: 타이틀 리스트 ── -->
+                <div class="md-list">
+                  <div class="md-item active" data-panel="1" data-idx="0">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
                         OLED 패널 전기·광학 특성 측정 및 열화 분석
-                      </div>
-                      <div class="acc-sub">
-                        휘도·전류 정밀 측정 · Burn-in 추이 분석
                       </div>
                     </div>
                     <svg
-                      class="acc-arrow"
+                      class="md-item-chevron"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2.2"
                     >
-                      <path d="M6 9l6 6 6-6" />
+                      <path d="M9 18l6-6-6-6" />
                     </svg>
                   </div>
-                  <div class="acc-body">
-                    <ul>
+                  <div class="md-item" data-panel="1" data-idx="1">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        화질 보상 및 잔상 신뢰성 평가
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="2">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        데이터 분석 및 이상 원인 규명
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="3">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        데이터 이력 관리 및 양산 지원
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="4">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">
+                        측정 시스템 운영 및 유지보수
+                      </div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="5">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">공정·평가 프로세스 개선</div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="6">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Panel 구동 및 특성 분석</div>
+                    </div>
+                    <svg
+                      class="md-item-chevron"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- ── 오른쪽: 디테일 ── -->
+                <div class="md-detail">
+                  <div
+                    class="md-detail-content visible"
+                    data-panel="1"
+                    data-for="0"
+                  >
+                    <div class="md-detail-title">
+                      OLED 패널 전기·광학 특성 측정 및 열화 분석
+                    </div>
+                    <div class="md-detail-sub">
+                      휘도·전류 정밀 측정 · Burn-in 추이 분석
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>
                         광학 측정 장비 및 구동 시스템 기반 패널 휘도·전류 정밀
                         측정
@@ -321,28 +464,14 @@
                       <li>반복 측정을 통한 데이터 일관성·재현성 검증</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">화질 보상 및 잔상 신뢰성 평가</div>
-                      <div class="acc-sub">
-                        열화 시뮬레이션 · 균일도 보상 데이터 검증
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="1">
+                    <div class="md-detail-title">
+                      화질 보상 및 잔상 신뢰성 평가
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      열화 시뮬레이션 · 균일도 보상 데이터 검증
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>패널 열화 시뮬레이션 기반 잔상 심화 정도 평가</li>
                       <li>
                         다양한 조건에서 휘도 변화 측정 및 화질 안정성 검증
@@ -351,28 +480,14 @@
                       <li>장기 사용 환경에서의 화질 유지 성능 평가</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">데이터 분석 및 이상 원인 규명</div>
-                      <div class="acc-sub">
-                        로그 분석 + 환경 요인 점검 기반 원인 추적
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="2">
+                    <div class="md-detail-title">
+                      데이터 분석 및 이상 원인 규명
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      로그 분석 + 환경 요인 점검 기반 원인 추적
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>측정 데이터 이상치 발생 시 즉각적 원인 분석 수행</li>
                       <li>구동 시스템 로그 분석 + 측정 환경 요인 선행 점검</li>
                       <li>
@@ -381,28 +496,14 @@
                       <li>데이터 정합성 검증 및 최종 결과 신뢰성 확보</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">데이터 이력 관리 및 양산 지원</div>
-                      <div class="acc-sub">
-                        Panel 양산 DB화 · 데이터 시각화 품질 관리
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="3">
+                    <div class="md-detail-title">
+                      데이터 이력 관리 및 양산 지원
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      Panel 양산 DB화 · 데이터 시각화 품질 관리
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>방대한 측정 데이터 체계적 기록 및 DB화</li>
                       <li>Panel 양산 데이터 이력 관리 체계 구축 및 운영</li>
                       <li>생산 과정 데이터 분석을 통한 품질 이상 관리</li>
@@ -410,28 +511,14 @@
                       <li>이슈 발생 시 이력 기반 원인 추적 지원</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">측정 시스템 운영 및 유지보수</div>
-                      <div class="acc-sub">
-                        Calibration · 장비 부품 교체 · 보드 납땜
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="4">
+                    <div class="md-detail-title">
+                      측정 시스템 운영 및 유지보수
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <div class="md-detail-sub">
+                      Calibration · 장비 부품 교체 · 보드 납땜
+                    </div>
+                    <ul class="md-detail-ul">
                       <li>
                         측정 설비 및 구동 장치 주기적 점검·Calibration 수행
                       </li>
@@ -442,56 +529,24 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">공정·평가 프로세스 개선</div>
-                      <div class="acc-sub">
-                        오류 사전 차단 · 재측정 최소화 · 신뢰성 향상
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="5">
+                    <div class="md-detail-title">공정·평가 프로세스 개선</div>
+                    <div class="md-detail-sub">
+                      오류 사전 차단 · 재측정 최소화 · 신뢰성 향상
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <ul class="md-detail-ul">
                       <li>반복 측정 기반 데이터 정합성 검증 체계 구축</li>
                       <li>평가 프로세스 내 오류 발생 요인 사전 차단</li>
                       <li>불필요한 재측정 감소 → 리소스 절감</li>
                       <li>평가 결과 유효성 및 신뢰성 향상</li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="acc-item">
-                  <div class="acc-head">
-                    <div class="acc-texts">
-                      <div class="acc-title">Panel 구동 및 특성 분석</div>
-                      <div class="acc-sub">
-                        영역별 전류 분포 · 시청 환경 조건별 휘도 분석
-                      </div>
+                  <div class="md-detail-content" data-panel="1" data-for="6">
+                    <div class="md-detail-title">Panel 구동 및 특성 분석</div>
+                    <div class="md-detail-sub">
+                      영역별 전류 분포 · 시청 환경 조건별 휘도 분석
                     </div>
-                    <svg
-                      class="acc-arrow"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </div>
-                  <div class="acc-body">
-                    <ul>
+                    <ul class="md-detail-ul">
                       <li>패널 영역별 전류 측정 및 분포 분석</li>
                       <li>전류 분포가 장기 신뢰성에 미치는 영향 평가</li>
                       <li>다양한 시청 환경 조건 기반 휘도 특성 분석</li>
@@ -525,10 +580,26 @@
         });
       });
 
-      /* ── 아코디언 ── */
-      document.querySelectorAll(".acc-head").forEach((head) => {
-        head.addEventListener("click", () => {
-          head.closest(".acc-item").classList.toggle("open");
+      /* ── 마스터-디테일 ── */
+      document.querySelectorAll(".md-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const panel = item.dataset.panel;
+          const idx = item.dataset.idx;
+
+          // 같은 패널의 항목 active 해제
+          document
+            .querySelectorAll(`.md-item[data-panel="${panel}"]`)
+            .forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+
+          // 같은 패널의 디테일 숨기고, 해당 항목 표시
+          document
+            .querySelectorAll(`.md-detail-content[data-panel="${panel}"]`)
+            .forEach((c) => c.classList.remove("visible"));
+          const target = document.querySelector(
+            `.md-detail-content[data-panel="${panel}"][data-for="${idx}"]`,
+          );
+          if (target) target.classList.add("visible");
         });
       });
     </script>

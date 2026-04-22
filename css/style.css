@@ -151,7 +151,7 @@ nav a:hover {
   left: 20px;
   right: 120px;
   bottom: 20px;
-  border: 2px solid #bbb9c7;
+  border: 4px solid #fff;
   border-radius: 0 0 20px 20px;
 
   width: auto;
@@ -181,20 +181,19 @@ nav a:hover {
 
 .layout-header h1 {
   margin: 0;
-  font-size: 2.4em;
+  font-size: 2.5em;
   color: #fff;
 }
 .layout-content {
   overflow: hidden;
   height: 100%;
-  padding: 28px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .bookmark-tabs {
   position: absolute;
-  right: -92px; /* 밖으로 튀어나오게 */
   top: 40px;
   color: #fff;
   display: flex;
@@ -204,7 +203,7 @@ nav a:hover {
 .bookmark {
   background-color: #0064ff;
   border: 4px solid #0064ff;
-  padding: 20px 10px;
+  padding: 20px 15px;
   color: inherit;
   border-radius: 0 10px 10px 0;
   font-size: 1.2em;

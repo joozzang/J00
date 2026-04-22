@@ -1,3 +1,7 @@
+.bookmark-tabs {
+  right: -99px; /* 밖으로 튀어나오게 */
+}
+
 /* ------------------ Projects ------------------ */
 .projects {
   max-width: 1000px;

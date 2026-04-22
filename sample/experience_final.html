@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience — Gayeong</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/darkmode.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/experience.css" />
+    <style>
+      /* ================================================
+         패널 헤더 (역할 요약 + 키워드 태그)
+         ================================================ */
+      .co-panel {
+        padding: 20px 20px 24px;
+      }
+
+      .co-panel-header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px 18px;
+        background: #f4f8ff;
+        border: 1.5px solid #dce8ff;
+        border-radius: 12px;
+        flex-shrink: 0;
+      }
+
+      .co-panel-role {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #1a2a4a;
+        line-height: 1.4;
+      }
+
+      .co-panel-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .co-panel-tag {
+        font-size: 1.15em;
+        padding: 4px 11px;
+        background: #e4eeff;
+        color: #3355aa;
+        border-radius: 20px;
+        border: 1px solid #c8d8ff;
+        white-space: nowrap;
+      }
+
+      .co-panel-tag.accent {
+        background: #0064ff;
+        color: #ffffff;
+        border-color: #0064ff;
+      }
+
+      .co-panel-divider {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #0064ff 0%, #dce8ff 100%);
+        border-radius: 2px;
+        flex-shrink: 0;
+        margin: 2px 0;
+      }
+
+      /* ================================================
+         How I Work 섹션 — 클릭 확장형 카드
+         ================================================ */
+      .how-section {
+        flex-shrink: 0;
+      }
+
+      .how-section-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #8899bb;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .how-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+      }
+
+      /* ── 닫힌 상태 (기본) ── */
+      .how-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 18px 10px;
+        background: #f4f8ff;
+        border: 1.5px solid #dce8ff;
+        border-radius: 14px;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+
+        /* 그리드 확장을 위한 트랜지션 */
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.2s ease,
+          grid-column 0s;
+      }
+
+      .how-card:hover {
+        background: #eaf2ff;
+        border-color: #b8d0ff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(0, 100, 255, 0.09);
+      }
+
+      /* ── 열린 상태 ── */
+      .how-card.open {
+        grid-column: span 3;
+        align-items: flex-start;
+        padding: 18px 20px 20px;
+        background: #ffffff;
+        border: 2px solid #0064ff;
+        box-shadow: 0 4px 20px rgba(0, 100, 255, 0.13);
+        transform: none;
+        cursor: default;
+      }
+
+      /* 상단 강조 라인 */
+      .how-card::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #0064ff, #80b8ff);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+        border-radius: 14px 14px 0 0;
+      }
+      .how-card.open::after,
+      .how-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      /* ── 아이콘 + 짧은 레이블 행 ── */
+      .how-card-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+      }
+      .how-card.open .how-card-top {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .how-icon {
+        font-size: 1.7em;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+
+      .how-card-label {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #4466aa;
+        text-align: center;
+        line-height: 1.3;
+      }
+      .how-card.open .how-card-label {
+        font-size: 1.4em;
+        color: #0040cc;
+        text-align: left;
+      }
+
+      /* ── 펼쳐지는 설명 ── */
+      .how-card-desc {
+        font-size: 1.2em;
+        color: #3a5a8a;
+        line-height: 1.7;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition:
+          max-height 0.32s ease,
+          opacity 0.25s ease;
+        width: 100%;
+      }
+      .how-card.open .how-card-desc {
+        max-height: 120px;
+        opacity: 1;
+      }
+
+      /* 닫기 힌트 (열렸을 때만) */
+      .how-card-close {
+        display: none;
+        position: absolute;
+        top: 10px; right: 12px;
+        font-size: 1em;
+        color: #aabbdd;
+        cursor: pointer;
+        line-height: 1;
+        transition: color 0.15s;
+      }
+      .how-card-close:hover { color: #0064ff; }
+      .how-card.open .how-card-close { display: block; }
+
+      /* ================================================
+         다크모드 — 추가 요소
+         ================================================ */
+      body.dark .co-panel-header {
+        background: #0d1a2e;
+        border-color: #1a2a4a;
+      }
+
+      body.dark .co-panel-role {
+        color: #c8dcff;
+      }
+
+      body.dark .co-panel-tag {
+        background: #0d1a30;
+        color: #6ab0ff;
+        border-color: #1a3a6a;
+      }
+
+      body.dark .co-panel-tag.accent {
+        background: #0040aa;
+        color: #e0f0ff;
+        border-color: #0050cc;
+      }
+
+      body.dark .co-panel-divider {
+        background: linear-gradient(90deg, #0064ff 0%, #1a2a4a 100%);
+      }
+
+      body.dark .how-section-title {
+        color: #3a5a8a;
+      }
+
+      body.dark .how-card {
+        background: #0d1520;
+        border-color: #1a2a4a;
+      }
+
+      body.dark .how-card:hover {
+        background: #0a1828;
+        border-color: #223355;
+        box-shadow: 0 4px 14px rgba(0, 100, 255, 0.15);
+      }
+
+      body.dark .how-card.open {
+        background: #0a1a38;
+        border-color: #0064ff;
+      }
+
+      body.dark .how-card-label {
+        color: #6a9acc;
+      }
+
+      body.dark .how-card.open .how-card-label {
+        color: #90c8ff;
+      }
+
+      body.dark .how-card-desc {
+        color: #4a6a8a;
+      }
+
+      body.dark .how-card-close {
+        color: #2a4a6a;
+      }
+      body.dark .how-card-close:hover {
+        color: #6ab0ff;
+      }
+
+      /* ================================================
+         아코디언 2열 그리드 (4 / 3 분할) — 제거하고 마스터-디테일로 교체
+         ================================================ */
+
+      /* ── 마스터-디테일 레이아웃 ── */
+      .md-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        align-items: start;
+        flex: 1;
+        min-height: 0;
+      }
+
+      /* 왼쪽: 타이틀 리스트 */
+      .md-list {
+        display: flex;
+        flex-direction: column;
+        border: 1.5px solid #dce8ff;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .md-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 16px;
+        cursor: pointer;
+        border-bottom: 1px solid #eef4ff;
+        border-left: 3px solid transparent;
+        background: #ffffff;
+        transition: background 0.14s, border-color 0.14s;
+        user-select: none;
+      }
+
+      .md-item:last-child { border-bottom: none; }
+
+      .md-item:hover {
+        background: #f0f6ff;
+      }
+
+      .md-item.active {
+        background: #eaf3ff;
+        border-left-color: #0064ff;
+      }
+
+      .md-item.hl .md-item-title { color: #0040cc; }
+      .md-item.hl.active { background: #e4eeff; }
+
+      .md-item-texts { flex: 1; min-width: 0; }
+
+      .md-item-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #1a2a4a;
+        line-height: 1.3;
+      }
+
+      .md-item-sub {
+        font-size: 1.15em;
+        color: #8899bb;
+        margin-top: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .md-item-chevron {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        color: #c0cce0;
+        transition: color 0.15s;
+      }
+
+      .md-item.active .md-item-chevron { color: #0064ff; }
+
+      /* 오른쪽: 디테일 패널 */
+      .md-detail {
+        border: 2px solid #0064ff;
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 20px 20px 22px;
+        position: sticky;
+        top: 0;
+        min-height: 200px;
+      }
+
+      .md-detail-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        color: #c0cce0;
+        font-size: 1.3em;
+      }
+
+      .md-detail-content { display: none; }
+      .md-detail-content.visible { display: block; }
+
+      .md-detail-title {
+        font-size: 1.6em;
+        font-weight: bold;
+        color: #0040cc;
+        line-height: 1.3;
+        margin-bottom: 6px;
+      }
+
+      .md-detail-sub {
+        font-size: 1.2em;
+        color: #8899bb;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1.5px solid #dce8ff;
+      }
+
+      .md-detail-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .md-detail-ul li {
+        font-size: 1.25em;
+        color: #3a4a6a;
+        padding-left: 14px;
+        position: relative;
+        line-height: 1.7;
+      }
+
+      .md-detail-ul li::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 11px;
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: #b8d4ff;
+      }
+
+      .md-detail-ul li strong { color: #0064ff; }
+
+      /* 다크모드 */
+      body.dark .md-list { border-color: #1a2a4a; }
+      body.dark .md-item { background: #0d1520; border-color: #1a2a4a; }
+      body.dark .md-item:hover { background: #0a1828; }
+      body.dark .md-item.active { background: #0a1a38; border-left-color: #0064ff; }
+      body.dark .md-item.hl.active { background: #0a1a38; }
+      body.dark .md-item-title { color: #c8dcff; }
+      body.dark .md-item.hl .md-item-title { color: #80b8ff; }
+      body.dark .md-item-sub { color: #3a5a8a; }
+      body.dark .md-detail { background: #0a1a38; border-color: #0064ff; }
+      body.dark .md-detail-title { color: #90c8ff; }
+      body.dark .md-detail-sub { color: #3a5a8a; border-bottom-color: #1a2a4a; }
+      body.dark .md-detail-ul li { color: #7a9abb; }
+      body.dark .md-detail-ul li::before { background: #1a3a6a; }
+      body.dark .md-detail-ul li strong { color: #6ab0ff; }
+      body.dark .md-detail-empty { color: #2a3a5a; }
+
+      /* 반응형 */
+      @media (max-width: 768px) {
+        .md-layout { grid-template-columns: 1fr; }
+        .md-detail { position: static; }
+        .md-item-sub { display: none; }
+      }
+      @media (max-width: 1100px) {
+        .how-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .co-panel {
+          padding: 14px 14px 20px;
+        }
+
+        .co-panel-header {
+          padding: 12px 14px;
+          gap: 8px;
+        }
+
+        .co-panel-role {
+          font-size: 1.25em;
+        }
+
+        .how-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .how-card.open {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .how-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+
+        .how-card.open {
+          grid-column: span 2;
+        }
+
+        .how-card {
+          padding: 14px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
+    <div class="layout-header">
+      <h1>Experience</h1>
+      <a href="index.html" class="close">✕</a>
+    </div>
+
+    <div class="layout-container">
+      <div class="bookmark-tabs">
+        <a href="index.html" data-icon="🏠" class="bookmark">Home</a>
+        <a href="experience.html" data-icon="✨" class="bookmark active">Career</a>
+        <a href="profile.html" data-icon="👩🏻‍💻" class="bookmark">Profile</a>
+        <a href="projects.html" data-icon="🫧" class="bookmark">Project</a>
+      </div>
+
+      <div class="layout-content">
+        <!-- ─── 회사 탭 스위처 ─── -->
+        <div class="co-switcher">
+          <button class="co-tab active" data-target="0">
+            <span class="co-tab-title">LG디스플레이</span>
+            <div class="co-tab-main">
+              <span class="co-tab-name">대형 ML 부품개발 Task</span>
+              <span class="co-tab-period">2023.07.20 – 2024.07.19</span>
+            </div>
+          </button>
+          <button class="co-tab" data-target="1">
+            <span class="co-tab-title">LG디스플레이</span>
+            <div class="co-tab-main">
+              <span class="co-tab-name">대형 잔상보상 Task</span>
+              <span class="co-tab-period">2022.07 – 2023.07</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- ─── 슬라이드 뷰포트 ─── -->
+        <div class="co-viewport">
+          <div class="co-track">
+
+            <!-- ══ 패널 1 : ML 부품개발 ══ -->
+            <div class="co-panel">
+
+              <!-- 패널 헤더 -->
+              <div class="co-panel-header">
+                <div class="co-panel-role">
+                  Wafer 레벨 전기·광학 특성 분석 및 품질 관리, Python 기반 측정 자동화
+                </div>
+                <div class="co-panel-tags">
+                  <span class="co-panel-tag accent">Python · OpenCV</span>
+                  <span class="co-panel-tag">EL / I-V / L-I-V</span>
+                  <span class="co-panel-tag">Probe Station</span>
+                  <span class="co-panel-tag">EL Mapping</span>
+                  <span class="co-panel-tag">리드타임 80% 단축</span>
+                  <span class="co-panel-tag">Micro LED</span>
+                </div>
+              </div>
+
+              <div class="co-panel-divider"></div>
+
+              <div class="md-layout" id="md-panel-0">
+                <!-- ── 왼쪽: 타이틀 리스트 ── -->
+                <div class="md-list">
+                  <div class="md-item hl active" data-panel="0" data-idx="0">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Wafer Level 전기·광학 특성 분석</div>
+                      <div class="md-item-sub">EL 기반 I-V / L-I-V 정밀 측정 · EL Mapping 불량 분석</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="1">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Photoluminescence 및 외관 분석</div>
+                      <div class="md-item-sub">광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="2">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Module 구동 및 신뢰성 평가</div>
+                      <div class="md-item-sub">휘도 Uniformity · 가속 Aging 검증</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="3">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">데이터 분석 및 품질 관리</div>
+                      <div class="md-item-sub">측정 데이터 이력 관리 · 기준 Spec 비교 분석</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="4">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">장비 운영 및 유지보수</div>
+                      <div class="md-item-sub">Probe Station 셋업 · Calibration · 트러블슈팅</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="5">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">자재 및 개발 Run 관리</div>
+                      <div class="md-item-sub">자재 입출고 · 보관 환경 · 물류 모니터링</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="0" data-idx="6">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Python 기반 자동화 및 개선</div>
+                      <div class="md-item-sub">OpenCV 이미지 자동 보정 · 분석 리드타임 80% 단축</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                </div>
+
+                <!-- ── 오른쪽: 디테일 ── -->
+                <div class="md-detail">
+                  <div class="md-detail-content visible" data-panel="0" data-for="0">
+                    <div class="md-detail-title">Wafer Level 전기·광학 특성 분석</div>
+                    <div class="md-detail-sub">EL 기반 I-V / L-I-V 정밀 측정 · EL Mapping 불량 분석</div>
+                    <ul class="md-detail-ul">
+                      <li>EL(Electroluminescence) 기반 I-V / L-I-V 정밀 측정</li>
+                      <li>다양한 구동 조건(전압, 온도, 습도)에서 전기·광학 특성 평가</li>
+                      <li>EL Mapping 분석을 통한 불량 위치 식별 및 이상 현상 규명</li>
+                      <li>재측정을 통한 False Fail 제거 및 데이터 정합성 검증</li>
+                      <li>전기적 효율 분석 및 이상 원인 도출 · 철저한 프로세스 준수</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="1">
+                    <div class="md-detail-title">Photoluminescence 및 외관 분석</div>
+                    <div class="md-detail-sub">광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석</div>
+                    <ul class="md-detail-ul">
+                      <li>광학 현미경 및 고해상도 장비 기반 Chip 외관 검사</li>
+                      <li>파장, 스펙트럼 폭 등 광학 특성 측정 및 분석</li>
+                      <li>외관 결함 분류 및 품질 판정 기준(Spec) 수립</li>
+                      <li>물리·화학적 특성 변화 분석을 통한 제품 개선 방향 도출</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="2">
+                    <div class="md-detail-title">Module 구동 및 신뢰성 평가</div>
+                    <div class="md-detail-sub">휘도 Uniformity · 가속 Aging 검증</div>
+                    <ul class="md-detail-ul">
+                      <li>Module 구동 환경 내 휘도 측정 및 분포 분석</li>
+                      <li>휘도 균일성(Uniformity) 정량 평가</li>
+                      <li>가속 구동 테스트 기반 장기 신뢰성(Aging) 검증</li>
+                      <li>구동 상태 주기적 모니터링 및 특성 변화 추적</li>
+                      <li>데이터 기반 최적 구동 조건 도출</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="3">
+                    <div class="md-detail-title">데이터 분석 및 품질 관리</div>
+                    <div class="md-detail-sub">측정 데이터 이력 관리 · 기준 Spec 비교 분석</div>
+                    <ul class="md-detail-ul">
+                      <li>측정 데이터 수집, 정합성 검증 및 이력 관리</li>
+                      <li>데이터 추이 분석을 통한 이상 징후 조기 포착</li>
+                      <li>기준 Spec 대비 비교 분석 및 품질 안정화 데이터 제공</li>
+                      <li>전 과정 메뉴얼화 → 팀 내 공식 가이드라인으로 채택</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="4">
+                    <div class="md-detail-title">장비 운영 및 유지보수</div>
+                    <div class="md-detail-sub">Probe Station 셋업 · Calibration · 트러블슈팅</div>
+                    <ul class="md-detail-ul">
+                      <li>Probe Station 셋업 및 주기적 Calibration 수행</li>
+                      <li>Probe Tip 교체·정렬 및 미세 접촉 최적화</li>
+                      <li>Stage / Z축 조건 최적화 (접촉 조건 표준화)</li>
+                      <li>Dark Box 환경 유지 (광 노이즈 차단)</li>
+                      <li>Golden Sample 기반 장비 정밀도 데일리 체크</li>
+                      <li>장비·소프트웨어 오류 대응 (트러블슈팅)</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="5">
+                    <div class="md-detail-title">자재 및 개발 Run 관리</div>
+                    <div class="md-detail-sub">자재 입출고 · 보관 환경 · 물류 모니터링</div>
+                    <ul class="md-detail-ul">
+                      <li>개발 자재 입고 / 보관 / 반출 관리 체계 운영</li>
+                      <li>자재 품질 검사 및 보관 환경 관리</li>
+                      <li>출하 및 물류 과정 모니터링</li>
+                      <li>지그(Jig), 케이블, 커넥터 등 소모품 관리</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="0" data-for="6">
+                    <div class="md-detail-title">Python 기반 자동화 및 개선</div>
+                    <div class="md-detail-sub">OpenCV 이미지 자동 보정 · 분석 리드타임 80% 단축</div>
+                    <ul class="md-detail-ul">
+                      <li>OpenCV 활용 이미지 자동 보정 프로그램 개발 (Python · Tkinter)</li>
+                      <li>Module 측정 이미지 자동 정리 시스템 구현</li>
+                      <li>반복 수작업 자동화 → 분석 리드타임 약 <strong>80% 단축</strong></li>
+                      <li>측정 환경 효율화 및 팀 전체 작업 생산성 향상</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 1 -->
+
+            <!-- ══ 패널 2 : 잔상보상 ══ -->
+            <div class="co-panel">
+
+              <!-- 패널 헤더 -->
+              <div class="co-panel-header">
+                <div class="co-panel-role">
+                  OLED 패널 열화·잔상 분석, 신뢰성 평가 및 양산 데이터 이력 관리
+                </div>
+                <div class="co-panel-tags">
+                  <span class="co-panel-tag accent">OLED · Burn-in</span>
+                  <span class="co-panel-tag">휘도 / 전류 측정</span>
+                  <span class="co-panel-tag">잔상 보상</span>
+                  <span class="co-panel-tag">Calibration</span>
+                  <span class="co-panel-tag">양산 DB 관리</span>
+                  <span class="co-panel-tag">보드 납땜</span>
+                </div>
+              </div>
+
+              <div class="co-panel-divider"></div>
+
+              <div class="md-layout" id="md-panel-1">
+                <!-- ── 왼쪽: 타이틀 리스트 ── -->
+                <div class="md-list">
+                  <div class="md-item active" data-panel="1" data-idx="0">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">OLED 패널 전기·광학 특성 측정 및 열화 분석</div>
+                      <div class="md-item-sub">휘도·전류 정밀 측정 · Burn-in 추이 분석</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="1">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">화질 보상 및 잔상 신뢰성 평가</div>
+                      <div class="md-item-sub">열화 시뮬레이션 · 균일도 보상 데이터 검증</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="2">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">데이터 분석 및 이상 원인 규명</div>
+                      <div class="md-item-sub">로그 분석 + 환경 요인 점검 기반 원인 추적</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="3">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">데이터 이력 관리 및 양산 지원</div>
+                      <div class="md-item-sub">Panel 양산 DB화 · 데이터 시각화 품질 관리</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="4">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">측정 시스템 운영 및 유지보수</div>
+                      <div class="md-item-sub">Calibration · 장비 부품 교체 · 보드 납땜</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="5">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">공정·평가 프로세스 개선</div>
+                      <div class="md-item-sub">오류 사전 차단 · 재측정 최소화 · 신뢰성 향상</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                  <div class="md-item" data-panel="1" data-idx="6">
+                    <div class="md-item-texts">
+                      <div class="md-item-title">Panel 구동 및 특성 분석</div>
+                      <div class="md-item-sub">영역별 전류 분포 · 시청 환경 조건별 휘도 분석</div>
+                    </div>
+                    <svg class="md-item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+                </div>
+
+                <!-- ── 오른쪽: 디테일 ── -->
+                <div class="md-detail">
+                  <div class="md-detail-content visible" data-panel="1" data-for="0">
+                    <div class="md-detail-title">OLED 패널 전기·광학 특성 측정 및 열화 분석</div>
+                    <div class="md-detail-sub">휘도·전류 정밀 측정 · Burn-in 추이 분석</div>
+                    <ul class="md-detail-ul">
+                      <li>광학 측정 장비 및 구동 시스템 기반 패널 휘도·전류 정밀 측정</li>
+                      <li>다양한 구동 조건(전류, 휘도, 환경)에서 패널 특성 평가</li>
+                      <li>장시간 구동 테스트를 통한 열화(Burn-in) 진행 추이 분석</li>
+                      <li>패널별 특성 차이 및 화질 유지력 평가</li>
+                      <li>반복 측정을 통한 데이터 일관성·재현성 검증</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="1">
+                    <div class="md-detail-title">화질 보상 및 잔상 신뢰성 평가</div>
+                    <div class="md-detail-sub">열화 시뮬레이션 · 균일도 보상 데이터 검증</div>
+                    <ul class="md-detail-ul">
+                      <li>패널 열화 시뮬레이션 기반 잔상 심화 정도 평가</li>
+                      <li>다양한 조건에서 휘도 변화 측정 및 화질 안정성 검증</li>
+                      <li>화면 균일도 보상을 위한 데이터 생성 및 검증</li>
+                      <li>장기 사용 환경에서의 화질 유지 성능 평가</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="2">
+                    <div class="md-detail-title">데이터 분석 및 이상 원인 규명</div>
+                    <div class="md-detail-sub">로그 분석 + 환경 요인 점검 기반 원인 추적</div>
+                    <ul class="md-detail-ul">
+                      <li>측정 데이터 이상치 발생 시 즉각적 원인 분석 수행</li>
+                      <li>구동 시스템 로그 분석 + 측정 환경 요인 선행 점검</li>
+                      <li>단순 재측정이 아닌 원인 차단 중심의 분석 프로세스 정립</li>
+                      <li>데이터 정합성 검증 및 최종 결과 신뢰성 확보</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="3">
+                    <div class="md-detail-title">데이터 이력 관리 및 양산 지원</div>
+                    <div class="md-detail-sub">Panel 양산 DB화 · 데이터 시각화 품질 관리</div>
+                    <ul class="md-detail-ul">
+                      <li>방대한 측정 데이터 체계적 기록 및 DB화</li>
+                      <li>Panel 양산 데이터 이력 관리 체계 구축 및 운영</li>
+                      <li>생산 과정 데이터 분석을 통한 품질 이상 관리</li>
+                      <li>데이터 시각화를 통한 품질 관리 효율 향상</li>
+                      <li>이슈 발생 시 이력 기반 원인 추적 지원</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="4">
+                    <div class="md-detail-title">측정 시스템 운영 및 유지보수</div>
+                    <div class="md-detail-sub">Calibration · 장비 부품 교체 · 보드 납땜</div>
+                    <ul class="md-detail-ul">
+                      <li>측정 설비 및 구동 장치 주기적 점검·Calibration 수행</li>
+                      <li>장비 정밀도 및 신뢰성 유지 관리</li>
+                      <li>장비 부품 교체 및 테스트 환경 정비</li>
+                      <li>보드 납땜을 통한 전기적 연결 상태 유지 및 결함 최소화</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="5">
+                    <div class="md-detail-title">공정·평가 프로세스 개선</div>
+                    <div class="md-detail-sub">오류 사전 차단 · 재측정 최소화 · 신뢰성 향상</div>
+                    <ul class="md-detail-ul">
+                      <li>반복 측정 기반 데이터 정합성 검증 체계 구축</li>
+                      <li>평가 프로세스 내 오류 발생 요인 사전 차단</li>
+                      <li>불필요한 재측정 감소 → 리소스 절감</li>
+                      <li>평가 결과 유효성 및 신뢰성 향상</li>
+                    </ul>
+                  </div>
+                  <div class="md-detail-content" data-panel="1" data-for="6">
+                    <div class="md-detail-title">Panel 구동 및 특성 분석</div>
+                    <div class="md-detail-sub">영역별 전류 분포 · 시청 환경 조건별 휘도 분석</div>
+                    <ul class="md-detail-ul">
+                      <li>패널 영역별 전류 측정 및 분포 분석</li>
+                      <li>전류 분포가 장기 신뢰성에 미치는 영향 평가</li>
+                      <li>다양한 시청 환경 조건 기반 휘도 특성 분석</li>
+                      <li>구동 조건별 최적 화질 유지 데이터 도출</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 2 -->
+
+          </div>
+          <!-- /co-track -->
+        </div>
+        <!-- /co-viewport -->
+
+        <!-- ─── How I Work 섹션 ─── -->
+        <div class="how-section">
+          <div class="how-section-title">How I Work</div>
+          <div class="how-grid">
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">🎯</span>
+                <span class="how-card-label">문제를 과제로</span>
+              </div>
+              <div class="how-card-desc">문제를 단순 장애가 아닌 해결해야 할 과제로 인식하고, 해결 과정 자체에서 동기를 얻습니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">⚙️</span>
+                <span class="how-card-label">자동화 우선</span>
+              </div>
+              <div class="how-card-desc">반복 작업과 비효율을 줄이기 위해 자동화 가능성을 우선 검토하며, 생산성과 정확도를 동시에 개선합니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">📊</span>
+                <span class="how-card-label">데이터 신뢰성</span>
+              </div>
+              <div class="how-card-desc">데이터의 신뢰성을 최우선으로 두고, 이상 발생 시 환경·장비·로그를 포함한 원인 분석을 수행합니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">🔁</span>
+                <span class="how-card-label">재현성 확보</span>
+              </div>
+              <div class="how-card-desc">측정 결과의 재현성을 확보하기 위해 조건을 통제하고 반복 검증을 수행합니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">🔍</span>
+                <span class="how-card-label">디테일까지</span>
+              </div>
+              <div class="how-card-desc">작은 오차도 결과에 영향을 줄 수 있다고 판단하여, 마지막 디테일까지 꼼꼼하게 점검합니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">🤝</span>
+                <span class="how-card-label">데이터 기반 협업</span>
+              </div>
+              <div class="how-card-desc">팀원의 의견을 존중하면서도 데이터 기반으로 방향성을 제시하며, 논리로 설득하는 협업 스타일을 지향합니다.</div>
+            </div>
+
+            <div class="how-card" data-how>
+              <span class="how-card-close" data-close>✕</span>
+              <div class="how-card-top">
+                <span class="how-icon">🧩</span>
+                <span class="how-card-label">끝까지 추적</span>
+              </div>
+              <div class="how-card-desc">문제 발생 시 끝까지 원인을 추적하고, 재현성과 검증을 통해 해결책의 신뢰성을 확보합니다.</div>
+            </div>
+
+          </div>
+        </div>
+        <!-- /how-section -->
+
+      </div>
+      <!-- /layout-content -->
+    </div>
+    <!-- /layout-container -->
+
+    <script src="script.js"></script>
+    <script>
+      /* ── 회사 탭 전환 ── */
+      const tabs = document.querySelectorAll(".co-tab");
+      const track = document.querySelector(".co-track");
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          track.style.transform = `translateX(${i === 0 ? "0" : "-50%"})`;
+        });
+      });
+
+      /* ── 마스터-디테일 ── */
+      document.querySelectorAll(".md-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const panel = item.dataset.panel;
+          const idx   = item.dataset.idx;
+
+          // 같은 패널의 항목 active 해제
+          document.querySelectorAll(`.md-item[data-panel="${panel}"]`)
+            .forEach(i => i.classList.remove("active"));
+          item.classList.add("active");
+
+          // 같은 패널의 디테일 숨기고, 해당 항목 표시
+          document.querySelectorAll(`.md-detail-content[data-panel="${panel}"]`)
+            .forEach(c => c.classList.remove("visible"));
+          const target = document.querySelector(
+            `.md-detail-content[data-panel="${panel}"][data-for="${idx}"]`
+          );
+          if (target) target.classList.add("visible");
+        });
+      });
+
+      /* ── How I Work 카드 확장 ── */
+      document.querySelectorAll(".how-card[data-how]").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest("[data-close]")) return;
+          if (card.classList.contains("open")) return;
+          document.querySelectorAll(".how-card.open").forEach((c) => c.classList.remove("open"));
+          card.classList.add("open");
+        });
+
+        card.querySelector("[data-close]").addEventListener("click", (e) => {
+          e.stopPropagation();
+          card.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>
