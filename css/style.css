@@ -185,12 +185,15 @@ nav a:hover {
   color: #fff;
 }
 .layout-content {
+  position: relative; /* 이거 중요 */
+  z-index: 1;
   overflow: hidden;
   height: 100%;
   padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-radius: 0 0 20px 20px;
 }
 .bookmark-tabs {
   position: absolute;
@@ -199,6 +202,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 0;
 }
 .bookmark {
   background-color: #0064ff;
@@ -230,6 +234,91 @@ nav a:hover {
 .close:hover {
   transform: scale(1.2) !important;
   color: #ffff94 !important;
+}
+/* ================================================
+   회사 탭 스위처
+   ================================================ */
+.switcher {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  gap: 15px;
+  padding: 20px 30px;
+  background: #f4f8ff;
+  cursor: pointer;
+  border: 1.5px solid #dce8ff;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+  background: #eaf2ff;
+  border-color: #b8d0ff;
+}
+
+.tab.active {
+  background: #ffffff;
+  border: 2px solid #0064ff;
+  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
+}
+
+.tab-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #8899bb;
+  letter-spacing: 0.01em;
+}
+
+.tab-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.tab-name {
+  font-size: 2.3em;
+  font-weight: bold;
+  color: #1a2a4a;
+  transition: color 0.18s;
+}
+
+.tab-period {
+  font-size: 2em;
+  white-space: nowrap;
+  color: #5577aa;
+  flex-shrink: 0;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.tab.active .tab-title {
+  color: #0064ff;
+}
+
+.tab.active .tab-name {
+  color: #0040cc;
+}
+
+/* ================================================
+   슬라이드 뷰포트
+   ================================================ */
+.viewport {
+  flex: 1;
+  overflow: hidden;
+  border: 2px solid #0064ff;
+  border-radius: 16px;
+  min-height: 0;
+  background: #ffffff;
 }
 
 /* ================================================

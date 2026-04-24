@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Experience — Gayeong</title>
+    <title>Projects — Gayeong</title>
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/darkmode.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="stylesheet" href="./css/experience.css" />
     <link rel="stylesheet" href="./css/project.css" />
   </head>
   <body>
@@ -30,12 +29,1207 @@
       </div>
 
       <div class="layout-content">
-        <!-- ─── 슬라이드 뷰포트 ─── -->
+        <!-- ── 상단 프로젝트 탭 스위처 ── -->
+        <div class="switcher">
+          <button class="tab active" data-target="0">
+            <span class="tab-title">AI 동화책 학습</span>
+            <div class="tab-main">
+              <span class="tab-name">Drawry</span>
+              <span class="tab-period">2025.01.17 - 2025.02.26</span>
+            </div>
+          </button>
+          <button class="tab" data-target="1">
+            <span class="tab-title">다국어 법률 챗봇</span>
+            <div class="tab-main">
+              <span class="tab-name">LawBot</span>
+              <span class="tab-period">2024.12.12 - 2024.12.24</span>
+            </div>
+          </button>
+          <button class="tab" data-target="2">
+            <span class="tab-title">AI 여행 플랫폼</span>
+            <div class="tab-main">
+              <span class="tab-name">도르멍탐라</span>
+              <span class="tab-period">2024.10.31 - 2024.11.08</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- ── 슬라이드 뷰포트 ── -->
+        <div class="viewport">
+          <div class="track">
+            <!-- ════════════════════════════════════
+                 패널 1 : Drawry
+                 ════════════════════════════════════ -->
+            <div class="proj-panel">
+              <div class="md-layout">
+                <!-- 왼쪽: 슬라이더 + Overview -->
+                <div class="md-list">
+                  <div class="proj-image-slider" id="slider-drawry">
+                    <span class="proj-slide-counter" id="counter-drawry"
+                      >1/21</span
+                    >
+                    <div class="proj-slides-wrap">
+                      <div class="proj-slide active">
+                        <img
+                          src="images/drawry/drawry_1.jpg"
+                          alt="서비스 소개"
+                        /><span class="proj-slide-caption"
+                          >서비스 소개 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_2.jpg"
+                          alt="서비스 설명"
+                        /><span class="proj-slide-caption"
+                          >서비스 설명 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_2-1.jpg"
+                          alt="서비스 설명"
+                        /><span class="proj-slide-caption"
+                          >서비스 설명 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_2-2.jpg"
+                          alt="서비스 설명"
+                        /><span class="proj-slide-caption"
+                          >서비스 설명 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_3.jpg"
+                          alt="로그인"
+                        /><span class="proj-slide-caption">로그인 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_3-1.jpg"
+                          alt="로그인"
+                        /><span class="proj-slide-caption">로그인 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_3-2.jpg"
+                          alt="로그인"
+                        /><span class="proj-slide-caption">로그인 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_3-3.jpg"
+                          alt="로그인"
+                        /><span class="proj-slide-caption">로그인 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_4.jpg"
+                          alt="서비스 시작"
+                        /><span class="proj-slide-caption"
+                          >서비스 시작 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_5.jpg"
+                          alt="동화책 선택"
+                        /><span class="proj-slide-caption"
+                          >동화책 선택 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_6.jpg"
+                          alt="캐릭터 선택"
+                        /><span class="proj-slide-caption"
+                          >캐릭터 선택 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_7.jpg"
+                          alt="캐릭터 행동"
+                        /><span class="proj-slide-caption"
+                          >캐릭터 행동 선택 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_8.jpg"
+                          alt="사용자 스케치"
+                        /><span class="proj-slide-caption"
+                          >사용자 스케치 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_9.jpg"
+                          alt="이미지 생성"
+                        /><span class="proj-slide-caption"
+                          >스케치 → 이미지 생성</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_10.jpg"
+                          alt="학습게임 사과"
+                        /><span class="proj-slide-caption"
+                          >1단계 학습게임 - 사과찾기</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_11.jpg"
+                          alt="학습게임 귀쫑긋"
+                        /><span class="proj-slide-caption"
+                          >1단계 학습게임 - 귀쫑긋</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_12.jpg"
+                          alt="학습게임 OX"
+                        /><span class="proj-slide-caption"
+                          >2단계 학습게임 - OX</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_13.jpg"
+                          alt="학습게임 빙고"
+                        /><span class="proj-slide-caption"
+                          >2단계 학습게임 - 빙고</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_16.jpg"
+                          alt="스토리 생성"
+                        /><span class="proj-slide-caption"
+                          >스토리 생성 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_20.jpg"
+                          alt="동화책"
+                        /><span class="proj-slide-caption">동화책 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/drawry/drawry_21.jpg"
+                          alt="활동 지표"
+                        /><span class="proj-slide-caption">활동 지표</span>
+                      </div>
+                    </div>
+                    <div class="proj-slide-controls">
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="drawry"
+                        data-dir="prev"
+                      >
+                        ◀
+                      </button>
+                      <button
+                        class="proj-slide-btn proj-toggle-btn"
+                        data-slider="drawry"
+                      >
+                        ⏸
+                      </button>
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="drawry"
+                        data-dir="next"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                  </div>
+                  <div class="proj-overview">
+                    <div class="proj-title">Project Overview</div>
+                    <div class="proj-sub">
+                      난독증 아동을 위한 AI 동화책 생성 · 학습 플랫폼
+                      <span class="award-badge">🏆 최우수상</span>
+                    </div>
+                    <p>
+                      아이가 그린 그림을 바탕으로 ControlNet을 활용해 동화
+                      삽화를 생성하고, OpenAI와의 대화를 통해 아이가 주도적으로
+                      동화 스토리를 만들어갑니다. 동화 제작 과정 속에 9종의
+                      다양한 학습 게임이 단계별로 자연스럽게 배치되어 있어,
+                      아이가 이야기 속에 몰입한 채 쉽고 재미있게 학습에 참여할
+                      수 있도록 설계했습니다.
+                    </p>
+                    <div class="proj-links">
+                      <a
+                        href="https://github.com/msai-project3-team4"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🐙</span> GitHub</a
+                      >
+                      <a
+                        href="https://www.canva.com/design/DAGhr4xHowc/_GBHLOzma_o_bvp_6_oVbA/view"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🎨</span> Canva</a
+                      >
+                      <a
+                        href="https://youtu.be/pBUnyabFrxM"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>▶️</span> YouTube</a
+                      >
+                      <a
+                        href="https://youtu.be/7fbKX853FYw"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>▶️</span> 시연영상</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 오른쪽: 상단 탭 + 내용 -->
+                <div class="proj-detail">
+                  <div class="proj-detail-tabs">
+                    <button class="proj-dtab active" data-dtab="tech">
+                      Tech Stack
+                    </button>
+                    <button class="proj-dtab" data-dtab="role">
+                      Role &amp; Contributions
+                    </button>
+                    <button class="proj-dtab" data-dtab="ps">
+                      Problem-Solving
+                    </button>
+                    <button class="proj-dtab" data-dtab="growth">Growth</button>
+                  </div>
+                  <div class="proj-detail-body">
+                    <!-- Tech Stack -->
+                    <div class="proj-dtab-content active" id="dtab-drawry-tech">
+                      <div class="proj-detail-title">Tech Stack</div>
+                      <div class="proj-detail-sub">
+                        AI &amp; ML · Tools · Frontend · Backend
+                      </div>
+                      <div class="proj-tab-group">
+                        <div class="proj-tab-buttons">
+                          <button
+                            class="proj-tab-btn active"
+                            data-tab="drawry-ai"
+                          >
+                            📁 AI &amp; ML
+                          </button>
+                          <button class="proj-tab-btn" data-tab="drawry-tools">
+                            🛠 Tools
+                          </button>
+                          <button class="proj-tab-btn" data-tab="drawry-fe">
+                            🎨 Frontend
+                          </button>
+                          <button class="proj-tab-btn" data-tab="drawry-be">
+                            ⚙️ Backend
+                          </button>
+                        </div>
+                        <div class="proj-tab-contents">
+                          <div class="proj-tab-content active" id="drawry-ai">
+                            <ul class="proj-detail-ul">
+                              <li>ControlNet – 스케치 이미지 생성</li>
+                              <li>Azure OpenAI (GPT-4) – 스토리 생성</li>
+                              <li>
+                                RAG – 동화 줄거리 데이터셋 활용 스토리 생성
+                              </li>
+                              <li>Azure Speech – TTS API 활용 음성 출력</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="drawry-tools">
+                            <ul class="proj-detail-ul">
+                              <li>GitHub – 버전 관리 및 코드 공유</li>
+                              <li>Notion – 프로젝트 문서화 및 협업 관리</li>
+                              <li>Canva – 발표 자료 및 포트폴리오 제작</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="drawry-fe">
+                            <ul class="proj-detail-ul">
+                              <li>HTML / CSS – 사용자 인터페이스</li>
+                              <li>JavaScript – 기능 구현</li>
+                              <li>WebGazer.js – 사용자 시선 추적 분석</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="drawry-be">
+                            <ul class="proj-detail-ul">
+                              <li>FastAPI – 웹 통합 및 사용자 요청 처리 API</li>
+                              <li>Flask – ControlNet 서버 구축</li>
+                              <li>
+                                SQLite – 사용자 데이터 및 동화 이미지 저장 DB
+                              </li>
+                              <li>
+                                Azure Blob Storage – OpenAI 생성 스토리 저장 및
+                                관리
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Role (flat) -->
+                    <div class="proj-dtab-content" id="dtab-drawry-role">
+                      <div class="proj-detail-title">
+                        Role &amp; Contributions
+                      </div>
+                      <div class="proj-detail-sub">팀장 / PM · 기술 구현</div>
+                      <div class="role-flat">
+                        <div class="role-group">
+                          <div class="role-group-label">📋 팀장 / PM</div>
+                          <ul class="proj-detail-ul">
+                            <li>프로젝트 총괄 기획 및 일정 관리</li>
+                            <li>팀워크 기반 역할 분담</li>
+                            <li>기술 이슈 대응 및 문제 해결 주도</li>
+                            <li>
+                              Canva 워크플로우 보드를 활용한 협업 프로세스 구축
+                            </li>
+                            <li>
+                              내부 테스트 기반 기능 검증 및 반복 개선 주도
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="role-group">
+                          <div class="role-group-label">💻 기술 구현</div>
+                          <ul class="proj-detail-ul">
+                            <li>
+                              주요 생성 플로우(UI/UX 및 기능) 설계·구현 주도
+                            </li>
+                            <li>
+                              9종 학습 게임 UI/UX 및 기능 총괄 설계 및 개발
+                            </li>
+                            <li>
+                              FastAPI 기반 웹 구조 통합으로 프론트엔드-백엔드
+                              연동
+                            </li>
+                            <li>
+                              Azure Speech TTS API 연동을 통한 음성 서비스 구현
+                            </li>
+                            <li>
+                              RAG 기반 데이터 전처리를 통한 스토리 생성 지원
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Problem-Solving -->
+                    <div class="proj-dtab-content" id="dtab-drawry-ps">
+                      <div class="proj-detail-title">
+                        Problem-Solving Experience
+                      </div>
+                      <div class="proj-detail-sub">
+                        이슈 발굴 · 원인 분석 · 해결 과정
+                      </div>
+                      <div class="ps-card-list">
+                        <div class="ps-card">
+                          <div class="ps-card-header">
+                            🎯 이미지 생성 정확도 향상
+                          </div>
+                          <div class="ps-card-body">
+                            <div class="ps-row">
+                              <span class="ps-label">문제</span
+                              ><span class="ps-text"
+                                >ControlNet 이미지 생성 품질 저하 · 비효율적
+                                실험 반복</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">기여</span
+                              ><span class="ps-text"
+                                >PM으로서 우선순위 재조정 · 프롬프트 튜닝 및
+                                파라미터 실험 방향 리딩 · 결과 공유 및 개선안
+                                도출</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">성과</span
+                              ><span class="ps-text"
+                                >이미지 생성 품질 향상 → 기능 완성</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ps-card">
+                          <div class="ps-card-header">
+                            🔐 HTTPS 인증서 발급 실패
+                          </div>
+                          <div class="ps-card-body">
+                            <div class="ps-row">
+                              <span class="ps-label">문제</span
+                              ><span class="ps-text"
+                                >Let's Encrypt 인증 실패 · ACME 프로토콜 충돌 ·
+                                HTTPS 설정 반복 실패</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">기여</span
+                              ><span class="ps-text"
+                                >수동 인증서 발급 · Nginx 설정 대안 실험 ·
+                                개발자 협업을 통한 해결</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">성과</span
+                              ><span class="ps-text"
+                                >보안 인증서 적용 완료 → 전체 서비스 HTTPS 통신
+                                안정화</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ps-card">
+                          <div class="ps-card-header">
+                            🌐 CORS &amp; Mixed Content 오류
+                          </div>
+                          <div class="ps-card-body">
+                            <div class="ps-row">
+                              <span class="ps-label">문제</span
+                              ><span class="ps-text"
+                                >HTTP/HTTPS 혼합 콘텐츠 및 CORS 정책 위반으로
+                                브라우저 통신 차단</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">기여</span
+                              ><span class="ps-text"
+                                >서버-클라이언트 요청 구조 재정비 · HTTPS 일원화
+                                및 CORS 정책 재설정 주도</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">성과</span
+                              ><span class="ps-text"
+                                >클라이언트–서버 통신 오류 해결 → 웹 서비스
+                                정상화</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ps-card">
+                          <div class="ps-card-header">
+                            🔒 디렉토리 탐색 공격 대응
+                          </div>
+                          <div class="ps-card-body">
+                            <div class="ps-row">
+                              <span class="ps-label">문제</span
+                              ><span class="ps-text"
+                                >외부 스캐너로 인한 서버 디렉토리 노출 및 보안
+                                취약점 발생</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">기여</span
+                              ><span class="ps-text"
+                                >보안 헤더 강화 및 접근 제한 설정 도입 제안 ·
+                                개발자와 함께 대응책 적용</span
+                              >
+                            </div>
+                            <div class="ps-row">
+                              <span class="ps-label">성과</span
+                              ><span class="ps-text"
+                                >서버 안정성과 사용자 데이터 보호 강화</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Growth -->
+                    <div class="proj-dtab-content" id="dtab-drawry-growth">
+                      <div class="proj-detail-title">Growth</div>
+                      <div class="proj-detail-sub">
+                        팀장 경험 · 팀워크 · 사용자 중심 사고 · 협업 감각
+                      </div>
+                      <div class="growth-card-list">
+                        <div class="growth-card">
+                          <div class="growth-card-icon">✨</div>
+                          <div class="growth-card-title">
+                            처음 마주한 팀장이라는 역할
+                          </div>
+                          <p class="growth-card-desc">
+                            팀원들의 신뢰와 지지를 바탕으로 성향과 역량을 파악해
+                            역할을 분배하고, 항상 밝고 긍정적인 분위기를 만들기
+                            위해 노력했습니다. 팀원들로부터
+                            <strong>"함께여서 즐거웠다"</strong>는 피드백을
+                            받으며 리더로서 성장했습니다.
+                          </p>
+                        </div>
+                        <div class="growth-card">
+                          <div class="growth-card-icon">💫</div>
+                          <div class="growth-card-title">
+                            기술적 문제를 함께 이겨낸 팀워크
+                          </div>
+                          <p class="growth-card-desc">
+                            HTTPS 인증서 문제로 배포가 여러 차례 지연되는
+                            상황에서 서로의 의견을 존중하고 함께 자료를 찾으며
+                            실험을 반복해 해결했습니다.
+                            <strong
+                              >협업의 중요성과 팀 내 시너지가 기술적 문제 해결의
+                              핵심</strong
+                            >임을 체감했습니다.
+                          </p>
+                        </div>
+                        <div class="growth-card">
+                          <div class="growth-card-icon">💡</div>
+                          <div class="growth-card-title">
+                            사용자 중심 사고와 반복적 개선
+                          </div>
+                          <p class="growth-card-desc">
+                            타겟층이 아동이기 때문에 아이들의 눈높이에 맞춘
+                            표현과 흐름을 찾는 것이 핵심 과제였습니다.
+                            <strong
+                              >"기술보다 중요한 것은 결국 누구를 위해 만드는
+                              것"</strong
+                            >임을 몸소 깨달은 소중한 경험이었습니다.
+                          </p>
+                        </div>
+                        <div class="growth-card">
+                          <div class="growth-card-icon">⚡️</div>
+                          <div class="growth-card-title">
+                            실무에 가까운 협업 감각
+                          </div>
+                          <p class="growth-card-desc">
+                            8명의 다양한 직군과 함께한 한 달간의 프로젝트에서
+                            PM, 프론트엔드, 백엔드까지 전방위적으로 참여하며
+                            <strong
+                              >기술적 성장과 커뮤니케이션 능력, 문제 해결
+                              능력</strong
+                            >을 키울 수 있었습니다.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 1 : Drawry -->
+
+            <!-- ════════════════════════════════════
+                 패널 2 : LawBot
+                 ════════════════════════════════════ -->
+            <div class="proj-panel">
+              <div class="md-layout">
+                <!-- 왼쪽: 슬라이더 + Overview -->
+                <div class="md-list">
+                  <div class="proj-image-slider" id="slider-law">
+                    <span class="proj-slide-counter" id="counter-law">1/4</span>
+                    <div class="proj-slides-wrap">
+                      <div class="proj-slide active">
+                        <img
+                          src="images/lawbot/lawbot_1.jpg"
+                          alt="서비스 메인"
+                        /><span class="proj-slide-caption"
+                          >서비스 메인 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/lawbot/lawbot_2.jpg"
+                          alt="자동 응답"
+                        /><span class="proj-slide-caption">자동 응답 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/lawbot/lawbot_3.jpg"
+                          alt="법령 검색"
+                        /><span class="proj-slide-caption">법령 검색 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/lawbot/lawbot_4.jpg"
+                          alt="대화 저장"
+                        /><span class="proj-slide-caption"
+                          >대화 저장 기능 화면</span
+                        >
+                      </div>
+                    </div>
+                    <div class="proj-slide-controls">
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="law"
+                        data-dir="prev"
+                      >
+                        ◀
+                      </button>
+                      <button
+                        class="proj-slide-btn proj-toggle-btn"
+                        data-slider="law"
+                      >
+                        ⏸
+                      </button>
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="law"
+                        data-dir="next"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                  </div>
+                  <div class="proj-overview">
+                    <div class="proj-title">Project Overview</div>
+                    <div class="proj-sub">
+                      이민자를 위한 GPT-4 · RAG 기반 다국어 법률 상담 챗봇
+                    </div>
+                    <p>
+                      이민자 및 외국인의 법률 접근성 향상을 위해 GPT-4와 RAG
+                      기반 다국어 챗봇을 개발했습니다. 언어 장벽과 정보 부족의
+                      문제를 해결하기 위해 자연어 상담, 자동 번역, 음성 입출력을
+                      도입했으며, Azure AI 서비스와 오픈 소스 기술을 결합한 웹
+                      기반 실용 서비스입니다.
+                    </p>
+                    <div class="proj-links">
+                      <a
+                        href="https://github.com/MSAI2ndTeam3/Immigration_support_Chatbot"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🐙</span> GitHub</a
+                      >
+                      <a
+                        href="https://www.canva.com/design/DAGlW2YNjio/DI3o3OoTMRqOC98jdeBdqA/view"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🎨</span> Canva</a
+                      >
+                      <a
+                        href="https://youtu.be/GLZmWw-PQDU"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>▶️</span> YouTube</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 오른쪽: 탭 + 내용 -->
+                <div class="proj-detail">
+                  <div class="proj-detail-tabs">
+                    <button class="proj-dtab active" data-dtab="tech">
+                      Tech Stack
+                    </button>
+                    <button class="proj-dtab" data-dtab="role">
+                      Role &amp; Contributions
+                    </button>
+                  </div>
+                  <div class="proj-detail-body">
+                    <!-- Tech Stack -->
+                    <div class="proj-dtab-content active" id="dtab-law-tech">
+                      <div class="proj-detail-title">Tech Stack</div>
+                      <div class="proj-detail-sub">
+                        AI &amp; ML · Tools · Frontend · Backend
+                      </div>
+                      <div class="proj-tab-group">
+                        <div class="proj-tab-buttons">
+                          <button class="proj-tab-btn active" data-tab="law-ai">
+                            📁 AI &amp; ML
+                          </button>
+                          <button class="proj-tab-btn" data-tab="law-tools">
+                            🛠 Tools
+                          </button>
+                          <button class="proj-tab-btn" data-tab="law-fe">
+                            🌐 Frontend
+                          </button>
+                          <button class="proj-tab-btn" data-tab="law-be">
+                            💻 Backend
+                          </button>
+                        </div>
+                        <div class="proj-tab-contents">
+                          <div class="proj-tab-content active" id="law-ai">
+                            <ul class="proj-detail-ul">
+                              <li>Azure Translator – 다국어 번역 처리</li>
+                              <li>Azure AI Search – 법률 문서 검색 및 연동</li>
+                              <li>
+                                Azure OpenAI (GPT-4) – 사용자 질의에 대한 자연어
+                                응답
+                              </li>
+                              <li>RAG – 검색 기반 응답 정확도 향상</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="law-tools">
+                            <ul class="proj-detail-ul">
+                              <li>GitHub – 버전 관리 및 코드 협업</li>
+                              <li>Confluence – 프로젝트 문서화 및 협업 관리</li>
+                              <li>Canva – 발표 자료 및 시각적 콘텐츠 제작</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="law-fe">
+                            <ul class="proj-detail-ul">
+                              <li>HTML / CSS – 사용자 인터페이스</li>
+                              <li>JavaScript – 기능 구현</li>
+                              <li>
+                                Web Speech API – 음성 인식 및 다국어 TTS 처리
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="law-be">
+                            <ul class="proj-detail-ul">
+                              <li>FastAPI – RESTful API 서버 개발</li>
+                              <li>Docker – 컨테이너 기반 환경 구성 및 배포</li>
+                              <li>Nginx – 리버스 프록시 및 정적 파일 서비스</li>
+                              <li>
+                                Azure Blob Storage – 사용자 데이터 저장 및 관리
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Role (flat) -->
+                    <div class="proj-dtab-content" id="dtab-law-role">
+                      <div class="proj-detail-title">
+                        Role &amp; Contributions
+                      </div>
+                      <div class="proj-detail-sub">
+                        프론트엔드 개발 · 음성 기능 · 발표 제작
+                      </div>
+                      <div class="role-flat">
+                        <div class="role-group">
+                          <div class="role-group-label">🌐 Frontend</div>
+                          <ul class="proj-detail-ul">
+                            <li>
+                              GPT-4 및 RAG 기반 법률 Q&amp;A 챗봇의 프론트엔드
+                              개발 주도
+                            </li>
+                            <li>다국어 UI 설계 및 사용자 인터페이스 구현</li>
+                            <li>대화 저장 기능 추가로 사용자 경험 향상</li>
+                          </ul>
+                        </div>
+                        <div class="role-group">
+                          <div class="role-group-label">🎤 음성 기능</div>
+                          <ul class="proj-detail-ul">
+                            <li>Web Speech API를 활용한 음성 인식 기능 구현</li>
+                            <li>다국어 텍스트-음성 변환(TTS) 처리</li>
+                            <li>음성 기능으로 접근성 및 사용자 편의성 향상</li>
+                          </ul>
+                        </div>
+                        <div class="role-group">
+                          <div class="role-group-label">📊 발표 제작</div>
+                          <ul class="proj-detail-ul">
+                            <li>발표 자료 및 프로젝트 시연 영상 제작</li>
+                            <li>서비스 아키텍처 및 기능 설명 자료 작성</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 2 : LawBot -->
+
+            <!-- ════════════════════════════════════
+                 패널 3 : 도르멍탐라
+                 ════════════════════════════════════ -->
+            <div class="proj-panel">
+              <div class="md-layout">
+                <!-- 왼쪽: 슬라이더 + Overview -->
+                <div class="md-list">
+                  <div class="proj-image-slider" id="slider-jeju">
+                    <span class="proj-slide-counter" id="counter-jeju"
+                      >1/16</span
+                    >
+                    <div class="proj-slides-wrap">
+                      <div class="proj-slide active">
+                        <img
+                          src="images/jeju/jeju_1.jpg"
+                          alt="서비스 소개"
+                        /><span class="proj-slide-caption"
+                          >서비스 소개 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_2.jpg"
+                          alt="서비스 설명"
+                        /><span class="proj-slide-caption"
+                          >서비스 설명 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img src="images/jeju/jeju_3.jpg" alt="로그인" /><span
+                          class="proj-slide-caption"
+                          >로그인 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_4.jpg"
+                          alt="성별 입력"
+                        /><span class="proj-slide-caption">성별 입력 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_5.jpg"
+                          alt="나이 입력"
+                        /><span class="proj-slide-caption">나이 입력 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_6.jpg"
+                          alt="동행인 입력"
+                        /><span class="proj-slide-caption"
+                          >동행인 입력 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_7.jpg"
+                          alt="동행인 선택"
+                        /><span class="proj-slide-caption"
+                          >동행인 선택 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_8.jpg"
+                          alt="여행지 입력"
+                        /><span class="proj-slide-caption"
+                          >여행지 입력 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_9.jpg"
+                          alt="여행 기간"
+                        /><span class="proj-slide-caption"
+                          >여행 기간 입력 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_10.jpg"
+                          alt="여행 계절"
+                        /><span class="proj-slide-caption"
+                          >여행 계절 입력 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_11.jpg"
+                          alt="키워드 입력"
+                        /><span class="proj-slide-caption"
+                          >키워드 입력 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_12.jpg"
+                          alt="키워드 선택"
+                        /><span class="proj-slide-caption"
+                          >키워드 선택 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_13.jpg"
+                          alt="결과 생성"
+                        /><span class="proj-slide-caption">결과 생성 화면</span>
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_14.jpg"
+                          alt="AI 추천 결과"
+                        /><span class="proj-slide-caption"
+                          >AI 추천 결과 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_15.jpg"
+                          alt="Top10 추천"
+                        /><span class="proj-slide-caption"
+                          >Top10 추천 화면</span
+                        >
+                      </div>
+                      <div class="proj-slide">
+                        <img
+                          src="images/jeju/jeju_16.jpg"
+                          alt="여행 기록 저장"
+                        /><span class="proj-slide-caption"
+                          >여행 기록 저장 화면</span
+                        >
+                      </div>
+                    </div>
+                    <div class="proj-slide-controls">
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="jeju"
+                        data-dir="prev"
+                      >
+                        ◀
+                      </button>
+                      <button
+                        class="proj-slide-btn proj-toggle-btn"
+                        data-slider="jeju"
+                      >
+                        ⏸
+                      </button>
+                      <button
+                        class="proj-slide-btn"
+                        data-slider="jeju"
+                        data-dir="next"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                  </div>
+                  <div class="proj-overview">
+                    <div class="proj-title">Project Overview</div>
+                    <div class="proj-sub">
+                      AI 기반 제주 맞춤형 여행 코스 추천 플랫폼
+                    </div>
+                    <p>
+                      사용자의 나이·성별·여행 스타일 등의 입력 데이터를 기반으로
+                      AI가 맞춤형 여행 코스를 추천합니다. 카카오 지도 API를
+                      활용해 추천 결과를 직관적으로 시각화하며, 아기자기한
+                      감성의 UI와 맞춤형 콘텐츠 구성으로 누구나 쉽고 즐겁게
+                      사용할 수 있도록 설계되었습니다.
+                    </p>
+                    <div class="proj-links">
+                      <a
+                        href="https://github.com/hozero95/MS-JEJU-Frontend"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🐙</span> GitHub</a
+                      >
+                      <a
+                        href="https://www.canva.com/design/DAGlW1nfjKg/XVTjvlk-ZVCCvk9bVFBt1A/view"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>🎨</span> Canva</a
+                      >
+                      <a
+                        href="https://youtu.be/w9x8fcurPsM"
+                        target="_blank"
+                        class="proj-link-btn"
+                        ><span>▶️</span> YouTube</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 오른쪽: 탭 + 내용 -->
+                <div class="proj-detail">
+                  <div class="proj-detail-tabs">
+                    <button class="proj-dtab active" data-dtab="tech">
+                      Tech Stack
+                    </button>
+                    <button class="proj-dtab" data-dtab="role">
+                      Role &amp; Contributions
+                    </button>
+                  </div>
+                  <div class="proj-detail-body">
+                    <!-- Tech Stack -->
+                    <div class="proj-dtab-content active" id="dtab-jeju-tech">
+                      <div class="proj-detail-title">Tech Stack</div>
+                      <div class="proj-detail-sub">
+                        Data &amp; ML · Tools · Frontend · Backend
+                      </div>
+                      <div class="proj-tab-group">
+                        <div class="proj-tab-buttons">
+                          <button
+                            class="proj-tab-btn active"
+                            data-tab="jeju-data"
+                          >
+                            📁 Data &amp; ML
+                          </button>
+                          <button class="proj-tab-btn" data-tab="jeju-tools">
+                            🛠 Tools
+                          </button>
+                          <button class="proj-tab-btn" data-tab="jeju-fe">
+                            🌐 Frontend
+                          </button>
+                          <button class="proj-tab-btn" data-tab="jeju-be">
+                            💻 Backend
+                          </button>
+                        </div>
+                        <div class="proj-tab-contents">
+                          <div class="proj-tab-content active" id="jeju-data">
+                            <ul class="proj-detail-ul">
+                              <li>
+                                Python, pandas, scikit-learn – 사용자 데이터
+                                분석 및 추천 알고리즘
+                              </li>
+                              <li>TensorFlow – 사용자 행동 예측 실험</li>
+                              <li>matplotlib, seaborn – 데이터 시각화</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="jeju-tools">
+                            <ul class="proj-detail-ul">
+                              <li>GitHub – 버전 관리 및 코드 협업</li>
+                              <li>
+                                Notion – 프로젝트 문서화 및 협업 프로세스 관리
+                              </li>
+                              <li>Canva – 발표 자료 제작</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="jeju-fe">
+                            <ul class="proj-detail-ul">
+                              <li>
+                                HTML / CSS / JavaScript – 사용자 인터페이스 구현
+                              </li>
+                              <li>React – 반응형 UI 설계 및 기능 구현</li>
+                              <li>Kakao Map API – 위치 기반 추천 시각화</li>
+                            </ul>
+                          </div>
+                          <div class="proj-tab-content" id="jeju-be">
+                            <ul class="proj-detail-ul">
+                              <li>Flask – 추천 결과 API 연동</li>
+                              <li>Spring Boot – 전체 서비스 아키텍처 관리</li>
+                              <li>
+                                Azure MySQL – 사용자 및 여행지 데이터 저장
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Role (flat) -->
+                    <div class="proj-dtab-content" id="dtab-jeju-role">
+                      <div class="proj-detail-title">
+                        Role &amp; Contributions
+                      </div>
+                      <div class="proj-detail-sub">
+                        UI/UX 디자인 · 발표 기획
+                      </div>
+                      <div class="role-flat">
+                        <div class="role-group">
+                          <div class="role-group-label">🎨 UI/UX 디자인</div>
+                          <ul class="proj-detail-ul">
+                            <li>
+                              사용자 친화적인 인터페이스 설계 및 전체 사용자
+                              플로우 구성
+                            </li>
+                            <li>
+                              나이/성향 기반 입력 폼 UI 디자인 및 반응형 구성
+                            </li>
+                            <li>여행 감성을 살린 아이콘·배경 직접 제작</li>
+                          </ul>
+                        </div>
+                        <div class="role-group">
+                          <div class="role-group-label">🗣 발표 기획</div>
+                          <ul class="proj-detail-ul">
+                            <li>발표 스토리보드 및 흐름 전체 구성</li>
+                            <li>디자인 슬라이드 및 시연 영상 제작 주도</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /패널 3 : 도르멍탐라 -->
+          </div>
+          <!-- /track -->
+        </div>
+        <!-- /viewport -->
       </div>
       <!-- /layout-content -->
     </div>
     <!-- /layout-container -->
 
     <script src="script.js"></script>
+    <script>
+      /* ── 상단 프로젝트 탭 전환 ── */
+      const coTabs = document.querySelectorAll(".tab");
+      const coTrack = document.querySelector(".track");
+
+      coTabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => {
+          coTabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          const offset = i === 0 ? "0" : i === 1 ? "-33.333%" : "-66.666%";
+          coTrack.style.transform = `translateX(${offset})`;
+        });
+      });
+
+      /* ── 오른쪽 detail 상단 탭 (Tech / Role / PS / Growth) ── */
+      document.querySelectorAll(".proj-dtab").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const detail = btn.closest(".proj-detail");
+          detail
+            .querySelectorAll(".proj-dtab")
+            .forEach((b) => b.classList.remove("active"));
+          detail
+            .querySelectorAll(".proj-dtab-content")
+            .forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          const match = detail.querySelector(
+            `.proj-dtab-content[id$="-${btn.dataset.dtab}"]`,
+          );
+          if (match) match.classList.add("active");
+        });
+      });
+
+      /* ── 내부 탭 (AI&ML / Tools / FE / BE 등) ── */
+      document.querySelectorAll(".proj-tab-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const group = btn.closest(".proj-tab-group");
+          group
+            .querySelectorAll(".proj-tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          group
+            .querySelectorAll(".proj-tab-content")
+            .forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          const target = group.querySelector("#" + btn.dataset.tab);
+          if (target) target.classList.add("active");
+        });
+      });
+
+      /* ── 이미지 슬라이더 ── */
+      function setupProjSlider(sliderId) {
+        const wrap = document.getElementById("slider-" + sliderId);
+        if (!wrap) return;
+        const slides = wrap.querySelectorAll(".proj-slide");
+        const counter = document.getElementById("counter-" + sliderId);
+        const toggleBtn = wrap.querySelector(".proj-toggle-btn");
+        let current = 0;
+        let timer = null;
+
+        function go(idx) {
+          slides[current].classList.remove("active");
+          current = (idx + slides.length) % slides.length;
+          slides[current].classList.add("active");
+          if (counter) counter.textContent = `${current + 1}/${slides.length}`;
+        }
+        function start() {
+          timer = setInterval(() => go(current + 1), 4000);
+          if (toggleBtn) toggleBtn.textContent = "⏸";
+        }
+        function stop() {
+          clearInterval(timer);
+          timer = null;
+          if (toggleBtn) toggleBtn.textContent = "▶";
+        }
+
+        wrap.querySelectorAll(".proj-slide-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            if (btn.classList.contains("proj-toggle-btn")) {
+              timer ? stop() : start();
+            } else if (btn.dataset.dir === "prev") {
+              go(current - 1);
+            } else {
+              go(current + 1);
+            }
+          });
+        });
+
+        start();
+      }
+
+      ["drawry", "law", "jeju"].forEach(setupProjSlider);
+    </script>
   </body>
 </html>

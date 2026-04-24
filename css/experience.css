@@ -1,160 +1,69 @@
 .bookmark-tabs {
-  right: -101.5px; /* 밖으로 튀어나오게 */
+  right: -104px;
 }
 
-/* ================================================
-   회사 탭 스위처
-   ================================================ */
-.co-switcher {
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.co-tab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: "Gyeonggi_Title_Medium", sans-serif;
-  gap: 24px;
-  padding: 20px 30px;
-  background: #f4f8ff;
-  cursor: pointer;
-  border: 1.5px solid #dce8ff;
-  border-radius: 14px;
-  transition: all 0.2s ease;
-}
-
-.co-tab:hover {
-  transform: translateY(-2px);
-  background: #eaf2ff;
-  border-color: #b8d0ff;
-}
-
-.co-tab.active {
-  background: #ffffff;
-  border: 2px solid #0064ff;
-  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
-}
-
-.co-tab-title {
-  font-size: 2em;
-  font-weight: bold;
-  color: #8899bb;
-  letter-spacing: 0.01em;
-}
-.co-tab-main {
-  display: flex;
-  justify-content: space-between; /* name ↔ period 양쪽 */
-  align-items: baseline; /* 👈 핵심 */
-  width: 100%;
-}
-.co-tab-name {
-  padding-top: 10px;
-  font-size: 2.3em;
-  font-weight: bold;
-  color: #1a2a4a;
-  line-height: 1.2;
-  transition: color 0.18s;
-}
-
-.co-tab-period {
-  font-size: 2em;
-  white-space: nowrap;
-  color: #5577aa;
-  flex-shrink: 0;
-  text-align: right;
-  align-self: flex-end;
-}
-.co-tab.active .co-tab-title {
-  color: #0064ff;
-}
-
-.co-tab.active .co-tab-name {
-  color: #0040cc;
-}
-
-/* ================================================
-   슬라이드 뷰포트
-   ================================================ */
-.co-viewport {
-  flex: 1;
-  overflow: hidden;
-  border: 2px solid #0064ff;
-  border-radius: 16px;
-  min-height: 0;
-  background: #ffffff;
-}
-
-.co-track {
+.track {
   display: flex;
   width: 200%;
   height: 100%;
   transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* ================================================
-         패널 헤더 (역할 요약 + 키워드 태그)
-         ================================================ */
-
-.co-panel {
-  padding: 10px 25px;
+   패널 — 내부 간격 통일 (tags ↔ divider ↔ md-layout 모두 동일)
+   ================================================ */
+.panel {
   width: 50%;
   height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  scrollbar-width: none; /* thin → none */
+  gap: 20px; /* ← tags · divider · md-layout 사이 간격 통일 */
+  padding: 20px 25px; /* ← 위아래 동일 패딩 */
+  scrollbar-width: none;
   scrollbar-color: transparent transparent;
+  box-sizing: border-box;
 }
 
-.co-panel::-webkit-scrollbar {
+.panel::-webkit-scrollbar {
   width: 0;
 }
-.co-panel::-webkit-scrollbar-thumb {
+
+.panel::-webkit-scrollbar-thumb {
   background: transparent;
   border-radius: 0;
 }
-.co-panel-tags {
+
+/* ── 태그 영역 ── */
+.panel-tags {
   display: flex;
-  padding: 15px 5px 0 5px;
   flex-wrap: wrap;
-  justify-content: space-between; /* 중앙 기준 */
+  gap: 8px;
+  padding: 0; /* 기존 top padding 제거 → panel gap으로 통일 */
 }
-.co-panel-tag {
+
+.panel-tag {
   font-size: 1.6em;
-  padding: 10px 15px;
+  padding: 8px 14px;
   background: #e4eeff;
   color: #3355aa;
   border-radius: 10px;
   border: 1px solid #c8d8ff;
   white-space: nowrap;
-  justify-content: space-between;
 }
-/* 
-.co-panel-tag.accent {
-  background: #0064ff;
-  color: #ffffff;
-  border-color: #0064ff;
-} */
 
-.co-panel-divider {
+/* ── 구분선 ── */
+.panel-divider {
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, #0064ff 0%, #dce8ff 100%);
   border-radius: 2px;
   flex-shrink: 0;
-  padding: 0;
-  margin: 10px;
+  margin: 0; /* 기존 margin 제거 → panel gap으로 통일 */
 }
 
 /* ================================================
-         아코디언 2열 그리드 (4 / 3 분할) — 제거하고 마스터-디테일로 교체
-         ================================================ */
-
-/* ── 마스터-디테일 레이아웃 ── */
+   마스터-디테일 레이아웃
+   ================================================ */
 .md-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -178,7 +87,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 13px 16px;
+  padding: 13.5px 16px;
   cursor: pointer;
   border-bottom: 1px solid #eef4ff;
   border-left: 3px solid transparent;
@@ -201,9 +110,11 @@
   background: #eaf3ff;
   border-left-color: #0064ff;
 }
+
 .md-item.active .md-item-title {
   color: #0040cc;
 }
+
 .md-item-texts {
   flex: 1;
   min-width: 0;
@@ -236,13 +147,14 @@
   padding: 20px;
   position: sticky;
   top: 0;
-  min-height: 570px;
+  min-height: 578.84px;
 }
 
 .md-detail-content {
   display: none;
   flex: 1;
 }
+
 .md-detail-content.visible {
   display: block;
 }
@@ -268,6 +180,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .md-detail-ul li {
@@ -291,119 +205,4 @@
 
 .md-detail-ul li strong {
   color: #0064ff;
-}
-
-/* ================================================
-   다크모드
-   ================================================ */
-body.dark .co-tab {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-body.dark .co-tab:hover {
-  background: #0a1828;
-  border-color: #223355;
-}
-body.dark .co-tab.active {
-  background: #0a1a38;
-  border-color: #0064ff;
-  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.2);
-}
-body.dark .co-tab-title {
-  color: #3a5a8a;
-}
-body.dark .co-tab-name {
-  color: #c8dcff;
-}
-body.dark .co-tab.active .co-tab-title {
-  color: #6ab0ff;
-}
-body.dark .co-tab.active .co-tab-name {
-  color: #90c8ff;
-}
-
-body.dark .co-viewport {
-  border-color: #1a2a4a;
-}
-body.dark .co-panel::-webkit-scrollbar-thumb {
-  background: #1a2a4a;
-}
-
-body.dark .co-panel-header {
-  background: #0d1a2e;
-  border-color: #1a2a4a;
-}
-body.dark .co-panel-role {
-  color: #c8dcff;
-}
-body.dark .co-panel-divider {
-  background: #1a3a6a;
-}
-body.dark .co-panel-period {
-  color: #5a82aa;
-}
-
-body.dark .co-panel-tag {
-  background: #0d1a30;
-  color: #6ab0ff;
-  border-color: #1a3a6a;
-}
-
-body.dark .co-panel-tag.accent {
-  background: #0040aa;
-  color: #e0f0ff;
-  border-color: #0050cc;
-}
-
-body.dark .md-list {
-  border-color: #1a2a4a;
-}
-body.dark .md-item {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-body.dark .md-item:hover {
-  background: #0a1828;
-}
-body.dark .md-item.active {
-  background: #0a1a38;
-  border-left-color: #0064ff;
-}
-body.dark .md-item.hl.active {
-  background: #0a1a38;
-}
-body.dark .md-item-title {
-  color: #c8dcff;
-}
-body.dark .md-item.hl .md-item-title {
-  color: #80b8ff;
-}
-body.dark .md-item-sub {
-  color: #3a5a8a;
-}
-body.dark .md-detail {
-  background: #0a1a38;
-  border-color: #0064ff;
-}
-body.dark .md-detail-title {
-  color: #90c8ff;
-}
-body.dark .md-detail-sub {
-  color: #3a5a8a;
-  border-bottom-color: #1a2a4a;
-}
-body.dark .md-detail-ul li {
-  color: #7a9abb;
-}
-body.dark .md-detail-ul li::before {
-  background: #1a3a6a;
-}
-body.dark .md-detail-ul li strong {
-  color: #6ab0ff;
-}
-body.dark .md-detail-empty {
-  color: #2a3a5a;
-}
-body.dark .how-section-title {
-  color: #3a5a8a;
 }

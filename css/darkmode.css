@@ -1,343 +1,531 @@
-/* ------------------ Dark Mode ------------------ */
-/* ---------- Layout Dark Mode ---------- */
-body.dark-mode {
-  background: #0f1115;
-  color: #e5e7eb;
+/* ================================================
+   darkmode.css — 전체 다크모드 스타일 완전 정리
+   ================================================ */
+
+/* ── 기본 body / 배경 ── */
+body.dark {
+  background-color: #06101e;
+  color: #c8dcff;
 }
 
-/* 컨테이너 */
-body.dark-mode .layout-container {
-  background: #1a1d24;
-  border: 3px solid #2a2d36;
+/* ── 테마 토글 버튼 ── */
+body.dark .theme-toggle {
+  background: #06101e;
+  color: #c8dcff;
 }
 
-/* 헤더 */
-body.dark-mode .layout-header {
-  background-color: #1f3a8a;
+/* ── 홈 메인 (index.html) ── */
+body.dark .name {
+  color: #6ab0ff;
+  text-shadow:
+    0 8px 9px #0a1a38,
+    0 -2px 1px #6ab0ff;
 }
 
-body.dark-mode .layout-header h1 {
-  color: #f9fafb;
+body.dark nav a {
+  background-color: #0d1a30;
+  color: #6ab0ff;
+  border: 1px solid #1a3a6a;
 }
 
-/* 북마크 */
-body.dark-mode .bookmark {
-  background-color: #1f3a8a;
-  border: 4px solid #1f3a8a;
-  color: #e5e7eb;
-}
-
-body.dark-mode .bookmark:hover {
-  background-color: #2a2d36;
-  color: #93c5fd;
-}
-
-/* 활성 북마크 */
-body.dark-mode .bookmark.active {
-  background-color: #374151;
-  color: #93c5fd;
-  border: 2px solid #1f3a8a;
-}
-
-/* 닫기 버튼 */
-body.dark-mode .close {
-  color: #e5e7eb !important;
-}
-
-body.dark-mode .close:hover {
-  color: #93c5fd !important;
-}
-/* 기본 텍스트 색상 */
-body.dark-mode .name,
-body.dark-mode h1,
-body.dark-mode .profile-header h1,
-body.dark-mode .profile h3,
-body.dark-mode .profile li,
-body.dark-mode .profile span,
-body.dark-mode .profile p,
-body.dark-mode .profile-right h3 {
-  color: #ffffff !important;
-}
-
-/* Profile 모달 전체 다크모드 */
-body.dark-mode .modal-content.profile {
-  background: transparent !important;
-}
-
-body.dark-mode .profile-header {
-  background-color: #101011; /* 헤더 색상 조금 더 진하게 */
+body.dark nav a:hover {
+  background: #0064ff;
   color: #ffffff;
 }
 
-body.dark-mode .profile-body {
-  background: linear-gradient(
-    to bottom,
-    #24272a,
-    #17191c,
-    #000000
-  ); /* 어두운 그라데이션 */
+/* ── Profile 페이지 ── */
+body.dark .profile-header {
+  background-color: #0a1a38;
+  border-bottom: 2px solid #1a2a4a;
 }
 
-/* 프로필 이미지 다크모드 */
-body.dark-mode .profile_img {
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-  filter: brightness(0.95); /* 약간 어둡게 조정 */
+body.dark .profile-header h1 {
+  color: #90c8ff;
 }
 
-/* 소셜 아이콘 다크모드 */
-body.dark-mode .social-icons {
-  background-color: rgba(30, 30, 40, 0.85) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+body.dark .profile-body {
+  background-color: #080f1a;
 }
 
-body.dark-mode .social-icons img {
-  filter: brightness(0.95) contrast(1.1);
-  transition: filter 0.3s ease;
+body.dark .profile-left {
+  background-color: #0d1520;
+  border-right: 1px solid #1a2a4a;
 }
 
-body.dark-mode .social-icons img:hover {
-  filter: brightness(1.25) contrast(1.15);
-  transform: scale(1.15);
+body.dark .profile_img {
+  border-color: #1a3a6a;
+  background-color: #0a1a38;
 }
 
-/* Education & Certified 리스트 */
-body.dark-mode .profile ul {
-  color: #e0e0e0;
+body.dark .social-icons a img {
+  filter: brightness(0.8) saturate(0.5);
 }
 
-body.dark-mode .profile li {
-  color: #f0f0f0;
+body.dark .profile-right {
+  background-color: #080f1a;
 }
 
-body.dark-mode .profile span {
-  color: #a0a0a0 !important; /* 날짜/부가정보는 연하게 */
+body.dark .profile-right h3 {
+  color: #6ab0ff;
+  border-bottom-color: #1a2a4a;
 }
 
-/* 스크롤바 다크모드 */
-body.dark-mode .profile-body::-webkit-scrollbar-thumb,
-body.dark-mode .profile::-webkit-scrollbar-thumb {
-  background-color: #555;
+body.dark .profile-right ul li {
+  color: #8aa8cc;
 }
 
-body.dark-mode .profile-body::-webkit-scrollbar-thumb:hover {
-  background-color: #777;
+body.dark .profile-right ul li span {
+  color: #3a5a8a;
 }
 
-/* Close 버튼 */
-body.dark-mode .profile-header .close {
-  color: #ffffff;
+body.dark .how-card {
+  background: #0d1520;
+  border-color: #1a2a4a;
 }
 
-body.dark-mode .profile-header .close:hover {
-  color: #ffdd57;
-  transform: scale(1.3);
+body.dark .how-card:hover {
+  background: #0a1828;
+  border-color: #223355;
+  box-shadow: 0 4px 14px rgba(0, 100, 255, 0.15);
 }
 
-/* 기타 기존 다크모드 유지 (필요한 부분만) */
-body.dark-mode nav a {
-  background-color: #2c2c2c;
-  color: #f5f5f5;
+body.dark .how-card.open {
+  background: #0a1a38;
+  border-color: #0064ff;
 }
 
-body.dark-mode nav a:hover {
-  background-color: #f5f5f5;
-  color: #2c2c2c;
+body.dark .how-card-label {
+  color: #6a9acc;
 }
 
-/* 반응형 내 다크모드도 자연스럽게 적용되도록 */
-@media screen and (max-width: 768px) {
-  body.dark-mode .profile_img {
-    max-width: 300px;
-  }
-
-  body.dark-mode .social-icons {
-    padding: 14px 50px;
-    gap: 40px;
-  }
-}
-body.dark-mode .profile_img,
-body.dark-mode .career button:hover {
-  background-color: rgba(30, 30, 40, 0.85) !important;
-
-  box-shadow: 0 4px 10px rgba(185, 185, 185, 0.2);
-}
-body.dark-mode .career button,
-body.dark-mode .career button span {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+body.dark .how-card.open .how-card-label {
+  color: #90c8ff;
 }
 
-body.dark-mode .career button {
-  border: 1px solid #fff;
+body.dark .how-card-desc {
+  color: #4a6a8a;
 }
-body.dark-mode .career .star-text .star-icon {
-  fill: #fff !important;
+
+body.dark .how-card-close {
+  color: #2a4a6a;
 }
-body.dark-mode .career button:hover .star-text .star-icon {
-  fill: #fff !important;
+body.dark .how-card-close:hover {
+  color: #6ab0ff;
 }
-body.dark-mode .arrow-button {
+
+/* ── 레이아웃 컨테이너 ── */
+body.dark .layout-container {
+  border: 2px solid #1a3a6a;
+  background-color: #080f1a;
+}
+
+/* ── 레이아웃 헤더 ── */
+body.dark .layout-header {
+  background-color: #0d1a30;
+  border: 2px solid #1a3a6a;
+}
+
+body.dark .layout-header h1 {
+  color: #e0f0ff;
+}
+
+body.dark .close {
+  color: #c8dcff !important;
+}
+
+body.dark .close:hover {
+  color: #ffff94 !important;
+}
+
+/* ── 레이아웃 콘텐츠 ── */
+body.dark .layout-content {
+  background-color: #0d1a30;
+}
+
+/* ── 북마크 탭 ── */
+body.dark .bookmark-tabs {
+  background: transparent;
+}
+
+body.dark .bookmark {
+  background-color: #0d1a30;
+  border-color: #0d1a30;
+  color: #c8dcff;
+  border-left: 0.5px solid #1a3a6a;
+}
+
+body.dark .bookmark:hover {
+  background-color: #0d1a30;
+  color: #6ab0ff;
+}
+
+body.dark .bookmark.active {
+  background-color: #080f1a;
+  color: #6ab0ff;
+  border-top: 2px solid #1a3a6a;
+  border-bottom: 2px solid #1a3a6a;
+  border-right: 2px solid #1a3a6a;
+}
+
+/* ================================================
+   다크모드 — 누락 없이 전체 정리
+   ================================================ */
+body.dark .co-switcher {
+  /* switcher 자체는 배경 없음, 자식 탭에서 처리 */
+}
+
+body.dark .co-tab {
+  background: #0d1520;
+  border-color: #1a2a4a;
+}
+
+body.dark .co-tab:hover {
+  background: #0a1828;
+  border-color: #223355;
+}
+
+body.dark .co-tab.active {
+  background: #0a1a38;
+  border-color: #0064ff;
+  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.2);
+}
+
+body.dark .co-tab-title {
+  color: #3a5a8a;
+}
+
+body.dark .co-tab-name {
+  color: #c8dcff;
+}
+
+body.dark .co-tab-period {
+  color: #3a5a8a;
+}
+
+body.dark .co-tab.active .co-tab-title {
+  color: #6ab0ff;
+}
+
+body.dark .co-tab.active .co-tab-name {
+  color: #90c8ff;
+}
+
+body.dark .co-tab.active .co-tab-period {
+  color: #5577aa;
+}
+
+body.dark .co-viewport {
+  background: #080f1a;
+  border-color: #1a2a4a;
+}
+
+body.dark .co-panel-tag {
+  background: #0d1a30;
+  color: #6ab0ff;
+  border-color: #1a3a6a;
+}
+
+body.dark .co-panel-divider {
+  background: linear-gradient(90deg, #0064ff 0%, #0d1a30 100%);
+}
+
+/* 마스터-디테일 다크 */
+body.dark .md-list {
+  border-color: #1a2a4a;
+}
+
+body.dark .md-item {
+  background: #0d1520;
+  border-bottom-color: #1a2a4a;
+  border-left-color: transparent;
+}
+
+body.dark .md-item:hover {
+  background: #0a1828;
+}
+
+body.dark .md-item.active {
+  background: #0a1a38;
+  border-left-color: #0064ff;
+}
+
+body.dark .md-item-title {
+  color: #c8dcff;
+}
+
+body.dark .md-item.active .md-item-title {
+  color: #90c8ff;
+}
+
+body.dark .md-item-chevron {
+  color: #2a3a5a;
+}
+
+body.dark .md-item.active .md-item-chevron {
+  color: #0064ff;
+}
+
+body.dark .md-detail {
+  background: #0a1a38;
+  border-color: #0064ff;
+}
+
+body.dark .md-detail-title {
+  color: #90c8ff;
+}
+
+body.dark .md-detail-sub {
+  color: #3a5a8a;
+  border-bottom-color: #1a2a4a;
+}
+
+body.dark .md-detail-ul li {
+  color: #7a9abb;
+}
+
+body.dark .md-detail-ul li::before {
+  background: #1a3a6a;
+}
+
+body.dark .md-detail-ul li strong {
+  color: #6ab0ff;
+}
+
+/* ── 모달 공통 ── */
+body.dark .modal {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body.dark .modal-content {
+  background-color: #0d1520;
+  border: 1px solid #1a2a4a;
+  color: #c8dcff;
+}
+
+body.dark .modal-content h1 {
+  color: #90c8ff;
+}
+
+body.dark .modal-content .close {
+  color: #6ab0ff !important;
+}
+
+body.dark .modal-content .close:hover {
+  color: #ffff94 !important;
+}
+
+/* ── 아코디언 ── */
+body.dark .accordion {
+  background-color: #0a1828;
+  color: #90c8ff;
+  border-bottom: 1px solid #1a2a4a;
+}
+
+body.dark .accordion:hover {
+  background-color: #0d1a38;
+}
+
+body.dark .accordion.active {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+}
+
+body.dark .accordion-icon {
+  stroke: #3a5a8a;
+}
+
+body.dark .panel {
+  background-color: #080f1a;
+  border-top: 1px solid #1a2a4a;
+  color: #8aa8cc;
+}
+
+body.dark .panel p,
+body.dark .panel li {
+  color: #7a9abb;
+}
+
+body.dark .panel strong {
+  color: #6ab0ff;
+}
+
+/* ── 탭 버튼 ── */
+body.dark .tab-button {
+  background-color: #0d1520;
+  color: #5577aa;
+  border: 1px solid #1a2a4a;
+}
+
+body.dark .tab-button:hover {
+  background-color: #0a1828;
+  color: #6ab0ff;
+}
+
+body.dark .tab-button.active {
+  background-color: #0a1a38;
+  color: #90c8ff;
+  border-color: #0064ff;
+}
+
+body.dark .tab-content {
+  background-color: #080f1a;
+  color: #7a9abb;
+}
+
+body.dark .tab-content ul li {
+  color: #7a9abb;
+}
+
+/* ── 슬라이더 ── */
+body.dark .slider {
+  background-color: #080f1a;
+}
+
+body.dark .slide {
+  background-color: #080f1a;
+}
+
+body.dark .image-slider {
+  background-color: #0d1520;
+  border: 1px solid #1a2a4a;
+}
+
+body.dark .image-slider h3 {
+  color: #6ab0ff;
+}
+
+body.dark .image-slider-controls button {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+  border: 1px solid #1a3a6a;
+}
+
+body.dark .image-slider-controls button:hover {
+  background-color: #0064ff;
   color: #fff;
 }
-body.dark-mode .accordion {
-  border: 1px solid #dcdcdc;
-  border-radius: 10px;
-  color: #ffffff;
-}
-body.dark-mode .accordion:hover,
-body.dark-mode .accordion.active {
-  background-color: #2c2c2c;
-  color: #ffffff !important;
-  border: none;
-}
-body.dark-mode .accordion-icon {
-  fill: #ffffff;
-}
-body.dark-mode .accordion:hover .accordion-icon,
-body.dark-mode .accordion.active .accordion-icon {
-  fill: #ffffff !important;
-}
-body.dark-mode .panel {
-  background-color: #1f1f1f;
-  color: #dcdcdc;
-  border-radius: 10px;
-}
-body.dark-mode .panel p,
-body.dark-mode .panel ul li {
-  color: #dcdcdc;
-}
-body.dark-mode .panel strong {
-  color: #ffffff;
-}
-/* ---------- Slide / Slider 다크모드 ---------- */
-body.dark-mode .slider-section {
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
-}
-body.dark-mode .slide,
-body.dark-mode .micro,
-body.dark-mode .oled {
-  scrollbar-color: #888 transparent;
-}
-body.dark-mode .slide::-webkit-scrollbar-thumb,
-body.dark-mode .micro::-webkit-scrollbar-thumb,
-body.dark-mode .oled::-webkit-scrollbar-thumb {
-  background-color: #888;
-}
-body.dark-mode .slide::-webkit-scrollbar-thumb:hover,
-body.dark-mode .micro::-webkit-scrollbar-thumb:hover,
-body.dark-mode .oled::-webkit-scrollbar-thumb:hover {
-  background-color: #aaa;
-}
-body.dark-mode .tab-contents {
-  background-color: #2c2c2c;
-  border-color: #444;
-  color: #eaeaea;
-}
-body.dark-mode .tab-button {
-  background-color: #3a3a3a;
-  color: #ccc;
-  border-color: #555;
-}
-body.dark-mode .tab-button.active,
-body.dark-mode .tab-button:hover {
-  background-color: #555;
-  color: #fff;
-}
-body.dark-mode .accordion-item .panel {
-  background-color: #1f1f1f;
-  color: #ddd;
+
+body.dark #pageImageNumber,
+body.dark #jejupageImageNumber,
+body.dark #lawpageImageNumber {
+  color: #3a5a8a;
 }
 
-/* ---------- Arrow Buttons 다크모드 ---------- */
-body.dark-mode .arrow-button {
-  color: #ffffff;
-}
-body.dark-mode .arrow-button:hover {
-  color: #ffd700;
-}
-/* ------------------ Projects (다크모드) ------------------ */
-body.dark-mode .project-card {
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+body.dark .arrow-button {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+  border: 1px solid #1a3a6a;
 }
 
-body.dark-mode .card-back {
-  background-color: #2a2a2a;
-}
-
-body.dark-mode .project-description-inline {
-  color: #ffffff;
-}
-
-body.dark-mode .project-instruction {
-  color: #cccccc;
-}
-
-body.dark-mode .detail-btn {
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  background-color: transparent;
-}
-body.dark-mode .detail-btn:hover {
-  background-color: #444;
+body.dark .arrow-button:hover {
+  background-color: #0064ff;
   color: #fff;
 }
 
-/* ------------------ Accordion 제목 (다크모드) ------------------ */
-body.dark-mode .accordion-item h3 {
-  color: #ffffff;
+body.dark .link-icons a img {
+  filter: brightness(0.75) saturate(0.6);
 }
 
-/* ------------------ Social Icons (다크모드) ------------------ */
-body.dark-mode .social-icons img {
-  filter: brightness(0.9) contrast(1.2);
-  transition: filter 0.3s ease;
-}
-body.dark-mode .social-icons img:hover {
-  filter: brightness(1.2);
+/* ── 프로젝트 카드 ── */
+body.dark .project-card {
+  border-color: #1a2a4a;
+  background-color: #0d1520;
 }
 
-/* ---------- Image Slide & Number 다크모드 ---------- */
-body.dark-mode .image-slide h3,
-body.dark-mode #pageImageNumber,
-body.dark-mode #jejupageImageNumber,
-body.dark-mode #lawpageImageNumber {
-  background: rgba(30, 30, 30, 0.8);
-  color: #f0f0f0;
+body.dark .card-back {
+  background-color: #0a1a38;
 }
 
-/* ---------- Image Slide Controls 다크모드 ---------- */
-body.dark-mode .image-slider-controls button,
-body.dark-mode .image-slider-controls span {
-  background: rgba(50, 50, 50, 0.7);
-  color: #f0f0f0;
+body.dark .project-instruction {
+  color: #3a5a8a;
 }
 
-/* ---------- Modal 다크모드 ---------- */
-body.dark-mode .problem-modal-content {
-  background: linear-gradient(#1e1e1e, #2a2a2a);
-  color: #f0f0f0;
+body.dark .detail-btn {
+  background-color: #0040aa;
+  color: #e0f0ff;
+  border-color: #0064ff;
 }
-body.dark-mode .problem-modal-close {
-  color: #ccc;
+
+body.dark .detail-btn:hover {
+  background-color: #0064ff;
 }
-body.dark-mode .problem-modal-close:hover {
+
+/* ── Problem-Solving 모달 ── */
+body.dark .problem-modal {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark .problem-modal-content {
+  background-color: #0d1520;
+  border: 1px solid #1a2a4a;
+  color: #c8dcff;
+}
+
+body.dark .problem-modal-content h2 {
+  color: #90c8ff;
+}
+
+body.dark .problem-solving-row .label {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+  border-right-color: #1a2a4a;
+}
+
+body.dark .problem-solving-row .content {
+  color: #7a9abb;
+  background-color: #080f1a;
+}
+
+body.dark .problem-solving-row .content ul li {
+  color: #7a9abb;
+}
+
+body.dark .problem-solving-row .content strong {
+  color: #6ab0ff;
+}
+
+body.dark .problem-modal-close {
+  color: #3a5a8a;
+}
+
+body.dark .problem-modal-close:hover {
+  color: #6ab0ff;
+}
+
+body.dark .open-problem-modal {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+  border: 1px solid #1a3a6a;
+}
+
+body.dark .open-problem-modal:hover {
+  background-color: #0064ff;
   color: #fff;
 }
-body.dark-mode .problem-modal-content h2 {
-  color: #fff;
+
+/* ── workflow 이미지 ── */
+body.dark #workflow {
+  filter: brightness(0.8) saturate(0.7);
 }
-body.dark-mode .problem-solving-row .label {
-  color: #fff;
+
+body.dark #openImageModalBtn {
+  background-color: #0a1a38;
+  color: #6ab0ff;
+  border-color: #1a3a6a;
 }
-body.dark-mode .open-problem-modal {
-  background-color: #333;
-  color: #f0f0f0;
-  border: 1px solid #555;
+
+/* ── canvas (배경) ── */
+body.dark #cc {
+  opacity: 0.4;
 }
-body.dark-mode .open-problem-modal:hover,
-body.dark-mode .open-problem-modal.active {
-  background-color: #555;
-  color: #fff;
+
+/* ── 스크롤바 ── */
+body.dark ::-webkit-scrollbar {
+  width: 6px;
+  background: #080f1a;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #1a2a4a;
+  border-radius: 4px;
 }

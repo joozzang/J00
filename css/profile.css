@@ -2,6 +2,97 @@
   right: -101px; /* 밖으로 튀어나오게 */
 }
 
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.profile-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.profile-part {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start; /* 중요 */
+}
+.profile-detail {
+  display: block;
+  min-width: 0; /* ⭐ 이거 중요 (grid 깨짐 방지) */
+}
+.profile-section h3 {
+  margin-bottom: 16px;
+  color: #4466aa;
+}
+
+.profile-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-section li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.profile-section span {
+  color: #8899bb;
+  font-size: 0.95em;
+}
+
+.profile_img {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 9 / 11;
+  height: auto;
+  min-height: 600px;
+  background: url("../images/profile.png") center/cover no-repeat;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+/* ------------------ Social Icons ------------------ */
+.social-icons {
+  display: flex;
+  gap: 70px;
+  margin-top: auto;
+  padding: 16px 80px;
+  background-color: rgba(255, 255, 255, 0.546);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 430px; /* profile_img와 동일한 max-width */
+  box-sizing: border-box; /* padding 포함해서 너비 계산 */
+
+  align-items: center;
+  justify-content: center;
+}
+
+/* 아이콘 크기 통일 + 호버 효과 */
+.social-icons img {
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+
 /* ================================================
          How I Work 섹션 — 클릭 확장형 카드
          ================================================ */
@@ -154,272 +245,4 @@
 }
 .how-card.open .how-card-close {
   display: block;
-}
-.profile-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.profile-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.profile-section h3 {
-  margin-bottom: 16px;
-  color: #4466aa;
-}
-
-.profile-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.profile-section li {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
-.profile-section span {
-  color: #8899bb;
-  font-size: 0.95em;
-}
-/* ------------------ Modal ------------------ */
-.modal {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(76, 111, 121, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.4s ease,
-    visibility 0.4s ease;
-  overflow-y: auto !important;
-}
-.modal.show {
-  z-index: 1000;
-  opacity: 1;
-  visibility: visible;
-}
-.modal-content {
-  position: relative;
-  background: linear-gradient(#ffffff, #a1dbff);
-  padding: 15px 35px;
-  border-radius: 15px;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform 0.4s ease-in-out,
-    opacity 0.4s ease-in-out;
-  max-height: 90vh;
-  height: auto;
-  overflow-y: auto; /* ✅ 스크롤 대상 */
-}
-
-/* ------------------ Profile ------------------ */
-.profile {
-  max-width: 1300px;
-  width: 100%;
-  font-family: "Gyeonggi_Title_Medium";
-  background: transparent;
-  border: none;
-  border-radius: 20px;
-  overflow: hidden;
-  flex: 1; /* modal-content의 flex column에 맞춤 */
-}
-/* 공통 스크롤바 */
-.profile,
-.profile-body {
-  scrollbar-width: thin;
-  scrollbar-color: #609bf5 transparent;
-}
-
-.profile::-webkit-scrollbar,
-.profile-body::-webkit-scrollbar {
-  width: 3px;
-}
-.profile::-webkit-scrollbar-thumb,
-.profile-body::-webkit-scrollbar-thumb {
-  background-color: #609bf5;
-  border-radius: 10px;
-}
-.profile::-webkit-scrollbar-thumb:hover,
-.profile-body::-webkit-scrollbar-thumb:hover {
-  background-color: #3683f5;
-}
-/* ================== Profile Header ================== */
-.profile-header {
-  background-color: #0066ff;
-  padding: 25px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  border-radius: 20px 20px 0 0;
-}
-
-.profile-header h1 {
-  margin: 0;
-  font-size: 2.4em;
-  color: #ffffff;
-}
-
-.profile-header .close {
-  margin: 0;
-  font-size: 2.8em;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-}
-
-.profile-header .close:hover {
-  color: #ffff94;
-  transform: scale(1.25);
-}
-/* ================== Profile Body ================== */
-.profile-body {
-  background: linear-gradient(to bottom, #f0f7ff, #d6e9ff, #c0dfff);
-  padding: 15px;
-  flex: 1;
-  border-radius: 0 0 20px 20px;
-  overflow-y: auto;
-  display: flex;
-  align-items: flex-start;
-}
-
-.profile-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* 위에서부터 시작 */
-  min-height: 100%; /* 오른쪽과 높이 맞추기 */
-  padding: 10px 0;
-}
-
-.profile_img {
-  width: 100%;
-  max-width: 430px;
-  aspect-ratio: 9 / 11;
-  height: auto;
-  min-height: 600px;
-  background: url("../images/profile.png") center/cover no-repeat;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  margin-top: 10px;
-  margin-bottom: 40px;
-}
-/* ------------------ Social Icons ------------------ */
-.social-icons {
-  display: flex;
-  gap: 70px;
-  margin-top: auto;
-  padding: 16px 80px;
-  background-color: rgba(255, 255, 255, 0.546);
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
-  border: none;
-  border-radius: 14px;
-  width: 100%;
-  max-width: 430px; /* profile_img와 동일한 max-width */
-  box-sizing: border-box; /* padding 포함해서 너비 계산 */
-
-  align-items: center;
-  justify-content: center;
-}
-
-/* 아이콘 크기 통일 + 호버 효과 */
-.social-icons img {
-  width: 48px;
-  height: 48px;
-  transition: all 0.25s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.15);
-  filter: brightness(1.1);
-}
-
-/* ------------------ Profile Text ------------------ */
-.profile-right {
-  flex: 1.15;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* 높이를 left와 맞추기 위해 */
-}
-.profile-right > * {
-  flex-shrink: 0; /* 내용이 줄어들지 않게 */
-}
-.profile h3 {
-  font-size: 2em;
-  margin: 10px;
-  color: #609bf5;
-}
-
-/* 리스트 */
-.profile ul {
-  padding-left: 3.5em;
-  margin: 0 0 20px 0;
-  font-family: "GyeonggiTitleLight";
-  list-style: none;
-  line-height: 2;
-}
-
-.profile li {
-  font-size: 1.7em;
-}
-
-.profile span {
-  color: #888; /* 살짝 톤다운 */
-}
-
-body.dark .how-card {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-
-body.dark .how-card:hover {
-  background: #0a1828;
-  border-color: #223355;
-  box-shadow: 0 4px 14px rgba(0, 100, 255, 0.15);
-}
-
-body.dark .how-card.open {
-  background: #0a1a38;
-  border-color: #0064ff;
-}
-
-body.dark .how-card-label {
-  color: #6a9acc;
-}
-
-body.dark .how-card.open .how-card-label {
-  color: #90c8ff;
-}
-
-body.dark .how-card-desc {
-  color: #4a6a8a;
-}
-
-body.dark .how-card-close {
-  color: #2a4a6a;
-}
-body.dark .how-card-close:hover {
-  color: #6ab0ff;
 }

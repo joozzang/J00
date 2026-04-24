@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/darkmode.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="stylesheet" href="./css/experience.css" />
-    <link rel="stylesheet" href="./css/project.css" />
     <link rel="stylesheet" href="./css/profile.css" />
   </head>
   <body>
@@ -26,17 +24,224 @@
         <a href="profile.html" data-icon="👩🏻‍💻" class="bookmark active"
           >Profile</a
         >
-        <a href="experience.html" data-icon="✨" class="bookmark">Career </a>
+        <a href="experience.html" data-icon="✨" class="bookmark">Career</a>
         <a href="projects.html" data-icon="🫧" class="bookmark">Project</a>
       </div>
 
       <div class="layout-content">
-        <!-- ─── 슬라이드 뷰포트 ─── -->
+        <div class="profile-grid">
+          <!-- 왼쪽: 사진 + SNS -->
+          <div class="profile-visual">
+            <div class="profile_img"></div>
+            <div class="social-icons">
+              <a href="mailto:jooooooky415@gmail.com">
+                <img
+                  class="icon-img"
+                  data-light="images/mail.png"
+                  data-dark="images/mail-dark.png"
+                  src="images/mail.png"
+                  alt="email"
+                />
+              </a>
+              <a
+                href="https://www.notion.so/Gayeong-s-Portfolio-5c6554701126473bbaa9787b083066fd"
+                target="_blank"
+              >
+                <img
+                  class="icon-img"
+                  data-light="images/notion.png"
+                  data-dark="images/notion-dark.png"
+                  src="images/notion.png"
+                  alt="notion"
+                />
+              </a>
+              <a href="https://github.com/joozzang/J00" target="_blank">
+                <img
+                  class="icon-img"
+                  data-light="images/github_blue.png"
+                  data-dark="images/github-dark.png"
+                  src="images/github.png"
+                  alt="github"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- 오른쪽: Education + Certified -->
+          <div class="profile-info">
+            <div class="profile-section">
+              <p>
+                "데이터 신뢰성을 기반으로 문제를 재현 가능하게 해결하고,
+                시스템으로 확장하는 엔지니어 주가영입니다."
+              </p>
+            </div>
+
+            <div class="profile-section">
+              <div class="profile-part">
+                <div class="profile-detail">
+                  <h3>🎓 Education</h3>
+                  <ul>
+                    <li>Microsoft AI School 5기</li>
+                    <li><span>(2024.09 - 2025.02)</span></li>
+                    <li>두원공과대학교 디스플레이전자공학과</li>
+                    <li><span>(2019.02 - 2022.02)</span></li>
+                    <li>예일여자고등학교</li>
+                    <li><span>(2014.03 - 2017.02)</span></li>
+                  </ul>
+                </div>
+                <div class="profile-detail">
+                  <h3>🎓Experience</h3>
+                  <ul>
+                    <li>LG디스플레이</li>
+                    <li>대형 ML 부품개발 Task</li>
+                    <li><span>(2023.07 - 2024.07)</span></li>
+                    <li>LG디스플레이</li>
+                    <li>대형 잔상보상 Task</li>
+                    <li><span>(2022.07 - 2023.07)</span></li>
+                  </ul>
+                </div>
+                <div class="profile-detail">
+                  <h3>🏅 Certified</h3>
+                  <ul>
+                    <li>제2급 아마추어무선기사</li>
+                    <li
+                      title="Microsoft Certified: Azure AI Fundamentals (AI-900)"
+                    >
+                      Azure AI Fundamentals (AI-900)
+                    </li>
+                    <li>ITQ 아래한글 A등급</li>
+                    <li>ITQ 한글엑셀 A등급</li>
+                    <li>ITQ 한글파워포인트 A등급</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─── How I Work 섹션 ─── -->
+            <div class="profile-section">
+              <div class="how-section-title">How I Work</div>
+              <div class="how-grid">
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🎯</span>
+                    <span class="how-card-label">문제 정의</span>
+                  </div>
+                  <div class="how-card-desc">
+                    문제를 단순 장애가 아닌 해결해야 할 과제로 인식하고, 해결
+                    과정 자체에서 동기를 얻습니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🧩</span>
+                    <span class="how-card-label">원인 추적</span>
+                  </div>
+                  <div class="how-card-desc">
+                    문제 발생 시 끝까지 원인을 추적하고, 재현성과 검증을 통해
+                    해결책의 신뢰성을 확보합니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🔍</span>
+                    <span class="how-card-label">디테일</span>
+                  </div>
+                  <div class="how-card-desc">
+                    작은 오차도 결과에 영향을 줄 수 있다고 판단하여, 마지막
+                    디테일까지 꼼꼼하게 점검합니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🔁</span>
+                    <span class="how-card-label">재현성</span>
+                  </div>
+                  <div class="how-card-desc">
+                    측정 결과의 재현성을 확보하기 위해 조건을 통제하고 반복
+                    검증을 수행합니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">📊</span>
+                    <span class="how-card-label">신뢰성</span>
+                  </div>
+                  <div class="how-card-desc">
+                    데이터의 신뢰성을 최우선으로 두고, 이상 발생 시
+                    환경·장비·로그를 포함한 원인 분석을 수행합니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🤖</span>
+                    <span class="how-card-label">자동화</span>
+                  </div>
+                  <div class="how-card-desc">
+                    반복 작업과 비효율을 줄이기 위해 자동화 가능성을 우선
+                    검토하며, 생산성과 정확도를 동시에 개선합니다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🗂️</span>
+                    <span class="how-card-label">프로세스화</span>
+                  </div>
+                  <div class="how-card-desc">
+                    초기 세팅부터 데이터 정리까지 전 과정을 매뉴얼화하여
+                    인적·장비 오류를 사전에 예방한다.
+                  </div>
+                </div>
+
+                <div class="how-card" data-how>
+                  <span class="how-card-close" data-close>✕</span>
+                  <div class="how-card-top">
+                    <span class="how-icon">🤝</span>
+                    <span class="how-card-label">협업</span>
+                  </div>
+                  <div class="how-card-desc">
+                    팀원의 의견을 존중하면서도 데이터 기반으로 방향성을
+                    제시하며, 논리로 설득하는 협업 스타일을 지향합니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /how-section -->
+          </div>
+        </div>
       </div>
-      <!-- /layout-content -->
     </div>
-    <!-- /layout-container -->
 
     <script src="script.js"></script>
+    <script>
+      /* ── How I Work 카드 확장 ── */
+      document.querySelectorAll(".how-card[data-how]").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest("[data-close]")) return;
+          if (card.classList.contains("open")) return;
+          document
+            .querySelectorAll(".how-card.open")
+            .forEach((c) => c.classList.remove("open"));
+          card.classList.add("open");
+        });
+
+        card.querySelector("[data-close]").addEventListener("click", (e) => {
+          e.stopPropagation();
+          card.classList.remove("open");
+        });
+      });
+    </script>
   </body>
 </html>

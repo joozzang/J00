@@ -30,43 +30,44 @@
 
       <div class="layout-content">
         <!-- ─── 회사 탭 스위처 ─── -->
-        <div class="co-switcher">
-          <button class="co-tab active" data-target="0">
-            <span class="co-tab-title">LG디스플레이</span>
-            <div class="co-tab-main">
-              <span class="co-tab-name">대형 ML 부품개발 Task</span>
-              <span class="co-tab-period">2023.07.20 – 2024.07.19</span>
+        <div class="switcher">
+          <button class="tab active" data-target="0">
+            <span class="tab-title">LG디스플레이</span>
+            <div class="tab-main">
+              <span class="tab-name">대형 ML 부품개발 Task</span>
+              <span class="tab-period">2023.07.20 – 2024.07.19</span>
             </div>
           </button>
-          <button class="co-tab" data-target="1">
-            <span class="co-tab-title">LG디스플레이</span>
-            <div class="co-tab-main">
-              <span class="co-tab-name">대형 잔상보상 Task</span>
-              <span class="co-tab-period">2022.07 – 2023.07</span>
+          <button class="tab" data-target="1">
+            <span class="tab-title">LG디스플레이</span>
+            <div class="tab-main">
+              <span class="tab-name">대형 잔상보상 Task</span>
+              <span class="tab-period">2022.07 – 2023.07</span>
             </div>
           </button>
         </div>
 
         <!-- ─── 슬라이드 뷰포트 ─── -->
-        <div class="co-viewport">
-          <div class="co-track">
+        <div class="viewport">
+          <div class="track">
             <!-- ══ 패널 1 : ML 부품개발 ══ -->
-            <div class="co-panel">
-              <!-- 패널 헤더 -->
-              <div class="co-panel-tags">
-                <span class="co-panel-tag">Micro LED</span>
-                <span class="co-panel-tag">EL / I-V / L-I-V</span>
-                <span class="co-panel-tag">Python · OpenCV</span>
-                <span class="co-panel-tag">데이터 신뢰성 확보</span>
-                <span class="co-panel-tag">불량 분석 정확도 향상</span>
-                <span class="co-panel-tag">Probe Calibration</span>
-                <span class="co-panel-tag">리드타임 80% 단축</span>
+            <div class="panel">
+              <!-- 태그 -->
+              <div class="panel-tags">
+                <span class="panel-tag">Micro LED</span>
+                <span class="panel-tag">EL / I-V / L-I-V</span>
+                <span class="panel-tag">Python · OpenCV</span>
+                <span class="panel-tag">데이터 신뢰성 확보</span>
+                <span class="panel-tag">불량 분석 정확도 향상</span>
+                <span class="panel-tag">Probe Calibration</span>
+                <span class="panel-tag">리드타임 80% 단축</span>
               </div>
 
-              <div class="co-panel-divider"></div>
+              <!-- 구분선 -->
+              <div class="panel-divider"></div>
 
+              <!-- 마스터-디테일 -->
               <div class="md-layout" id="md-panel-0">
-                <!-- ── 왼쪽: 타이틀 리스트 ── -->
                 <div class="md-list">
                   <div class="md-item active" data-panel="0" data-idx="0">
                     <div class="md-item-texts">
@@ -176,7 +177,6 @@
                   </div>
                 </div>
 
-                <!-- ── 오른쪽: 디테일 ── -->
                 <div class="md-detail">
                   <div
                     class="md-detail-content visible"
@@ -306,25 +306,24 @@
             <!-- /패널 1 -->
 
             <!-- ══ 패널 2 : 잔상보상 ══ -->
-            <div class="co-panel">
-              <!-- 패널 헤더 -->
-              <div class="co-panel-header">
-                <div class="co-panel-tags">
-                  <span class="co-panel-tag">OLED</span>
-                  <span class="co-panel-tag">Burn-in</span>
-                  <span class="co-panel-tag">휘도 / 전류 측정</span>
-                  <span class="co-panel-tag">Luminance Meter Calibration</span>
-                  <span class="co-panel-tag">화질 신뢰성 검증</span>
-                  <span class="co-panel-tag">데이터 신뢰성 향상</span>
-                  <span class="co-panel-tag">재측정 감소</span>
-                  <span class="co-panel-tag">장비 가동률 향상</span>
-                </div>
+            <div class="panel">
+              <!-- 태그 -->
+              <div class="panel-tags">
+                <span class="panel-tag">OLED</span>
+                <span class="panel-tag">Burn-in</span>
+                <span class="panel-tag">휘도 / 전류 측정</span>
+                <span class="panel-tag">Luminance Meter Calibration</span>
+                <span class="panel-tag">화질 신뢰성 검증</span>
+                <span class="panel-tag">데이터 신뢰성 향상</span>
+                <span class="panel-tag">재측정 감소</span>
+                <span class="panel-tag">장비 가동률 향상</span>
               </div>
 
-              <div class="co-panel-divider"></div>
+              <!-- 구분선 -->
+              <div class="panel-divider"></div>
 
+              <!-- 마스터-디테일 -->
               <div class="md-layout" id="md-panel-1">
-                <!-- ── 왼쪽: 타이틀 리스트 ── -->
                 <div class="md-list">
                   <div class="md-item active" data-panel="1" data-idx="0">
                     <div class="md-item-texts">
@@ -436,7 +435,6 @@
                   </div>
                 </div>
 
-                <!-- ── 오른쪽: 디테일 ── -->
                 <div class="md-detail">
                   <div
                     class="md-detail-content visible"
@@ -558,9 +556,9 @@
             </div>
             <!-- /패널 2 -->
           </div>
-          <!-- /co-track -->
+          <!-- /track -->
         </div>
-        <!-- /co-viewport -->
+        <!-- /viewport -->
       </div>
       <!-- /layout-content -->
     </div>
@@ -569,8 +567,8 @@
     <script src="script.js"></script>
     <script>
       /* ── 회사 탭 전환 ── */
-      const tabs = document.querySelectorAll(".co-tab");
-      const track = document.querySelector(".co-track");
+      const tabs = document.querySelectorAll(".tab");
+      const track = document.querySelector(".track");
 
       tabs.forEach((tab, i) => {
         tab.addEventListener("click", () => {
@@ -586,13 +584,11 @@
           const panel = item.dataset.panel;
           const idx = item.dataset.idx;
 
-          // 같은 패널의 항목 active 해제
           document
             .querySelectorAll(`.md-item[data-panel="${panel}"]`)
             .forEach((i) => i.classList.remove("active"));
           item.classList.add("active");
 
-          // 같은 패널의 디테일 숨기고, 해당 항목 표시
           document
             .querySelectorAll(`.md-detail-content[data-panel="${panel}"]`)
             .forEach((c) => c.classList.remove("visible"));
