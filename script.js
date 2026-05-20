@@ -15,10 +15,29 @@ function typeText() {
   }
 }
 
-window.onload = () => {
-  setTimeout(typeText, 500);
-};
+/* ------------------ Dark Mode ------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  // 타이핑 효과 (index.html에서만)
+  const nameElement = document.getElementById("typing-text");
+  if (nameElement) setTimeout(typeText, 500);
 
+  // 다크모드
+  const themeToggle = document.getElementById("theme-toggle");
+  if (!themeToggle) return;
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.textContent = "☀️";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+});
 // ------------------ Star Effect ------------------
 const cv = document.getElementById("cc");
 const cx = cv.getContext("2d");
