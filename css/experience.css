@@ -42,7 +42,7 @@
 }
 
 .panel-tag {
-  font-size: 1.6em;
+  font-size: 1.5rem;
   padding: 8px 14px;
   background: #e4eeff;
   color: #3355aa;
@@ -121,7 +121,7 @@
 }
 
 .md-item-title {
-  font-size: 1.7em;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #1a2a4a;
   line-height: 2;
@@ -147,7 +147,7 @@
   padding: 20px;
   position: sticky;
   top: 0;
-  min-height: 578.84px;
+  /* min-height: 578.84px; */
 }
 
 .md-detail-content {
@@ -160,7 +160,7 @@
 }
 
 .md-detail-title {
-  font-size: 1.8em;
+  font-size: 1.7rem;
   font-weight: bold;
   color: #0040cc;
   line-height: 1.5;
@@ -168,7 +168,7 @@
 }
 
 .md-detail-sub {
-  font-size: 1.6em;
+  font-size: 1.5rem;
   color: #8899bb;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -185,7 +185,7 @@
 }
 
 .md-detail-ul li {
-  font-size: 1.6em;
+  font-size: 1.5rem;
   color: #3a4a6a;
   padding-left: 14px;
   position: relative;
