@@ -198,7 +198,7 @@ nav a:hover {
 .bookmark-tabs {
   position: absolute;
   top: 40px;
-  left: 100%;
+  left: 100.1%;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -206,9 +206,10 @@ nav a:hover {
   z-index: 0;
 }
 .bookmark {
-  width: 105px;
+  width: 95px;
   background-color: #0064ff;
-  border: 4px solid #0064ff;
+  border: 3px solid #0064ff;
+  /* border-left-color: #dce8ff; */
   padding: 20px 15px;
   color: inherit;
   border-radius: 0 10px 10px 0;

@@ -1,7 +1,3 @@
-.bookmark-tabs {
-  right: -101px; /* 밖으로 튀어나오게 */
-}
-
 .profile-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
