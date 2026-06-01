@@ -1,46 +1,19 @@
 .track {
-  display: flex;
   width: 200%;
-  height: 100%;
-  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .panel {
   width: 50%;
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  scrollbar-width: none;
-  box-sizing: border-box;
-}
-
-.panel::-webkit-scrollbar {
-  width: 0;
 }
 
 .md-layout {
-  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: stretch; /* ⭐ 양쪽 높이 동일 */
-  flex: 1;
-  min-height: 0;
 }
-/* ── 리스트 ── */
 .md-list {
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* ⭐ 부모 높이 꽉 채우기 */
   border: 1px solid #e4eeff;
   border-radius: 10px;
-  overflow: hidden;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 80, 200, 0.05);
-  box-sizing: border-box;
 }
-
 .md-item {
   flex: 1;
   display: flex;
@@ -94,6 +67,75 @@
 
 .md-item.active .md-item-chevron {
   color: #0064ff;
+}
+
+/* ------------------ Tab------------------ */
+
+.switcher {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  gap: 17px;
+  padding: 25px;
+  background: #f4f8ff;
+  cursor: pointer;
+  border: 1px solid #dce8ff;
+  border-radius: 14px;
+}
+.tab:hover {
+  background: #ffffff;
+  border: 1.5px solid #0064ff;
+  box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
+}
+.tab.active {
+  background: #ffffff;
+  border: 1.5px solid #0064ff;
+  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
+}
+
+.tab-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #8899bb;
+  letter-spacing: 0.01em;
+}
+
+.tab-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.tab-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1a2a4a;
+}
+
+.tab-period {
+  font-size: 1.3rem;
+  white-space: nowrap;
+  color: #5577aa;
+  flex-shrink: 0;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.tab.active .tab-title {
+  color: #0064ff;
+}
+
+.tab.active .tab-name {
+  color: #0040cc;
 }
 
 /* ── 디테일 전체 ── */
@@ -160,7 +202,7 @@
 }
 
 .md-detail-ul li {
-  font-size: 1.1rem; /* 1.4 → 1.3 */
+  font-size: 1.2rem; /* 1.4 → 1.3 */
   color: #3a4a6a;
   padding-left: 15px;
   position: relative;

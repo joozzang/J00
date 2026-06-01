@@ -144,6 +144,35 @@ nav a:hover {
 .theme-toggle:hover {
   background: none;
 }
+
+/* ------------------ Bookmark------------------ */
+
+.bookmark-tabs {
+  position: absolute;
+  top: 35px;
+  left: 100.1%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 0;
+}
+.bookmark {
+  background-color: #0064ff;
+  border: 3px solid #0064ff;
+  padding: 17px 10px;
+  color: inherit;
+  border-radius: 0 10px 10px 0;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.bookmark.active {
+  background-color: #f8fbff;
+  color: #0064ff;
+  border: 2px solid #0064ff;
+}
 /* ------------------ Tab Page Layout ------------------ */
 
 .layout-header {
@@ -196,32 +225,6 @@ nav a:hover {
   gap: 20px;
   border-radius: 0 0 20px 20px;
 }
-.bookmark-tabs {
-  position: absolute;
-  top: 35px;
-  left: 100.1%;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 0;
-}
-.bookmark {
-  background-color: #0064ff;
-  border: 3px solid #0064ff;
-  padding: 17px 10px;
-  color: inherit;
-  border-radius: 0 10px 10px 0;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.bookmark.active {
-  background-color: #f8fbff;
-  color: #0064ff;
-  border: 2px solid #0064ff;
-}
 .close {
   margin: 0;
   text-decoration: none;
@@ -229,8 +232,27 @@ nav a:hover {
   color: #fff !important;
 }
 /* ================================================
-   회사 탭 스위처
+   슬라이드 뷰포트
    ================================================ */
+.viewport {
+  flex: 1;
+  overflow: hidden;
+  border: 1.5px solid #0064ff;
+  border-radius: 16px;
+  min-height: 0;
+  background: #ffffff;
+}
+/* ── track : 3패널, 부드러운 전환 ── */
+
+.track {
+  display: flex;
+  height: 100%;
+  width: 300%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ------------------ Tab------------------ */
+
 .switcher {
   display: flex;
   gap: 20px;
@@ -299,13 +321,33 @@ nav a:hover {
 }
 
 /* ================================================
-   슬라이드 뷰포트
+   패널
    ================================================ */
-.viewport {
+.panel {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.panel::-webkit-scrollbar {
+  width: 0;
+}
+
+.md-layout {
+  display: grid;
+  gap: 20px;
+  align-items: stretch; /* ⭐ 양쪽 높이 동일 */
   flex: 1;
-  overflow: hidden;
-  border: 1.5px solid #0064ff;
-  border-radius: 16px;
   min-height: 0;
-  background: #ffffff;
+}
+
+.md-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ⭐ 부모 높이 꽉 채우기 */
+  overflow: hidden;
+  box-sizing: border-box;
 }
