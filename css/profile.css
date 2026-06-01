@@ -52,7 +52,7 @@
   max-width: 450px;
   aspect-ratio: 9 / 11;
   height: auto;
-  min-height: 600px;
+  min-height: 4%;
   background: url("../images/profile.png") center/cover no-repeat;
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
