@@ -54,6 +54,9 @@
   display: none;
   position: relative;
 }
+.slide.active {
+  display: block;
+}
 /* 슬라이더 이미지 높이 명시 */
 .slide img {
   width: 100%;
@@ -63,69 +66,140 @@
   display: block;
   object-position: center;
 }
-.slide.active {
-  display: block;
-}
-/* ⭐ 캡션 — 이미지 하단에 오버레이 */
-.slide-caption {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  /* background: rgba(0, 0, 0, 0.45); */
-  color: black;
-  font-size: 0.82em;
-  padding: 5px 10px;
-  text-align: right;
-}
-
 /* ⭐ 슬라이드 카운터 */
 .slide-counter {
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 8px;
   z-index: 10;
   font-weight: bold;
   font-size: 0.85em;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
+  background: #fff;
+  color: #1a2a4a;
   padding: 3px 8px;
   border-radius: 6px;
 }
 
+/* ⭐ 캡션 — 이미지 하단에 오버레이 */ /* ⭐ 캡션 — 이미지 우측 하단 위에 오버레이 */
+.slide-caption {
+  display: block;
+  position: absolute; /* static에서 absolute로 변경하여 이미지 위로 띄움 */
+  top: 12px; /* 이미지 아래 테두리에서 12px 위로 */
+  right: 12px; /* 이미지 우측 테두리에서 12px 안으로 */
+  z-index: 10; /* 이미지보다 무조건 위에 보이도록 설정 */
+
+  /* 💡 이미지 위에 올라가므로, 글자가 잘 보이도록 배경과 투명도 조절 */
+  background: #fff;
+  color: #1a2a4a;
+  font-size: 0.82rem; /* 얹어지는 느낌이라 크기를 살짝 아담하게 변경 */
+  padding: 4px 10px; /* 칩처럼 예쁘게 보이도록 안쪽 여백 */
+  border-radius: 10px; /* 둥글둥글한 포트폴리오 톤앤매너 맞춤 */
+
+  /* 기존에 있던 margin-bottom은 absolute 환경이므로 삭제 */
+}
 /* ⭐ 컨트롤 버튼들 — 이미지 위에 오버레이 */
 .slide-controls {
   position: absolute;
-  bottom: 8px;
-  left: 10%;
-  transform: translateX(-50%);
+  left: 10px;
+  bottom: 10px;
   display: flex;
   gap: 6px;
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 20px;
   z-index: 10;
+  background: none;
+  padding: 0;
 }
-
 .slide-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 4px 10px;
-  color: #fff;
+  border-radius: 10px;
+  width: 25px;
+  height: 25px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  line-height: 1;
+  color: #0040cc;
   font-size: 0.9em;
   cursor: pointer;
-  transition: background 0.2s;
+}
+.slide-btn:hover {
+  background: #0040cc;
+  color: #fff;
+}
+/* ── Tech Stack 칩 ── */
+.tech {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #e4eeff;
+}
+.tech-label {
+  font-size: 1.1rem;
+  color: #3a4a6a;
+  margin-bottom: 10px;
+}
+.chip-groups {
+  display: flex;
+  flex-direction: column;
 }
 
-.slide-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-  color: #fff;
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 칩 사이의 가로 간격 */
+  row-gap: px; /* 줄바꿈 되었을 때 세로 간격 */
+  flex-wrap: wrap; /* 자리가 부족하면 자동으로 다음 줄로 이동 */
+}
+
+/* 1. 모든 칩의 공통 스타일 (크기, 폰트, 정렬 맞춤) */
+.chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 0.9rem; /* 가독성을 위해 기존 0.82에서 소폭 상향 */
+}
+
+/* 호버 시 포트폴리오 감성에 맞게 미세한 반응 효과 (선택사항) */
+.chip:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* 2. AI & ML 칩 스타일 (지적인 이미지의 은은한 라벤더 보라) */
+.chip.ai {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+/* 3. Frontend 칩 스타일 (본문 메인 테마와 연결되는 맑은 파랑) */
+.chip.fe {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+/* 4. Backend 칩 스타일 (안정감을 주는 톤다운된 민트 그린) */
+.chip.be {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+
+/* 5. Tools 칩 스타일 (깔끔하고 튀지 않는 세련된 웜그레이) */
+.chip.tool {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
 }
 .overview {
   border: 1px solid #e4eeff;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .title {
@@ -139,6 +213,7 @@
   font-size: 1.1rem;
   color: #3a4a6a;
   line-height: 1.65;
+  word-break: keep-all;
 }
 
 /* ================================================
@@ -229,7 +304,7 @@
 .dtab {
   font-family: inherit;
   padding: 8px 16px;
-  font-size: 1.3em;
+  font-size: 1.2rem;
   cursor: pointer;
   background: #f0f4ff;
   border: 1.5px solid #d0d7e2;
@@ -237,9 +312,6 @@
   border-radius: 8px 8px 0 0;
   color: #5577aa;
   font-weight: bold;
-  transition:
-    background 0.18s,
-    color 0.18s;
 }
 .dtab:hover {
   background: #dce8ff;
@@ -276,9 +348,7 @@
 /* ================================================
    내부 탭 그룹 (Tech Stack — AI/Tools/FE/BE)
    ================================================ */
-.tab-group {
-  margin-top: 12px;
-}
+
 .tab-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -288,7 +358,7 @@
 .tab-btn {
   font-family: inherit;
   padding: 7px 14px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   background: #f0f4ff;
   border: 1px solid #d0d7e2;
@@ -371,64 +441,11 @@
   gap: 8px;
 }
 .role-group-label {
-  font-size: 1.4em;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #3683f5;
   padding-bottom: 6px;
   border-bottom: 1px solid #eef4ff;
-}
-
-/* ================================================
-   Problem-Solving 카드
-   ================================================ */
-.ps-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-.ps-card {
-  background: #fff;
-  border: 1px solid #e0eaff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(54, 131, 245, 0.06);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-}
-.ps-card:hover {
-  box-shadow: 0 4px 18px rgba(54, 131, 245, 0.14);
-  transform: translateY(-2px);
-}
-.ps-card-header {
-  background: linear-gradient(90deg, #3683f5 0%, #609bf5 100%);
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.4em;
-  padding: 9px 16px;
-}
-.ps-card-body {
-  padding: 10px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.ps-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 1.3em;
-  line-height: 1.6;
-}
-.ps-label {
-  min-width: 36px;
-  font-weight: bold;
-  color: #3683f5;
-  flex-shrink: 0;
-}
-.ps-text {
-  color: #444;
 }
 
 /* ================================================
@@ -460,10 +477,10 @@
 .growth-card-title {
   font-weight: bold;
   color: #3683f5;
-  font-size: 1.4em;
+  font-size: 1.2rem;
 }
 .growth-card-desc {
-  font-size: 1.3em;
+  font-size: 1.1rem;
   line-height: 1.75;
   color: #444;
   margin: 0;
