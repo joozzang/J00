@@ -132,12 +132,12 @@ nav a:hover {
 /* ------------------ Dark mode ------------------ */
 .theme-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 25px;
   background: none;
   border: none;
   padding: 10px;
-  font-size: 2em;
+  font-size: 1.8em;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -152,29 +152,30 @@ nav a:hover {
   justify-content: space-between;
   align-items: center;
 
-  top: 60px;
-  left: 70px; /* container left랑 동일 */
-  right: 170px; /* container right랑 동일 */
+  top: 47px;
   margin: 0; /* ⭐ margin 제거하고 left/right로 직접 맞추기 */
 
   background-color: #0064ff;
-  border-radius: 15px 15px 0 0;
-  padding: 30px 30px;
+  border-radius: 13px 13px 0 0;
+  padding: 23px 25px;
   z-index: 100;
   /* border: 3px solid #dce8ff; */
 }
 .layout-header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
+}
+.layout-header,
+.layout-container {
+  left: 57px;
+  right: 135px;
 }
 .layout-container {
   position: fixed;
-  top: 150px; /* 헤더 top(60) + 헤더 높이에 맞게 조정 */
-  left: 70px;
-  right: 170px;
-  bottom: 60px;
-  border: 3px solid #dce8ff;
+  top: 117px; /* 헤더 top(60) + 헤더 높이에 맞게 조정 */
+  bottom: 47px;
+  border: 2px solid #dce8ff;
   border-radius: 0 0 20px 20px;
 
   width: auto;
@@ -197,7 +198,7 @@ nav a:hover {
 }
 .bookmark-tabs {
   position: absolute;
-  top: 40px;
+  top: 35px;
   left: 100.1%;
   color: #fff;
   display: flex;
@@ -206,14 +207,12 @@ nav a:hover {
   z-index: 0;
 }
 .bookmark {
-  width: 95px;
   background-color: #0064ff;
   border: 3px solid #0064ff;
-  /* border-left-color: #dce8ff; */
-  padding: 20px 15px;
+  padding: 17px 10px;
   color: inherit;
   border-radius: 0 10px 10px 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -226,7 +225,7 @@ nav a:hover {
 .close {
   margin: 0;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.7em;
   color: #fff !important;
 }
 /* ================================================
@@ -244,28 +243,26 @@ nav a:hover {
   flex-direction: column;
   align-items: flex-start;
   font-family: "Gyeonggi_Title_Medium", sans-serif;
-  gap: 20px;
-  padding: 30px 30px;
+  gap: 17px;
+  padding: 25px;
   background: #f4f8ff;
   cursor: pointer;
-  border: 1.5px solid #dce8ff;
+  border: 1px solid #dce8ff;
   border-radius: 14px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tab:hover {
   background: #ffffff;
-  border-color: #0064ff;
+  border: 1.5px solid #0064ff;
   box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
-  transform: translateY(-2px);
 }
 .tab.active {
   background: #ffffff;
-  border: 2px solid #0064ff;
+  border: 1.5px solid #0064ff;
   box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
 }
 
 .tab-title {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #8899bb;
   letter-spacing: 0.01em;
@@ -279,13 +276,13 @@ nav a:hover {
 }
 
 .tab-name {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #1a2a4a;
 }
 
 .tab-period {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   white-space: nowrap;
   color: #5577aa;
   flex-shrink: 0;
@@ -307,7 +304,7 @@ nav a:hover {
 .viewport {
   flex: 1;
   overflow: hidden;
-  border: 2px solid #0064ff;
+  border: 1.5px solid #0064ff;
   border-radius: 16px;
   min-height: 0;
   background: #ffffff;
