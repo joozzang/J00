@@ -138,9 +138,10 @@
   border: 1px solid #e4eeff;
 }
 .tech-label {
-  font-size: 1.1rem;
-  color: #3a4a6a;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0040cc;
+  margin-bottom: 20px;
 }
 .chip-groups {
   display: flex;
@@ -210,7 +211,7 @@
 }
 
 .overview p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #3a4a6a;
   line-height: 1.65;
   word-break: keep-all;
@@ -231,17 +232,6 @@
 }
 
 /* 상단 탭 바 */
-/* ⭐ 탭바 레이아웃 — 탭들 왼쪽, 링크 오른쪽 끝 */
-.detail-tabs {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-end;
-  gap: 4px;
-  border-bottom: 1.5px solid #dce8ff;
-  background: #fff;
-  padding: 10px 12px 0;
-  flex-shrink: 0;
-}
 
 /* ⭐ 링크 영역 — 오른쪽 끝으로 밀기 */
 .tab-links {
@@ -301,27 +291,37 @@
 .icon-btn:hover::after {
   opacity: 1;
 }
+/* ⭐ 탭바 레이아웃 — 탭들 왼쪽, 링크 오른쪽 끝 */
+.detail-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 7px;
+  background: #fff;
+  padding: 10px 10px 0 0;
+  flex-shrink: 0;
+}
+
 .dtab {
-  font-family: inherit;
-  padding: 8px 16px;
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  padding: 10px 20px;
   font-size: 1.2rem;
-  cursor: pointer;
-  background: #f0f4ff;
-  border: 1.5px solid #d0d7e2;
+  font-weight: bold;
+  background: #edf4ff;
+  border: 1px solid #e4eeff;
   border-bottom: none;
   border-radius: 8px 8px 0 0;
   color: #5577aa;
-  font-weight: bold;
 }
 .dtab:hover {
   background: #dce8ff;
   color: #0040cc;
 }
 .dtab.active {
-  background: #f7faff;
+  z-index: 1;
+  background: #fff;
   color: #0040cc;
-  border-color: #0064ff;
-  border-bottom: 2px solid #f7faff;
+  border-color: #e4eeff;
   margin-bottom: -1.5px;
 }
 
@@ -331,8 +331,9 @@
   overflow-y: auto;
   padding: 20px;
   scrollbar-width: none;
-  background: #f7faff;
-  border-radius: 0 0 10px 10px;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 0 10px 10px 10px;
 }
 .detail-body::-webkit-scrollbar {
   width: 0;
@@ -344,7 +345,67 @@
 .dtab-content.active {
   display: block;
 }
+/* dtab-content 안에 들어가는 이미지를 컨텐츠 너비에 맞춤 */
+.dtab-content img {
+  width: 100%; /* 부모 너비에 가득 차도록 설정 */
+  max-width: 100%; /* 원본 이미지 크기보다 커져서 깨지는 것 방지 */
+  height: auto; /* 가로 비율에 맞춰 세로 높이 자동 조절 */
+  display: block; /* 이미지 하단의 미세한 여백(baseline) 제거 */
+} /* 클릭할 수 있는 원본 이미지에 마우스 포인터 변경 */
+.clickable-img {
+  cursor: zoom-in;
+  transition: transform 0.2s;
+}
+.clickable-img:hover {
+  transform: scale(1.01); /* 살짝 커지는 효과 */
+}
 
+/* 모달 배경 (기본값 숨김) */
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999; /* 최상단에 위치 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* 짙은 검은색 반투명 배경 */
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out; /* 배경 클릭 시 닫히는 느낌 제공 */
+}
+
+/* 모달이 열렸을 때 flex로 변경하기 위한 클래스 */
+.img-modal.show {
+  display: flex;
+}
+
+/* 모달 안의 이미지 스타일 */
+.img-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+  cursor: zoom-in; /* 기본적으로 확대할 수 있다는 표시 */
+}
+
+/* 💡 클릭 시 확대되는 클래스 */
+.img-modal-content.zoomed {
+  transform: scale(1.5); /* 1.5배 확대 (원하는 배율로 조절 가능) */
+  cursor: zoom-out;
+}
+
+/* 닫기 버튼 (&times; 모양) */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
 /* ================================================
    내부 탭 그룹 (Tech Stack — AI/Tools/FE/BE)
    ================================================ */
@@ -405,86 +466,84 @@
   padding: 0;
   margin: 0;
 }
-.detail-ul li {
+
+/* 문제, 기여, 성과를 감싸는 최상위 li */
+.detail-ul > li {
   font-size: 1.2rem;
   color: #3a4a6a;
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.65;
+  line-height: 1.5;
+  display: flex; /* 중요: 제목과 내용을 가로로 정렬 */
+  align-items: flex-start;
+  gap: 8px; /* 제목과 내용 사이의 간격 */
+  margin-bottom: 4px; /* 항목 간의 하단 여백 추가 */
 }
-.detail-ul li::before {
+
+/* 기여 내부의 서브 리스트(ul) */
+.detail-ul .sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* 남은 너비를 꽉 채우도록 설정 */
+}
+
+/* 서브 리스트 내부의 li (각각의 기여 항목들) */
+.detail-ul .sub-list li,
+.detail-ul p {
+  font-size: 1.2rem;
+  color: #3a4a6a;
+  padding-left: 14px; /* 앞에 파란 점이 들어갈 공간 */
+  position: relative;
+  line-height: 1.5;
+}
+
+/* 두 번째 항목부터만 파란 점 생기도록 설정 */
+.detail-ul .sub-list li:before {
   content: "";
   position: absolute;
   left: 0;
-  top: 11px;
+  top: 13px;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background: #b8d4ff;
 }
-.detail-ul li strong {
+.detail-ul li strong,
+.detail-ul p strong {
   color: #0064ff;
 }
 
+.detail-ul li strong {
+  font-size: 1.25rem;
+  white-space: nowrap; /* 중요: '문제/기여/성과' 글자가 찌그러지지 않게 방지 */
+}
 /* ================================================
    Role — 버튼 없이 세로 나열
    ================================================ */
 .role-flat {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 4px;
+  display: grid; /* Flex 대신 Grid 사용 */
+  grid-template-columns: repeat(2, 1fr); /* 가로로 2개씩 똑같은 비율로 배치 */
+  gap: 10px; /* 상하좌우 카드 사이의 간격 (자유롭게 조절 가능) */
+  /* margin-top: 4px; */
 }
+
 .role-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  /* 카드 느낌을 더 살리고 싶다면 아래 주석을 해제해 보세요 */
+  /* background: #fbfdff; */
+  /* padding: 16px; */
+  /* border-radius: 8px; */
 }
+
 .role-group-label {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #3683f5;
+  color: black;
   padding-bottom: 6px;
   border-bottom: 1px solid #eef4ff;
 }
-
-/* ================================================
-   Growth 카드
-   ================================================ */
-.growth-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-.growth-card {
-  background: #fff;
-  border: 1px solid #e0eaff;
-  border-radius: 12px;
-  padding: 14px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  box-shadow: 0 2px 8px rgba(54, 131, 245, 0.05);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-}
-.growth-card:hover {
-  box-shadow: 0 4px 18px rgba(54, 131, 245, 0.12);
-  transform: translateY(-2px);
-}
-.growth-card-title {
-  font-weight: bold;
-  color: #3683f5;
-  font-size: 1.2rem;
-}
-.growth-card-desc {
+.role-group li {
   font-size: 1.1rem;
-  line-height: 1.75;
-  color: #444;
-  margin: 0;
-}
-.growth-card-desc strong {
-  color: #0064ff;
+  line-height: 1.8;
 }

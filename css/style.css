@@ -350,3 +350,12 @@ nav a:hover {
   overflow: hidden;
   box-sizing: border-box;
 }
+/* 모달이 열려서 body에 클래스가 붙으면, 슬라이드 요소들을 화면에서 완전히 숨깁니다 */
+body.modal-open .slide-counter,
+body.modal-open .slide-caption,
+body.modal-open .slide-controls,
+body.modal-open .layout-header {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease; /* 부드럽게 사라지도록 효과 추가 */
+}
