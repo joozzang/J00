@@ -212,6 +212,7 @@ nav a:hover {
   margin: 0;
   background-color: #153b81;
   border-radius: 5px 5px 0 0;
+  box-shadow: 6px 0 6px rgba(0, 100, 255, 0.05);
   padding: 20px 25px;
   z-index: 100;
 }
@@ -263,6 +264,7 @@ nav a:hover {
   bottom: 47px;
   border: 1.5px solid #fff;
   border-radius: 0 0 10px 10px;
+  box-shadow: 6px 6px 6px rgba(0, 100, 255, 0.05);
 
   width: auto;
   height: auto;
@@ -272,15 +274,16 @@ nav a:hover {
   transform: none;
 }
 .layout-content {
-  position: relative; /* 이거 중요 */
-  z-index: 1;
-  overflow: hidden;
-  height: 100%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  position: relative; /* 이거 중요 */
+  z-index: 1;
+  padding: 20px;
   gap: 20px;
+  height: 100%;
+  overflow: hidden;
   border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
 }
 /* ------------------ Tab------------------ */
 .switcher {
@@ -299,14 +302,12 @@ nav a:hover {
   background: #f4f8ff;
   cursor: pointer;
   border: 1px solid #dce8ff;
-  /* border: none; */
   border-radius: 5px;
 }
 .tab:hover,
 .tab.tab.active {
   background: #fff;
-  border: 1.5px solid #fff;
-  box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
+  border: 1px solid #e4eeff;
 }
 .tab-main {
   display: flex;
@@ -360,17 +361,16 @@ nav a:hover {
 
 .md-layout {
   height: 100%;
-  overflow-y: auto;
-  display: flex;
+  overflow: hidden;
+  display: grid;
   flex-direction: column;
-  /* padding: 20px; */
   scrollbar-width: none;
+  flex: 1;
+  min-height: 0;
   box-sizing: border-box;
   display: grid;
   gap: 20px;
   align-items: stretch; /* ⭐ 양쪽 높이 동일 */
-  flex: 1;
-  min-height: 0;
 }
 
 .md-list {

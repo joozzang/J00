@@ -2,7 +2,8 @@
    1. 레이아웃 및 글로벌 트랙 (Layout & Track)
    ========================================================================== */
 .switcher {
-  gap: 10px;
+  gap: 20px;
+  flex-shrink: 0;
 }
 .track {
   width: 300%;
@@ -12,36 +13,43 @@
   width: 33.3%;
 }
 
+/* md-layout: layout-container 높이를 꽉 채우도록 */
 .md-layout {
   display: grid;
-  grid-template-columns: 2.01fr 1fr;
+  grid-template-columns: 2.04fr 1fr;
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
 }
+
+/* md-left: overview 고정 + detail이 남은 공간 전부 */
 .md-left {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  height: 100%;
+  overflow: hidden;
+  min-height: 0;
 }
 
+/* md-right: image-slider 고정 + tech가 남은 공간 전부 */
 .md-right {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-.detail {
-  border: none;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
   overflow: hidden;
-  padding: 0;
+  min-height: 0;
 }
+
 .award-badge {
   display: inline-block;
   background: linear-gradient(135deg, #ffe066, #ffb300);
   color: #7a4f00;
   font-size: 1rem;
   width: 100px;
-  padding: 0;
   border-radius: 20px;
+  margin-left: 10px;
   vertical-align: middle;
 }
 
@@ -52,8 +60,10 @@
   position: relative;
   width: 100%;
   border: 1px solid #e4eeff;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .slides-wrap {
@@ -69,48 +79,45 @@
   display: block;
 }
 
-/* 슬라이더 이미지 높이 명시 */
 .slide img {
   width: 100%;
-  height: 290px;
+  height: 295px;
   aspect-ratio: 2 / 1;
   object-fit: cover;
   display: block;
   object-position: center;
 }
 
-/* ⭐ 슬라이드 카운터 — 오버레이 칩 (중복 스타일 통합) */
+.slide-counter,
+.slide-caption,
+.slide-btn {
+  background: #ffffff60;
+  color: #0d3da4;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
 .slide-counter {
   position: absolute;
-  top: 12px;
-  left: 8px;
+  top: 10px;
+  left: 5px;
   z-index: 10;
-  font-weight: bold;
-  font-size: 0.85em;
-  background: #fff;
-  color: #1a2a4a;
   padding: 3px 8px;
-  border-radius: 6px;
 }
 
-/* ⭐ 캡션 — 이미지 우측 하단 위에 오버레이 */
 .slide-caption {
   display: block;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 5px;
   z-index: 10;
-  background: #fff;
-  color: #1a2a4a;
-  font-size: 0.82rem;
-  padding: 4px 10px;
-  border-radius: 10px;
+  padding: 4px 15px;
 }
 
-/* ⭐ 컨트롤 버튼들 — 이미지 위에 오버레이 */
 .slide-controls {
   position: absolute;
-  left: 10px;
+  left: 5px;
   bottom: 10px;
   display: flex;
   gap: 6px;
@@ -120,17 +127,12 @@
 }
 
 .slide-btn {
-  background: #fff;
-  border: none;
-  border-radius: 10px;
   width: 25px;
   height: 25px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   line-height: 1;
-  color: #0040cc;
-  font-size: 0.9em;
   cursor: pointer;
 }
 
@@ -140,151 +142,96 @@
 }
 
 /* ==========================================================================
-   3. 프로젝트 개요 및 기술 스택 (Overview & Tech Stack)
+   3. 프로젝트 개요 (Overview)
    ========================================================================== */
 .overview {
-  border: 1px solid #e4eeff;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 5px;
+  padding: 20px 25px;
   background: #fff;
+  border: 1px solid #e4eeff;
+  flex-shrink: 0;
 }
 
-.title {
+.title,
+.tech-label {
   font-size: 1.3rem;
-  font-weight: bold;
-  color: #0040cc;
+  font-weight: 600;
+  color: #0d3da4;
   margin-bottom: 6px;
+  line-height: 1.7;
 }
 
 .overview p {
   font-size: 1.2rem;
   color: #3a4a6a;
-  line-height: 1.65;
   word-break: keep-all;
-}
-
-.tech {
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-sizing: border-box;
-  border: 1px solid #e4eeff;
-}
-
-.tech-label {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #0040cc;
-  margin-bottom: 20px;
-}
-
-.chip-groups {
-  display: flex;
-  flex-direction: column;
-}
-
-.chip-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap; /* 문법 오류 유발하던 깨진 row-gap 제거 */
-}
-
-.chip {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  transition:
-    transform 0.15s,
-    filter 0.15s;
-}
-
-.chip:hover {
-  transform: translateY(-1px);
-  filter: brightness(0.95);
-}
-
-.chip.ai {
-  background-color: #f3e8ff;
-  color: #6b21a8;
-  border: 1px solid #e9d5ff;
-}
-
-.chip.fe {
-  background-color: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #bae6fd;
-}
-
-.chip.be {
-  background-color: #e6f4ea;
-  color: #137333;
-  border: 1px solid #ceead6;
-}
-
-.chip.tool {
-  background-color: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
    4. 상세 내용 영역 및 상단 메인 탭바 (Detail & Main Tabs)
    ========================================================================== */
 
+/* detail: md-left의 남은 공간 전부 차지, 내부 세로 flex */
+.detail {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  min-height: 0;
+  flex: 1;
+}
+
 .detail-tabs {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
   gap: 7px;
-  /* background: #fff; */
-  /* padding: 10px 10px 0 0; */
   flex-shrink: 0;
 }
 
 .dtab {
   font-family: "Pretendard";
-  padding: 10px 20px;
+  padding: 10px 25px;
   font-size: 1.2rem;
-  font-weight: bold;
-  background: #fff;
+  font-weight: 600;
+  background: #f7faff;
   border: 1px solid #e4eeff;
   border-radius: 8px 8px 0 0;
-  color: #5577aa;
+  color: #345280;
   cursor: pointer;
   border-bottom: none;
+  line-height: 1.5;
 }
 
 .dtab:hover {
   background: #fff;
-  color: #0040cc;
+  color: #0d3da4;
 }
 
 .dtab.active {
   z-index: 1;
-  /* background: #f7faff; */
-  color: #0040cc;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: #fff;
+  color: #0d3da4;
   border: 1px solid #e4eeff;
   border-bottom: none;
   margin-bottom: -1px;
 }
 
-/* 메인 내용 몸체 */
+/* detail-body: 남은 높이 전부 차지하고 내부 스크롤 */
 .detail-body {
   flex: 1;
-  overflow-y: auto;
-  padding: 20px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 16px 20px;
   scrollbar-width: none;
   background: #fff;
   border: 1px solid #e4eeff;
   border-radius: 0 10px 10px 10px;
-}
-
-.detail-body::-webkit-scrollbar {
-  width: 0;
+  box-sizing: border-box;
 }
 
 .dtab-content {
@@ -295,7 +242,6 @@
   display: block;
 }
 
-/* dtab-content 안에 들어가는 범용 이미지 맞춤 설정 */
 .dtab-content img {
   width: 100%;
   max-width: 100%;
@@ -304,53 +250,54 @@
 }
 
 /* ==========================================================================
-   5. 하단 서브 탭 그룹 — 버튼 및 컨텐츠 (Sub Tab Groups)
+   5. 하단 서브 탭 그룹 (Sub Tab Groups)
    ========================================================================== */
 .tab-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .tab-btn {
   font-family: inherit;
-  padding: 7px 14px;
+  padding: 10px 0;
   font-size: 1.2rem;
+  font-weight: 400;
   cursor: pointer;
   background: #fff;
   border: 1px solid #e4eeff;
-  color: #5577aa;
-  border-radius: 8px;
+  color: #345280;
+  border-radius: 5px;
   flex: 1 1 auto;
   min-width: 0;
   white-space: nowrap;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    transform 0.15s;
 }
 
 .tab-btn:hover {
   background: #fff;
-  color: #0040cc;
+  color: #0d3da4;
   border: 1px solid #e4eeff;
-  transform: translateY(-1px);
 }
 
 .tab-btn.active {
-  background: #fff;
+  background: #f7faff;
   border: 1px solid #e4eeff;
-  color: #0040cc;
+  color: #0d3da4;
+  font-weight: 500;
   transform: none;
 }
 
+/* growth 탭버튼만 2x2 grid로 */
+#dtab-drawry-growth .tab-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .tab-contents {
-  background: #fff;
+  background: #f7faff;
   border: 1px solid #e4eeff;
-  border-radius: 10px;
-  padding: 14px 16px;
-  min-height: 80px;
+  border-radius: 5px;
+  padding: 10px 20px;
 }
 
 .tab-content {
@@ -362,7 +309,7 @@
 }
 
 /* ==========================================================================
-   6. 서브 탭 내 리스트 컴포넌트 — 문제, 기여, 성과 구조 (Detail UI List)
+   6. 서브 탭 내 리스트 컴포넌트 (Detail UI List)
    ========================================================================== */
 .detail-ul {
   list-style: none;
@@ -370,13 +317,13 @@
   flex-direction: column;
   padding: 0;
   margin: 0;
+  gap: 4px;
 }
 
-/* 최상위 li (문제, 기여, 성과 줄배치) */
 .detail-ul > li {
   font-size: 1.2rem;
   color: #3a4a6a;
-  line-height: 1.5;
+  line-height: 1.6;
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -385,15 +332,16 @@
 
 .detail-ul li strong,
 .detail-ul p strong {
-  color: #0040cc;
+  color: #3a4a6a;
 }
 
 .detail-ul li strong {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   white-space: nowrap;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
-/* 기여 내부의 서브 리스트(ul) */
 .detail-ul .sub-list {
   list-style: none;
   padding: 0;
@@ -401,26 +349,12 @@
   flex: 1;
 }
 
-/* 서브 리스트 내부의 li 및 본문 p 태그 */
 .detail-ul .sub-list li,
 .detail-ul p {
   font-size: 1.2rem;
   color: #3a4a6a;
-  padding-left: 14px;
   position: relative;
-  line-height: 1.5;
-}
-
-/* 두 번째 리스트 항목부터 불릿(파란 점) 생성 */
-.detail-ul .sub-list li:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 13px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #b8d4ff;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -437,18 +371,24 @@
   flex-direction: column;
   gap: 5px;
 }
-
 .role-group-label {
   font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #eef4ff;
+  font-weight: 600;
+  color: #0d3da4;
+  padding: 6px 12px;
+  border-left: 3px solid #4d8aff;
+  background: #f5f8ff;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+}
+.role-group ul {
+  list-style: none;
 }
 
 .role-group li {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
+  color: #3a4a6a;
 }
 
 /* ==========================================================================
@@ -466,7 +406,7 @@
 .img-modal {
   display: none;
   position: fixed;
-  z-index: 99999; /* 다른 요소들이 치고 올라오지 못하도록 높게 설정 */
+  z-index: 99999;
   left: 0;
   top: 0;
   width: 100%;
@@ -509,7 +449,7 @@
    9. 외부 링크 및 툴팁 (Links & Tooltips)
    ========================================================================== */
 .tab-links {
-  margin-left: auto; /* 우측 끝 정렬 */
+  margin-left: auto;
   display: flex;
   align-items: center;
   padding-bottom: 6px;
@@ -542,7 +482,6 @@
   transform: scale(1.1);
 }
 
-/* 툴팁 오버레이 */
 .icon-btn::after {
   content: attr(data-label);
   position: absolute;
@@ -563,4 +502,76 @@
 
 .icon-btn:hover::after {
   opacity: 1;
+}
+
+/* ==========================================================================
+   10. 기술 스택 카드 (Tech Stack)
+   — md-right에서 슬라이더 아래 남은 높이 전부, 칩 세로 중앙 정렬
+   ========================================================================== */
+.tech {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  padding: 20px 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid #e4eeff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chip-groups {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chip-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 1rem;
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+.chip.ai {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+.chip.fe {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.chip.be {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+
+.chip.tool {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
 }
