@@ -32,14 +32,10 @@ body.dark nav a:hover {
   color: #ffffff;
 }
 
-/* ── canvas ── */
-body.dark #cc {
-  opacity: 0.4;
-}
-
 /* ── 레이아웃 공통 ── */
 body.dark .layout-header {
   background-color: #0a1a38;
+  border: 1px solid #90c8ff;
 }
 
 body.dark .layout-header h1 {
@@ -55,7 +51,7 @@ body.dark .close:hover {
 }
 
 body.dark .layout-container {
-  border-color: #0a1a38;
+  border-color: #90c8ff;
   background-color: #080f1a;
 }
 
@@ -99,7 +95,8 @@ body.dark .tab.active {
   box-shadow: 0 4px 16px rgba(0, 100, 255, 0.2);
 }
 
-body.dark .tab-title {
+body.dark .tab-title,
+body.dark .tab-period {
   color: #3a5a8a;
 }
 
@@ -107,11 +104,8 @@ body.dark .tab-name {
   color: #c8dcff;
 }
 
-body.dark .tab-period {
-  color: #3a5a8a;
-}
-
-body.dark .tab.active .tab-title {
+body.dark .tab.active .tab-title,
+body.dark .tab.active .tab-period {
   color: #6ab0ff;
 }
 
@@ -122,7 +116,7 @@ body.dark .tab.active .tab-name {
 /* ── viewport ── */
 body.dark .viewport {
   background: #080f1a;
-  border-color: #0d1520;
+  border-color: #90c8ff;
 }
 
 /* ── md-list ── */
@@ -144,7 +138,8 @@ body.dark .md-item:hover {
 
 body.dark .md-item.active {
   background: #0a1a38;
-  border-left-color: #90c8ff;
+  border: 1px solid #90c8ff;
+  border-radius: 5px 5px 0 0;
 }
 
 body.dark .md-item-title {
@@ -194,7 +189,7 @@ body.dark .md-detail-ul li strong {
 /* ── md-keypoints ── */
 body.dark .md-keypoints {
   background: #0d1520;
-  border-color: #1a2a4a;
+  border-color: #90c8ff;
   box-shadow: none;
 }
 

@@ -1,3 +1,6 @@
+.switcher {
+  gap: 20px;
+}
 .track {
   width: 200%;
 }
@@ -11,7 +14,7 @@
 }
 .md-list {
   border: 1px solid #e4eeff;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #fff;
 }
 .md-item {
@@ -39,11 +42,11 @@
 }
 
 .md-item.active {
-  background: #edf4ff;
+  background: #f7faff;
 }
 
 .md-item.active .md-item-title {
-  color: #0040cc;
+  color: #0d3da4;
 }
 
 .md-item-texts {
@@ -53,6 +56,7 @@
 
 .md-item-title {
   font-size: 1.3rem;
+  font-weight: 500;
   color: #2a3a5a;
   line-height: 1.5;
 }
@@ -66,76 +70,7 @@
 }
 
 .md-item.active .md-item-chevron {
-  color: #0064ff;
-}
-
-/* ------------------ Tab------------------ */
-
-.switcher {
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.tab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: "Gyeonggi_Title_Medium", sans-serif;
-  gap: 17px;
-  padding: 25px;
-  background: #f4f8ff;
-  cursor: pointer;
-  border: 1px solid #dce8ff;
-  border-radius: 14px;
-}
-.tab:hover {
-  background: #ffffff;
-  border: 1.5px solid #0064ff;
-  box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
-}
-.tab.active {
-  background: #ffffff;
-  border: 1.5px solid #0064ff;
-  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
-}
-
-.tab-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #8899bb;
-  letter-spacing: 0.01em;
-}
-
-.tab-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 100%;
-}
-
-.tab-name {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1a2a4a;
-}
-
-.tab-period {
-  font-size: 1.3rem;
-  white-space: nowrap;
-  color: #5577aa;
-  flex-shrink: 0;
-  text-align: right;
-  align-self: flex-end;
-}
-
-.tab.active .tab-title {
-  color: #0064ff;
-}
-
-.tab.active .tab-name {
-  color: #0040cc;
+  color: #0d3da4;
 }
 
 /* ── 디테일 전체 ── */
@@ -155,7 +90,7 @@
   box-sizing: border-box;
   overflow: hidden;
   border: 1px solid #e4eeff;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #f7faff;
   box-shadow: 0 2px 8px rgba(0, 80, 200, 0.05);
   padding: 20px 25px;
@@ -178,13 +113,15 @@
 }
 .md-detail-title {
   font-size: 1.3rem;
-  color: #0040cc;
+  font-weight: 500;
+  color: #0d3da4;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 
 .md-detail-sub {
-  font-size: 1.1rem; /* 1.4 → 1.2, 위계 확보 */
+  font-size: 1.2rem;
+  font-weight: 400;
   color: #99aac0; /* 조금 더 흐리게 */
   margin-bottom: 0;
   padding-bottom: 15px; /* ⭐ 15px → 24px, 선이 더 아래로 */
@@ -213,7 +150,7 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 13px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -221,7 +158,7 @@
 }
 
 .md-detail-ul li strong {
-  color: #0064ff;
+  color: #0d3da4;
 }
 
 /* ── 키포인트 하단 (1/3) ── */
@@ -230,7 +167,7 @@
   padding: 20px;
   background: #fff; /* ⭐ 흰 배경 — md-detail-body랑 통일감 */
   border: 1px solid #e4eeff; /* ⭐ body랑 동일한 border */
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 80, 200, 0.05);
   display: none;
   flex-direction: column;
@@ -245,14 +182,15 @@
 
 .md-keypoints-label {
   font-size: 1.3rem;
+  font-weight: 500;
   color: #3a4a6a;
   text-transform: uppercase;
 }
 
 .md-keypoints-grid {
   display: flex;
-  margin: 0 10px;
-  gap: 10px;
+  margin: 0 30px;
+  gap: 20px;
 }
 
 .md-keypoint {
@@ -260,10 +198,10 @@
   text-align: center;
   padding: 20px 0;
   font-size: 1.2rem;
-  color: #0040cc; /* ⭐ 흰 배경이니까 진한 텍스트로 */
+  color: #0d3da4; /* ⭐ 흰 배경이니까 진한 텍스트로 */
   background: #f7faff;
   border: 1px solid #e4eeff; /* ⭐ body랑 동일한 border */
-  border-radius: 10px;
+  border-radius: 5px;
   transition:
     background 0.15s,
     border-color 0.15s;

@@ -1,19 +1,76 @@
 /* ------------------ Font Face ------------------ */
+
 @font-face {
-  font-family: "Gyeonggi_Title_Medium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Medium.woff")
-    format("woff");
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2")
+    format("woff2");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2")
+    format("woff2");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2")
+    format("woff2");
   font-weight: 500;
-  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "GyeonggiTitleLight";
-  src: url("https://cdn.jsdelivr.net/gh/wizfile/font/GyeonggiTitleLight.woff")
-    format("woff");
-  font-style: normal;
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
 /* ------------------ Global Reset ------------------ */
 *,
 *::before,
@@ -27,7 +84,7 @@ html {
 }
 body {
   background-color: #f0f4ff;
-  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
 body.modal-open {
   overflow: hidden;
@@ -58,10 +115,10 @@ body.modal-open {
 }
 /* ------------------ Title Animation ------------------ */
 .name {
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-family: "Pretendard";
   color: #1d77fd;
   font-size: 10em;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   text-shadow:
     0 8px 9px #d5e6ff,
@@ -89,7 +146,6 @@ body.modal-open {
 
 /* ------------------ Navigation ------------------ */
 nav {
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   display: flex;
   justify-content: center;
   gap: 100px;
@@ -100,15 +156,16 @@ nav {
     transform 0.8s;
 }
 nav a {
+  font-family: "Pretendard";
+  font-weight: 700;
   padding: 25px 85px;
   /* width: 400px; */
   text-align: center;
-  border-radius: 999px;
+  border-radius: 5px;
   border: none;
   color: #1d77fd;
   background-color: #fff;
   font-size: 2.5em;
-  font-weight: bold;
   cursor: pointer;
   transition:
     background 0.2s,
@@ -118,7 +175,6 @@ nav a {
 }
 nav a:hover {
   cursor: pointer;
-  transform: scale(1.2);
   background: #1d77fd;
   color: #fff;
 }
@@ -145,67 +201,68 @@ nav a:hover {
   background: none;
 }
 
-/* ------------------ Bookmark------------------ */
-
-.bookmark-tabs {
-  position: absolute;
-  top: 35px;
-  left: 100.1%;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 0;
-}
-.bookmark {
-  background-color: #0064ff;
-  border: 3px solid #0064ff;
-  padding: 17px 10px;
-  color: inherit;
-  border-radius: 0 10px 10px 0;
-  font-size: 1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.bookmark.active {
-  background-color: #f8fbff;
-  color: #0064ff;
-  border: 2px solid #0064ff;
-}
-/* ------------------ Tab Page Layout ------------------ */
-
+/* ------------------ Layout Header ------------------ */
 .layout-header {
   position: fixed;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* 모든 요소를 세로 중앙(한 줄) 정렬 */
+  gap: 15px; /* h1과 탭들 사이, 그리고 탭 간의 간격 */
 
   top: 47px;
-  margin: 0; /* ⭐ margin 제거하고 left/right로 직접 맞추기 */
-
-  background-color: #0064ff;
-  border-radius: 13px 13px 0 0;
-  padding: 23px 25px;
-  z-index: 100;
-  /* border: 3px solid #dce8ff; */
-}
-.layout-header h1 {
   margin: 0;
-  font-size: 1.6rem;
+  background-color: #153b81;
+  border-radius: 5px 5px 0 0;
+  padding: 20px 25px;
+  z-index: 100;
+}
+
+.layout-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+/* ------------------ Inline Bookmark (h1 옆에 나열) ------------------ */
+.bookmark {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0 14px;
+  color: rgba(228, 228, 228, 0.75); /* 글자색도 살짝 흐리게 */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.bookmark:hover {
   color: #fff;
 }
+
+.layout-header .close {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: auto;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ------------------ Tab Page Layout ------------------ */
 .layout-header,
 .layout-container {
-  left: 57px;
-  right: 135px;
+  left: 50px;
+  right: 90px;
 }
 .layout-container {
   position: fixed;
-  top: 117px; /* 헤더 top(60) + 헤더 높이에 맞게 조정 */
+  top: 115px; /* 헤더 top(60) + 헤더 높이에 맞게 조정 */
   bottom: 47px;
-  border: 2px solid #dce8ff;
-  border-radius: 0 0 20px 20px;
+  border: 1.5px solid #fff;
+  border-radius: 0 0 10px 10px;
 
   width: auto;
   height: auto;
@@ -223,24 +280,74 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
 }
-.close {
-  margin: 0;
-  text-decoration: none;
-  font-size: 1.7em;
-  color: #fff !important;
+/* ------------------ Tab------------------ */
+.switcher {
+  display: flex;
+  flex-shrink: 0;
 }
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Pretendard", sans-serif;
+  gap: 10px;
+  padding: 25px;
+  background: #f4f8ff;
+  cursor: pointer;
+  border: 1px solid #dce8ff;
+  /* border: none; */
+  border-radius: 5px;
+}
+.tab:hover,
+.tab.tab.active {
+  background: #fff;
+  border: 1.5px solid #fff;
+  box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
+}
+.tab-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+.tab-title,
+.tab-period {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5577aa;
+}
+.tab-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #345280;
+}
+.tab:hover .tab-name {
+  color: #1e3a5f;
+}
+.tab-period {
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.tab.active .tab-name {
+  color: #0d3da4;
+}
+
 /* ================================================
    슬라이드 뷰포트
    ================================================ */
 .viewport {
   flex: 1;
   overflow: hidden;
-  border: 1.5px solid #0064ff;
-  border-radius: 16px;
+  border: none;
   min-height: 0;
-  background: #ffffff;
+  background: none;
 }
 /* ── track : 3패널, 부드러운 전환 ── */
 
@@ -251,91 +358,14 @@ nav a:hover {
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ------------------ Tab------------------ */
-
-.switcher {
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.tab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: "Gyeonggi_Title_Medium", sans-serif;
-  gap: 17px;
-  padding: 25px;
-  background: #f4f8ff;
-  cursor: pointer;
-  border: 1px solid #dce8ff;
-  border-radius: 14px;
-}
-.tab:hover {
-  background: #ffffff;
-  border: 1.5px solid #0064ff;
-  box-shadow: 0 6px 20px rgba(0, 100, 255, 0.12);
-}
-.tab.active {
-  background: #ffffff;
-  border: 1.5px solid #0064ff;
-  box-shadow: 0 4px 16px rgba(0, 100, 255, 0.13);
-}
-
-.tab-title {
-  font-size: 1.3rem;
-  color: #8899bb;
-  letter-spacing: 0.01em;
-}
-
-.tab-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 100%;
-}
-
-.tab-name {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1a2a4a;
-}
-
-.tab-period {
-  font-size: 1.3rem;
-  white-space: nowrap;
-  color: #5577aa;
-  flex-shrink: 0;
-  text-align: right;
-  align-self: flex-end;
-}
-
-.tab.active .tab-title {
-  color: #0064ff;
-}
-
-.tab.active .tab-name {
-  color: #0040cc;
-}
-
-/* ================================================
-   패널
-   ================================================ */
-.panel {
+.md-layout {
   height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
   scrollbar-width: none;
   box-sizing: border-box;
-}
-.panel::-webkit-scrollbar {
-  width: 0;
-}
-
-.md-layout {
   display: grid;
   gap: 20px;
   align-items: stretch; /* ⭐ 양쪽 높이 동일 */

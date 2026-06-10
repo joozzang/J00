@@ -1,7 +1,22 @@
-/* ── track : 3패널, 부드러운 전환 ── */
+/* ==========================================================================
+   1. 레이아웃 및 글로벌 트랙 (Layout & Track)
+   ========================================================================== */
 .track {
   width: 300%;
 }
+
+.panel {
+  width: 33.333%;
+}
+
+.md-layout {
+  grid-template-columns: 1fr 2.1fr;
+}
+
+.md-list {
+  gap: 20px;
+}
+
 .award-badge {
   display: inline-block;
   background: linear-gradient(135deg, #ffe066, #ffb300);
@@ -12,48 +27,31 @@
   border-radius: 20px;
   vertical-align: middle;
 }
-/* ================================================
-   패널
-   ================================================ */
-.panel {
-  width: 33.333%;
-}
 
-.md-layout {
-  grid-template-columns: 1fr 2.1fr;
-}
-.md-list {
-  gap: 20px;
-}
-/* ================================================
-   이미지 슬라이더
-   ================================================ */
+/* ==========================================================================
+   2. 이미지 슬라이더 컴포넌트 (Image Slider)
+   ========================================================================== */
 .image-slider {
   position: relative;
   width: 100%;
-  border: 1px solid #e4eeff;
+  border: 1px solid #0064ff;
   border-radius: 10px;
   overflow: hidden;
 }
-.slide-counter {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 10;
-  font-weight: bold;
-  font-size: 0.85em;
-  background: rgba(255, 255, 255, 0.88);
-  color: #3683f5;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
+
 .slides-wrap {
   width: 100%;
 }
+
 .slide {
   display: none;
   position: relative;
 }
+
+.slide.active {
+  display: block;
+}
+
 /* 슬라이더 이미지 높이 명시 */
 .slide img {
   width: 100%;
@@ -63,69 +61,74 @@
   display: block;
   object-position: center;
 }
-.slide.active {
-  display: block;
-}
-/* ⭐ 캡션 — 이미지 하단에 오버레이 */
-.slide-caption {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  /* background: rgba(0, 0, 0, 0.45); */
-  color: black;
-  font-size: 0.82em;
-  padding: 5px 10px;
-  text-align: right;
-}
 
-/* ⭐ 슬라이드 카운터 */
+/* ⭐ 슬라이드 카운터 — 오버레이 칩 (중복 스타일 통합) */
 .slide-counter {
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 8px;
   z-index: 10;
   font-weight: bold;
   font-size: 0.85em;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
+  background: #fff;
+  color: #1a2a4a;
   padding: 3px 8px;
   border-radius: 6px;
+}
+
+/* ⭐ 캡션 — 이미지 우측 하단 위에 오버레이 */
+.slide-caption {
+  display: block;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: #fff;
+  color: #1a2a4a;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: 10px;
 }
 
 /* ⭐ 컨트롤 버튼들 — 이미지 위에 오버레이 */
 .slide-controls {
   position: absolute;
-  bottom: 8px;
-  left: 10%;
-  transform: translateX(-50%);
+  left: 10px;
+  bottom: 10px;
   display: flex;
   gap: 6px;
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 20px;
   z-index: 10;
+  background: none;
+  padding: 0;
 }
 
 .slide-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 4px 10px;
-  color: #fff;
+  border-radius: 10px;
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  color: #0040cc;
   font-size: 0.9em;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
 .slide-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #0040cc;
   color: #fff;
 }
+
+/* ==========================================================================
+   3. 프로젝트 개요 및 기술 스택 (Overview & Tech Stack)
+   ========================================================================== */
 .overview {
-  border: 1px solid #e4eeff;
+  border: 1px solid #0064ff;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .title {
@@ -136,14 +139,83 @@
 }
 
 .overview p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #3a4a6a;
   line-height: 1.65;
+  word-break: keep-all;
 }
 
-/* ================================================
-   오른쪽: detail (상단 탭 + 내용)
-   ================================================ */
+.tech {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #0064ff;
+}
+
+.tech-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0040cc;
+  margin-bottom: 20px;
+}
+
+.chip-groups {
+  display: flex;
+  flex-direction: column;
+}
+
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap; /* 문법 오류 유발하던 깨진 row-gap 제거 */
+}
+
+.chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+.chip.ai {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+.chip.fe {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.chip.be {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+
+.chip.tool {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==========================================================================
+   4. 상세 내용 영역 및 상단 메인 탭바 (Detail & Main Tabs)
+   ========================================================================== */
 .detail {
   border: none;
   display: flex;
@@ -155,37 +227,294 @@
   height: 100%;
 }
 
-/* 상단 탭 바 */
-/* ⭐ 탭바 레이아웃 — 탭들 왼쪽, 링크 오른쪽 끝 */
 .detail-tabs {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
-  gap: 4px;
-  border-bottom: 1.5px solid #dce8ff;
+  gap: 7px;
   background: #fff;
-  padding: 10px 12px 0;
+  padding: 10px 10px 0 0;
   flex-shrink: 0;
 }
 
-/* ⭐ 링크 영역 — 오른쪽 끝으로 밀기 */
+.dtab {
+  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 8px 8px 0 0;
+  color: #5577aa;
+  cursor: pointer;
+}
+
+.dtab:hover {
+  background: #dce8ff;
+  color: #0040cc;
+}
+
+.dtab.active {
+  z-index: 1;
+  background: #f7faff;
+  color: #0040cc;
+  border: 1px solid #0064ff;
+  border-bottom: none;
+  margin-bottom: -1px;
+}
+
+/* 메인 내용 몸체 */
+.detail-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-width: none;
+  background: #f7faff;
+  border: 1px solid #0064ff;
+  border-radius: 0 10px 10px 10px;
+}
+
+.detail-body::-webkit-scrollbar {
+  width: 0;
+}
+
+.dtab-content {
+  display: none;
+}
+
+.dtab-content.active {
+  display: block;
+}
+
+/* dtab-content 안에 들어가는 범용 이미지 맞춤 설정 */
+.dtab-content img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   5. 하단 서브 탭 그룹 — 버튼 및 컨텐츠 (Sub Tab Groups)
+   ========================================================================== */
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  font-family: inherit;
+  padding: 7px 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  color: #5577aa;
+  border-radius: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
+}
+
+.tab-btn:hover {
+  background: #fff;
+  color: #0040cc;
+  border: 1px solid #0064ff;
+  transform: translateY(-1px);
+}
+
+.tab-btn.active {
+  background: #fff;
+  border: 1px solid #0064ff;
+  color: #0040cc;
+  transform: none;
+}
+
+.tab-contents {
+  background: #fff;
+  border: 1px solid #0064ff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 80px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ==========================================================================
+   6. 서브 탭 내 리스트 컴포넌트 — 문제, 기여, 성과 구조 (Detail UI List)
+   ========================================================================== */
+.detail-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+/* 최상위 li (문제, 기여, 성과 줄배치) */
+.detail-ul > li {
+  font-size: 1.2rem;
+  color: #3a4a6a;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.detail-ul li strong,
+.detail-ul p strong {
+  color: #0040cc;
+}
+
+.detail-ul li strong {
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+/* 기여 내부의 서브 리스트(ul) */
+.detail-ul .sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+/* 서브 리스트 내부의 li 및 본문 p 태그 */
+.detail-ul .sub-list li,
+.detail-ul p {
+  font-size: 1.2rem;
+  color: #3a4a6a;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* 두 번째 리스트 항목부터 불릿(파란 점) 생성 */
+.detail-ul .sub-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b8d4ff;
+}
+
+/* ==========================================================================
+   7. 역할 영역 격자 컴포넌트 (Role Grid)
+   ========================================================================== */
+.role-flat {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.role-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.role-group-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eef4ff;
+}
+
+.role-group li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   8. 이미지 모달 팝업 (Image Modal Layer)
+   ========================================================================== */
+.clickable-img {
+  cursor: zoom-in;
+  transition: transform 0.2s;
+}
+
+.clickable-img:hover {
+  transform: scale(1.01);
+}
+
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999; /* 다른 요소들이 치고 올라오지 못하도록 높게 설정 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.img-modal.show {
+  display: flex;
+}
+
+.img-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+  cursor: zoom-in;
+}
+
+.img-modal-content.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   9. 외부 링크 및 툴팁 (Links & Tooltips)
+   ========================================================================== */
 .tab-links {
-  margin-left: auto; /* ⭐ 오른쪽 끝 */
+  margin-left: auto; /* 우측 끝 정렬 */
   display: flex;
   align-items: center;
-  gap: 6px;
   padding-bottom: 6px;
   flex-shrink: 0;
 }
 
-/* ⭐ 아이콘 버튼 */
 .icon-btn {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
   border-radius: 8px;
   transition:
     background 0.2s,
@@ -194,8 +523,8 @@
 }
 
 .icon-btn img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
@@ -204,17 +533,17 @@
   transform: scale(1.1);
 }
 
-/* ⭐ 툴팁 */
+/* 툴팁 오버레이 */
 .icon-btn::after {
   content: attr(data-label);
   position: absolute;
   bottom: calc(100% + 6px);
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
-  background: #1a2a4a;
+  background: #0064ff;
   color: #fff;
-  font-size: 1.1rem;
-  padding: 4px 10px;
+  font-size: 0.85rem;
+  padding: 4px 6px;
   border-radius: 6px;
   white-space: nowrap;
   opacity: 0;
@@ -225,249 +554,4 @@
 
 .icon-btn:hover::after {
   opacity: 1;
-}
-.dtab {
-  font-family: inherit;
-  padding: 8px 16px;
-  font-size: 1.3em;
-  cursor: pointer;
-  background: #f0f4ff;
-  border: 1.5px solid #d0d7e2;
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
-  color: #5577aa;
-  font-weight: bold;
-  transition:
-    background 0.18s,
-    color 0.18s;
-}
-.dtab:hover {
-  background: #dce8ff;
-  color: #0040cc;
-}
-.dtab.active {
-  background: #f7faff;
-  color: #0040cc;
-  border-color: #0064ff;
-  border-bottom: 2px solid #f7faff;
-  margin-bottom: -1.5px;
-}
-
-/* 내용 영역 */
-.detail-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px;
-  scrollbar-width: none;
-  background: #f7faff;
-  border-radius: 0 0 10px 10px;
-}
-.detail-body::-webkit-scrollbar {
-  width: 0;
-}
-
-.dtab-content {
-  display: none;
-}
-.dtab-content.active {
-  display: block;
-}
-
-/* ================================================
-   내부 탭 그룹 (Tech Stack — AI/Tools/FE/BE)
-   ================================================ */
-.tab-group {
-  margin-top: 12px;
-}
-.tab-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.tab-btn {
-  font-family: inherit;
-  padding: 7px 14px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  background: #f0f4ff;
-  border: 1px solid #d0d7e2;
-  border-radius: 8px;
-  flex: 1 1 auto;
-  min-width: 0;
-  white-space: nowrap;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    transform 0.15s;
-}
-.tab-btn:hover {
-  background: #dce8ff;
-  color: #0040cc;
-  transform: translateY(-1px);
-}
-.tab-btn.active {
-  background: #3683f5;
-  color: #fff;
-  border-color: #3683f5;
-  transform: none;
-}
-.tab-contents {
-  background: #fff;
-  border: 1px solid #d0d7e2;
-  border-radius: 10px;
-  padding: 14px 16px;
-  min-height: 80px;
-}
-.tab-content {
-  display: none;
-}
-.tab-content.active {
-  display: block;
-}
-
-/* 목록 */
-.detail-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  /* gap: 10px; */
-  padding: 0;
-  margin: 0;
-}
-.detail-ul li {
-  font-size: 1.2rem;
-  color: #3a4a6a;
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.65;
-}
-.detail-ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 11px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #b8d4ff;
-}
-.detail-ul li strong {
-  color: #0064ff;
-}
-
-/* ================================================
-   Role — 버튼 없이 세로 나열
-   ================================================ */
-.role-flat {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 4px;
-}
-.role-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.role-group-label {
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #3683f5;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #eef4ff;
-}
-
-/* ================================================
-   Problem-Solving 카드
-   ================================================ */
-.ps-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-.ps-card {
-  background: #fff;
-  border: 1px solid #e0eaff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(54, 131, 245, 0.06);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-}
-.ps-card:hover {
-  box-shadow: 0 4px 18px rgba(54, 131, 245, 0.14);
-  transform: translateY(-2px);
-}
-.ps-card-header {
-  background: linear-gradient(90deg, #3683f5 0%, #609bf5 100%);
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.4em;
-  padding: 9px 16px;
-}
-.ps-card-body {
-  padding: 10px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.ps-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 1.3em;
-  line-height: 1.6;
-}
-.ps-label {
-  min-width: 36px;
-  font-weight: bold;
-  color: #3683f5;
-  flex-shrink: 0;
-}
-.ps-text {
-  color: #444;
-}
-
-/* ================================================
-   Growth 카드
-   ================================================ */
-.growth-card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-.growth-card {
-  background: #fff;
-  border: 1px solid #e0eaff;
-  border-radius: 12px;
-  padding: 14px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  box-shadow: 0 2px 8px rgba(54, 131, 245, 0.05);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-}
-.growth-card:hover {
-  box-shadow: 0 4px 18px rgba(54, 131, 245, 0.12);
-  transform: translateY(-2px);
-}
-.growth-card-title {
-  font-weight: bold;
-  color: #3683f5;
-  font-size: 1.4em;
-}
-.growth-card-desc {
-  font-size: 1.3em;
-  line-height: 1.75;
-  color: #444;
-  margin: 0;
-}
-.growth-card-desc strong {
-  color: #0064ff;
 }

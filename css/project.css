@@ -1,6 +1,38 @@
-/* ── track : 3패널, 부드러운 전환 ── */
+/* ==========================================================================
+   1. 레이아웃 및 글로벌 트랙 (Layout & Track)
+   ========================================================================== */
+.switcher {
+  gap: 10px;
+}
 .track {
   width: 300%;
+}
+
+.panel {
+  width: 33.3%;
+}
+
+.md-layout {
+  display: grid;
+  grid-template-columns: 2.01fr 1fr;
+}
+.md-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.md-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detail {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
 }
 .award-badge {
   display: inline-block;
@@ -12,22 +44,10 @@
   border-radius: 20px;
   vertical-align: middle;
 }
-/* ================================================
-   패널
-   ================================================ */
-.panel {
-  width: 33.333%;
-}
 
-.md-layout {
-  grid-template-columns: 1fr 2.1fr;
-}
-.md-list {
-  gap: 20px;
-}
-/* ================================================
-   이미지 슬라이더
-   ================================================ */
+/* ==========================================================================
+   2. 이미지 슬라이더 컴포넌트 (Image Slider)
+   ========================================================================== */
 .image-slider {
   position: relative;
   width: 100%;
@@ -35,38 +55,31 @@
   border-radius: 10px;
   overflow: hidden;
 }
-.slide-counter {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 10;
-  font-weight: bold;
-  font-size: 0.85em;
-  background: rgba(255, 255, 255, 0.88);
-  color: #3683f5;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
+
 .slides-wrap {
   width: 100%;
 }
+
 .slide {
   display: none;
   position: relative;
 }
+
 .slide.active {
   display: block;
 }
+
 /* 슬라이더 이미지 높이 명시 */
 .slide img {
   width: 100%;
-  height: 270px;
+  height: 290px;
   aspect-ratio: 2 / 1;
   object-fit: cover;
   display: block;
   object-position: center;
 }
-/* ⭐ 슬라이드 카운터 */
+
+/* ⭐ 슬라이드 카운터 — 오버레이 칩 (중복 스타일 통합) */
 .slide-counter {
   position: absolute;
   top: 12px;
@@ -80,23 +93,20 @@
   border-radius: 6px;
 }
 
-/* ⭐ 캡션 — 이미지 하단에 오버레이 */ /* ⭐ 캡션 — 이미지 우측 하단 위에 오버레이 */
+/* ⭐ 캡션 — 이미지 우측 하단 위에 오버레이 */
 .slide-caption {
   display: block;
-  position: absolute; /* static에서 absolute로 변경하여 이미지 위로 띄움 */
-  top: 12px; /* 이미지 아래 테두리에서 12px 위로 */
-  right: 12px; /* 이미지 우측 테두리에서 12px 안으로 */
-  z-index: 10; /* 이미지보다 무조건 위에 보이도록 설정 */
-
-  /* 💡 이미지 위에 올라가므로, 글자가 잘 보이도록 배경과 투명도 조절 */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
   background: #fff;
   color: #1a2a4a;
-  font-size: 0.82rem; /* 얹어지는 느낌이라 크기를 살짝 아담하게 변경 */
-  padding: 4px 10px; /* 칩처럼 예쁘게 보이도록 안쪽 여백 */
-  border-radius: 10px; /* 둥글둥글한 포트폴리오 톤앤매너 맞춤 */
-
-  /* 기존에 있던 margin-bottom은 absolute 환경이므로 삭제 */
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: 10px;
 }
+
 /* ⭐ 컨트롤 버튼들 — 이미지 위에 오버레이 */
 .slide-controls {
   position: absolute;
@@ -108,99 +118,35 @@
   background: none;
   padding: 0;
 }
+
 .slide-btn {
   background: #fff;
   border: none;
   border-radius: 10px;
   width: 25px;
   height: 25px;
-
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   line-height: 1;
   color: #0040cc;
   font-size: 0.9em;
   cursor: pointer;
 }
+
 .slide-btn:hover {
   background: #0040cc;
   color: #fff;
 }
-/* ── Tech Stack 칩 ── */
-.tech {
-  width: 100%;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-sizing: border-box;
-  border: 1px solid #e4eeff;
-}
-.tech-label {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #0040cc;
-  margin-bottom: 20px;
-}
-.chip-groups {
-  display: flex;
-  flex-direction: column;
-}
 
-.chip-row {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* 칩 사이의 가로 간격 */
-  row-gap: px; /* 줄바꿈 되었을 때 세로 간격 */
-  flex-wrap: wrap; /* 자리가 부족하면 자동으로 다음 줄로 이동 */
-}
-
-/* 1. 모든 칩의 공통 스타일 (크기, 폰트, 정렬 맞춤) */
-.chip {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 15px;
-  font-size: 0.9rem; /* 가독성을 위해 기존 0.82에서 소폭 상향 */
-}
-
-/* 호버 시 포트폴리오 감성에 맞게 미세한 반응 효과 (선택사항) */
-.chip:hover {
-  transform: translateY(-1px);
-  filter: brightness(0.95);
-}
-
-/* 2. AI & ML 칩 스타일 (지적인 이미지의 은은한 라벤더 보라) */
-.chip.ai {
-  background-color: #f3e8ff;
-  color: #6b21a8;
-  border: 1px solid #e9d5ff;
-}
-
-/* 3. Frontend 칩 스타일 (본문 메인 테마와 연결되는 맑은 파랑) */
-.chip.fe {
-  background-color: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #bae6fd;
-}
-
-/* 4. Backend 칩 스타일 (안정감을 주는 톤다운된 민트 그린) */
-.chip.be {
-  background-color: #e6f4ea;
-  color: #137333;
-  border: 1px solid #ceead6;
-}
-
-/* 5. Tools 칩 스타일 (깔끔하고 튀지 않는 세련된 웜그레이) */
-.chip.tool {
-  background-color: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
-}
+/* ==========================================================================
+   3. 프로젝트 개요 및 기술 스택 (Overview & Tech Stack)
+   ========================================================================== */
 .overview {
   border: 1px solid #e4eeff;
   border-radius: 10px;
   padding: 20px;
+  background: #fff;
 }
 
 .title {
@@ -217,115 +163,116 @@
   word-break: keep-all;
 }
 
-/* ================================================
-   오른쪽: detail (상단 탭 + 내용)
-   ================================================ */
-.detail {
-  border: none;
+.tech {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #e4eeff;
+}
+
+.tech-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0040cc;
+  margin-bottom: 20px;
+}
+
+.chip-groups {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-  padding: 0;
-  height: 100%;
 }
 
-/* 상단 탭 바 */
-
-/* ⭐ 링크 영역 — 오른쪽 끝으로 밀기 */
-.tab-links {
-  margin-left: auto; /* ⭐ 오른쪽 끝 */
+.chip-row {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding-bottom: 6px;
-  flex-shrink: 0;
+  gap: 8px;
+  flex-wrap: wrap; /* 문법 오류 유발하던 깨진 row-gap 제거 */
 }
 
-/* ⭐ 아이콘 버튼 */
-.icon-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+.chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 0.9rem;
   transition:
-    background 0.2s,
-    transform 0.2s;
-  text-decoration: none;
+    transform 0.15s,
+    filter 0.15s;
 }
 
-.icon-btn img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.chip:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
 }
 
-.icon-btn:hover {
-  background: #edf4ff;
-  transform: scale(1.1);
+.chip.ai {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
 }
 
-/* ⭐ 툴팁 */
-.icon-btn::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1a2a4a;
-  color: #fff;
-  font-size: 1.1rem;
-  padding: 4px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-  z-index: 10;
+.chip.fe {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
 }
 
-.icon-btn:hover::after {
-  opacity: 1;
+.chip.be {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
 }
-/* ⭐ 탭바 레이아웃 — 탭들 왼쪽, 링크 오른쪽 끝 */
+
+.chip.tool {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==========================================================================
+   4. 상세 내용 영역 및 상단 메인 탭바 (Detail & Main Tabs)
+   ========================================================================== */
+
 .detail-tabs {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
   gap: 7px;
-  background: #fff;
-  padding: 10px 10px 0 0;
+  /* background: #fff; */
+  /* padding: 10px 10px 0 0; */
   flex-shrink: 0;
 }
 
 .dtab {
-  font-family: "Gyeonggi_Title_Medium", sans-serif;
+  font-family: "Pretendard";
   padding: 10px 20px;
   font-size: 1.2rem;
   font-weight: bold;
-  background: #edf4ff;
+  background: #fff;
   border: 1px solid #e4eeff;
-  border-bottom: none;
   border-radius: 8px 8px 0 0;
   color: #5577aa;
-}
-.dtab:hover {
-  background: #dce8ff;
-  color: #0040cc;
-}
-.dtab.active {
-  z-index: 1;
-  background: #fff;
-  color: #0040cc;
-  border-color: #e4eeff;
-  margin-bottom: -1.5px;
+  cursor: pointer;
+  border-bottom: none;
 }
 
-/* 내용 영역 */
+.dtab:hover {
+  background: #fff;
+  color: #0040cc;
+}
+
+.dtab.active {
+  z-index: 1;
+  /* background: #f7faff; */
+  color: #0040cc;
+  border: 1px solid #e4eeff;
+  border-bottom: none;
+  margin-bottom: -1px;
+}
+
+/* 메인 내용 몸체 */
 .detail-body {
   flex: 1;
   overflow-y: auto;
@@ -335,6 +282,7 @@
   border: 1px solid #e4eeff;
   border-radius: 0 10px 10px 10px;
 }
+
 .detail-body::-webkit-scrollbar {
   width: 0;
 }
@@ -342,87 +290,37 @@
 .dtab-content {
   display: none;
 }
+
 .dtab-content.active {
   display: block;
 }
-/* dtab-content 안에 들어가는 이미지를 컨텐츠 너비에 맞춤 */
+
+/* dtab-content 안에 들어가는 범용 이미지 맞춤 설정 */
 .dtab-content img {
-  width: 100%; /* 부모 너비에 가득 차도록 설정 */
-  max-width: 100%; /* 원본 이미지 크기보다 커져서 깨지는 것 방지 */
-  height: auto; /* 가로 비율에 맞춰 세로 높이 자동 조절 */
-  display: block; /* 이미지 하단의 미세한 여백(baseline) 제거 */
-} /* 클릭할 수 있는 원본 이미지에 마우스 포인터 변경 */
-.clickable-img {
-  cursor: zoom-in;
-  transition: transform 0.2s;
-}
-.clickable-img:hover {
-  transform: scale(1.01); /* 살짝 커지는 효과 */
-}
-
-/* 모달 배경 (기본값 숨김) */
-.img-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999; /* 최상단에 위치 */
-  left: 0;
-  top: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85); /* 짙은 검은색 반투명 배경 */
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out; /* 배경 클릭 시 닫히는 느낌 제공 */
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* 모달이 열렸을 때 flex로 변경하기 위한 클래스 */
-.img-modal.show {
-  display: flex;
-}
-
-/* 모달 안의 이미지 스타일 */
-.img-modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease-in-out;
-  cursor: zoom-in; /* 기본적으로 확대할 수 있다는 표시 */
-}
-
-/* 💡 클릭 시 확대되는 클래스 */
-.img-modal-content.zoomed {
-  transform: scale(1.5); /* 1.5배 확대 (원하는 배율로 조절 가능) */
-  cursor: zoom-out;
-}
-
-/* 닫기 버튼 (&times; 모양) */
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* ================================================
-   내부 탭 그룹 (Tech Stack — AI/Tools/FE/BE)
-   ================================================ */
-
+/* ==========================================================================
+   5. 하단 서브 탭 그룹 — 버튼 및 컨텐츠 (Sub Tab Groups)
+   ========================================================================== */
 .tab-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 10px;
 }
+
 .tab-btn {
   font-family: inherit;
   padding: 7px 14px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  background: #f0f4ff;
-  border: 1px solid #d0d7e2;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  color: #5577aa;
   border-radius: 8px;
   flex: 1 1 auto;
   min-width: 0;
@@ -432,50 +330,67 @@
     color 0.2s,
     transform 0.15s;
 }
+
 .tab-btn:hover {
-  background: #dce8ff;
+  background: #fff;
   color: #0040cc;
+  border: 1px solid #e4eeff;
   transform: translateY(-1px);
 }
+
 .tab-btn.active {
-  background: #3683f5;
-  color: #fff;
-  border-color: #3683f5;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  color: #0040cc;
   transform: none;
 }
+
 .tab-contents {
   background: #fff;
-  border: 1px solid #d0d7e2;
+  border: 1px solid #e4eeff;
   border-radius: 10px;
   padding: 14px 16px;
   min-height: 80px;
 }
+
 .tab-content {
   display: none;
 }
+
 .tab-content.active {
   display: block;
 }
 
-/* 목록 */
+/* ==========================================================================
+   6. 서브 탭 내 리스트 컴포넌트 — 문제, 기여, 성과 구조 (Detail UI List)
+   ========================================================================== */
 .detail-ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
   padding: 0;
   margin: 0;
 }
 
-/* 문제, 기여, 성과를 감싸는 최상위 li */
+/* 최상위 li (문제, 기여, 성과 줄배치) */
 .detail-ul > li {
   font-size: 1.2rem;
   color: #3a4a6a;
   line-height: 1.5;
-  display: flex; /* 중요: 제목과 내용을 가로로 정렬 */
+  display: flex;
   align-items: flex-start;
-  gap: 8px; /* 제목과 내용 사이의 간격 */
-  margin-bottom: 4px; /* 항목 간의 하단 여백 추가 */
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.detail-ul li strong,
+.detail-ul p strong {
+  color: #0040cc;
+}
+
+.detail-ul li strong {
+  font-size: 1.25rem;
+  white-space: nowrap;
 }
 
 /* 기여 내부의 서브 리스트(ul) */
@@ -483,20 +398,20 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  flex: 1; /* 남은 너비를 꽉 채우도록 설정 */
+  flex: 1;
 }
 
-/* 서브 리스트 내부의 li (각각의 기여 항목들) */
+/* 서브 리스트 내부의 li 및 본문 p 태그 */
 .detail-ul .sub-list li,
 .detail-ul p {
   font-size: 1.2rem;
   color: #3a4a6a;
-  padding-left: 14px; /* 앞에 파란 점이 들어갈 공간 */
+  padding-left: 14px;
   position: relative;
   line-height: 1.5;
 }
 
-/* 두 번째 항목부터만 파란 점 생기도록 설정 */
+/* 두 번째 리스트 항목부터 불릿(파란 점) 생성 */
 .detail-ul .sub-list li:before {
   content: "";
   position: absolute;
@@ -507,33 +422,20 @@
   border-radius: 50%;
   background: #b8d4ff;
 }
-.detail-ul li strong,
-.detail-ul p strong {
-  color: #0064ff;
-}
 
-.detail-ul li strong {
-  font-size: 1.25rem;
-  white-space: nowrap; /* 중요: '문제/기여/성과' 글자가 찌그러지지 않게 방지 */
-}
-/* ================================================
-   Role — 버튼 없이 세로 나열
-   ================================================ */
+/* ==========================================================================
+   7. 역할 영역 격자 컴포넌트 (Role Grid)
+   ========================================================================== */
 .role-flat {
-  display: grid; /* Flex 대신 Grid 사용 */
-  grid-template-columns: repeat(2, 1fr); /* 가로로 2개씩 똑같은 비율로 배치 */
-  gap: 10px; /* 상하좌우 카드 사이의 간격 (자유롭게 조절 가능) */
-  /* margin-top: 4px; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
 }
 
 .role-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  /* 카드 느낌을 더 살리고 싶다면 아래 주석을 해제해 보세요 */
-  /* background: #fbfdff; */
-  /* padding: 16px; */
-  /* border-radius: 8px; */
+  gap: 5px;
 }
 
 .role-group-label {
@@ -543,7 +445,122 @@
   padding-bottom: 6px;
   border-bottom: 1px solid #eef4ff;
 }
+
 .role-group li {
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+/* ==========================================================================
+   8. 이미지 모달 팝업 (Image Modal Layer)
+   ========================================================================== */
+.clickable-img {
+  cursor: zoom-in;
+  transition: transform 0.2s;
+}
+
+.clickable-img:hover {
+  transform: scale(1.01);
+}
+
+.img-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999; /* 다른 요소들이 치고 올라오지 못하도록 높게 설정 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.img-modal.show {
+  display: flex;
+}
+
+.img-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease-in-out;
+  cursor: zoom-in;
+}
+
+.img-modal-content.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   9. 외부 링크 및 툴팁 (Links & Tooltips)
+   ========================================================================== */
+.tab-links {
+  margin-left: auto; /* 우측 끝 정렬 */
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  text-decoration: none;
+}
+
+.icon-btn img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.icon-btn:hover {
+  background: #edf4ff;
+  transform: scale(1.1);
+}
+
+/* 툴팁 오버레이 */
+.icon-btn::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 45%;
+  transform: translateX(-50%);
+  background: #0064ff;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+
+.icon-btn:hover::after {
+  opacity: 1;
 }
