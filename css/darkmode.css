@@ -39,7 +39,7 @@ body.dark .layout-header {
 }
 
 body.dark .layout-header h1 {
-  color: #e0f0ff;
+  color: #90c8ff;
 }
 
 body.dark .close {
@@ -188,25 +188,19 @@ body.dark .md-detail-ul li strong {
 
 /* ── md-keypoints ── */
 body.dark .md-keypoints {
-  background: #0d1520;
+  background: #0a1a38;
   border-color: #90c8ff;
   box-shadow: none;
 }
 
 body.dark .md-keypoints-label {
-  color: #c8dcff;
+  color: #90c8ff;
 }
 
 body.dark .md-keypoint {
   background: #0a1a38;
-  border-color: #1a2a4a;
-  color: #90c8ff;
-}
-
-body.dark .md-keypoint:hover {
-  color: #fff;
-  background: #0a1a38;
   border-color: #90c8ff;
+  color: #c8dcff;
 }
 
 /* ── Profile 페이지 ── */
@@ -250,43 +244,6 @@ body.dark .profile-right ul li span {
   color: #3a5a8a;
 }
 
-/* ── How I Work 카드 ── */
-body.dark .how-card {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-
-body.dark .how-card:hover {
-  background: #0a1828;
-  border-color: #223355;
-  box-shadow: 0 4px 14px rgba(0, 100, 255, 0.15);
-}
-
-body.dark .how-card.open {
-  background: #0a1a38;
-  border-color: #0064ff;
-}
-
-body.dark .how-card-label {
-  color: #6a9acc;
-}
-
-body.dark .how-card.open .how-card-label {
-  color: #90c8ff;
-}
-
-body.dark .how-card-desc {
-  color: #4a6a8a;
-}
-
-body.dark .how-card-close {
-  color: #2a4a6a;
-}
-
-body.dark .how-card-close:hover {
-  color: #6ab0ff;
-}
-
 /* ── 모달 공통 ── */
 body.dark .modal {
   background: rgba(0, 0, 0, 0.75);
@@ -300,176 +257,6 @@ body.dark .modal-content {
 
 body.dark .modal-content h1 {
   color: #90c8ff;
-}
-
-/* ── 프로젝트 관련 ── */
-body.dark .proj-panel,
-body.dark .proj-detail,
-body.dark .md-list,
-body.dark .proj-overview {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-
-body.dark .proj-detail-tabs {
-  background: #080f1a;
-  border-bottom-color: #1a2a4a;
-}
-
-body.dark .proj-dtab {
-  background: #0d1520;
-  border-color: #1a2a4a;
-  color: #3a5a8a;
-}
-
-body.dark .proj-dtab:hover {
-  background: #0a1828;
-  color: #6ab0ff;
-}
-
-body.dark .proj-dtab.active {
-  background: #0d1520;
-  color: #90c8ff;
-  border-color: #0064ff;
-}
-
-body.dark .proj-detail-body {
-  background: #080f1a;
-}
-
-body.dark .proj-detail-title {
-  color: #90c8ff;
-}
-
-body.dark .proj-detail-sub {
-  color: #3a5a8a;
-  border-bottom-color: #1a2a4a;
-}
-
-body.dark .proj-detail-ul li {
-  color: #7a9abb;
-}
-
-body.dark .proj-detail-ul li::before {
-  background: #1a3a6a;
-}
-
-body.dark .proj-tab-btn {
-  background: #0d1520;
-  border-color: #1a2a4a;
-  color: #3a5a8a;
-}
-
-body.dark .proj-tab-btn:hover {
-  background: #0a1828;
-  color: #6ab0ff;
-}
-
-body.dark .proj-tab-btn.active {
-  background: #0064ff;
-  color: #fff;
-  border-color: #0064ff;
-}
-
-body.dark .proj-tab-contents {
-  background: #080f1a;
-  border-color: #1a2a4a;
-}
-
-body.dark .proj-title {
-  color: #6ab0ff;
-}
-
-body.dark .proj-sub {
-  color: #3a5a8a;
-}
-
-body.dark .proj-overview p {
-  color: #7a9abb;
-  border-bottom-color: #1a2a4a;
-}
-
-body.dark .proj-link-btn {
-  background: #0d1520;
-  border-color: #1a2a4a;
-  color: #6ab0ff;
-}
-
-body.dark .proj-link-btn:hover {
-  background: #0064ff;
-  color: #fff;
-}
-
-body.dark .proj-image-slider {
-  background: #000;
-}
-
-body.dark .proj-slide-caption {
-  background: rgba(10, 26, 56, 0.88);
-  color: #c8dcff;
-}
-
-body.dark .proj-slide-controls {
-  background: rgba(10, 26, 56, 0.85);
-}
-
-body.dark .proj-slide-btn {
-  background: rgba(10, 26, 56, 0.85);
-  color: #6ab0ff;
-}
-
-body.dark .proj-slide-btn:hover {
-  background: #0064ff;
-  color: #fff;
-}
-
-body.dark .proj-slide-counter {
-  background: rgba(10, 26, 56, 0.88);
-  color: #6ab0ff;
-}
-
-body.dark .role-group-label {
-  color: #6ab0ff;
-  border-bottom-color: #1a2a4a;
-}
-
-body.dark .ps-card {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-
-body.dark .ps-card-header {
-  background: linear-gradient(90deg, #0a1a38 0%, #0d2040 100%);
-}
-
-body.dark .ps-label {
-  color: #6ab0ff;
-}
-
-body.dark .ps-text {
-  color: #7a9abb;
-}
-
-body.dark .growth-card {
-  background: #0d1520;
-  border-color: #1a2a4a;
-}
-
-body.dark .growth-card-title {
-  color: #6ab0ff;
-}
-
-body.dark .growth-card-desc {
-  color: #7a9abb;
-}
-
-body.dark .growth-card-desc strong {
-  color: #90c8ff;
-}
-
-body.dark .award-badge {
-  background: linear-gradient(135deg, #7a5500, #aa7700);
-  color: #ffe0a0;
 }
 
 /* ── 스크롤바 ── */

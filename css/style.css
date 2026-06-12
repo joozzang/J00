@@ -259,6 +259,7 @@ nav a:hover {
   right: 90px;
 }
 .layout-container {
+  font-family: "Pretendard";
   position: fixed;
   top: 115px; /* 헤더 top(60) + 헤더 높이에 맞게 조정 */
   bottom: 47px;
