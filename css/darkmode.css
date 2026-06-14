@@ -445,3 +445,164 @@ body.dark .award-badge {
   background: linear-gradient(135deg, #7a5500, #aa7700);
   color: #ffe0a0;
 }
+/* ==========================================================================
+   Profile
+   ========================================================================== */
+
+/* ── 소개 문구 ── */
+body.dark .section p {
+  background: #0a1a38;
+  border-color: #90c8ff;
+  color: #b0ccee;
+}
+
+/* ── 소셜 아이콘 ── */
+body.dark .social-icons {
+  background-color: #0a1a38;
+  border-color: #90c8ff;
+  box-shadow: none;
+}
+
+/* ── 섹션 카드 (Education / Experience / Certified / How I work) ── */
+body.dark .section-card {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .title {
+  color: #90c8ff;
+  border-bottom-color: #1a2a4a;
+}
+body.dark .profile_img {
+  border-color: #90c8ff;
+}
+body.dark .section-card li {
+  color: #b0ccee;
+}
+
+body.dark .section-card span {
+  color: #3a5a8a;
+}
+
+/* ── How I Work 버튼 ── */
+body.dark .how-modal-btn {
+  background-color: #0d1e30;
+  border-color: #90c8ff;
+  color: #90c8ff;
+}
+
+body.dark .how-modal-btn:hover {
+  background-color: #0a1a38;
+  border-color: #90c8ff;
+}
+
+/* ── How I Work 모달 ── */
+body.dark .how-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.dark .how-modal-content {
+  background-color: #0a1a38;
+  border-color: #1a2a4a;
+}
+
+body.dark .how-modal-header {
+  background-color: #0a1a38;
+  border-bottom: 1px solid #1a2a4a;
+}
+
+body.dark .how-modal-body {
+  background-color: #0a1a38;
+}
+
+body.dark .how-list li {
+  color: #b0ccee;
+}
+
+/* ── 타임라인 컨테이너 ── */
+body.dark .timeline-container {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .timeline-title {
+  color: #90c8ff;
+  border-bottom-color: #1a2a4a;
+}
+
+/* ── 타임라인 보드 기준선 ── */
+body.dark .timeline-board {
+  border-bottom-color: #3a5a8a;
+}
+
+/* ── 타임라인 트랙 깃발 라벨 ── */
+body.dark .flag-label {
+  color: #b0ccee;
+}
+
+/* ── 트랙 색상 (다크모드 — 살짝 어둡게) ── */
+body.dark .edu-high .bar {
+  background-color: #0d2a4a;
+}
+body.dark .edu-high .flag-label span {
+  background-color: #2a6a9a;
+}
+body.dark .edu-high .flag-label span::after {
+  border-left-color: #2a6a9a;
+}
+
+body.dark .edu-univ1 .bar {
+  background-color: #0d2040;
+}
+body.dark .edu-univ1 .flag-label span {
+  background-color: #1a4a8a;
+}
+body.dark .edu-univ1 .flag-label span::after {
+  border-left-color: #1a4a8a;
+}
+
+body.dark .edu-bank .bar {
+  background-color: #0d2040;
+}
+body.dark .edu-bank .flag-label span {
+  background-color: #1a4a8a;
+}
+body.dark .edu-bank .flag-label span::after {
+  border-left-color: #1a4a8a;
+}
+
+body.dark .edu-ai .bar {
+  background-color: #0d1e3a;
+}
+body.dark .edu-ai .flag-label span {
+  background-color: #0f4a8a;
+}
+body.dark .edu-ai .flag-label span::after {
+  border-left-color: #0f4a8a;
+}
+
+body.dark .career .bar {
+  background-color: #0a2a14;
+}
+body.dark .career .flag-label span {
+  background-color: #1a6a2a;
+}
+body.dark .career .flag-label span::after {
+  border-left-color: #1a6a2a;
+}
+
+/* ── 자격증 라벨 & 선 ── */
+body.dark .point-label-item {
+  background: rgba(10, 26, 56, 0.9);
+  color: #90a8cc;
+}
+
+body.dark .vertical-line {
+  background-color: #1a2a4a;
+}
+
+/* ── 연도 축 ── */
+body.dark .timeline-axis {
+  background: #0a1a38;
+  color: #3a5a8a;
+}
