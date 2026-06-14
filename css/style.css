@@ -386,7 +386,7 @@ body.modal-open .slide-counter,
 body.modal-open .slide-caption,
 body.modal-open .slide-controls,
 body.modal-open .layout-header {
-  opacity: 0;
+  filter: blur(4px);
   pointer-events: none;
   transition: opacity 0.2s ease; /* 부드럽게 사라지도록 효과 추가 */
 }

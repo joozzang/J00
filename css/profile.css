@@ -1,84 +1,65 @@
+/* ==========================================================================
+   1. 프로필 그리드 레이아웃 (Profile Grid Layout)
+   ========================================================================== */
 .profile-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
+  grid-template-columns: 1fr 2.1fr;
   align-items: start;
+  height: 100%;
 }
 
-.profile-visual {
+.visual {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.profile-info {
+.info {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  height: 100%; /* ⭐ 오른쪽에 남은 세로 공간을 계산하기 위해 높이 100% 부여 */
 }
-.profile-part {
+.part {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
-  align-items: start; /* 중요 */
+  grid-template-columns: 1.5fr 1fr;
+  align-items: start;
+  margin-top: 10px;
 }
-.profile-detail {
-  display: block;
-  min-width: 0; /* ⭐ 이거 중요 (grid 깨짐 방지) */
-}
-.profile-section h3 {
-  margin-bottom: 16px;
-  color: #4466aa;
-}
-
-.profile-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.profile-section li {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
-.profile-section span {
-  color: #8899bb;
-  font-size: 0.95em;
-}
-
+/* ==========================================================================
+   2. 프로필 이미지 (Profile Image)
+   ========================================================================== */
 .profile_img {
   width: 100%;
-  max-width: 450px;
-  min-height: 500px;
+  max-width: 460px;
+  min-height: 510px;
   aspect-ratio: 9 / 11;
   height: auto;
   background: url("../images/profile.png") center/cover no-repeat;
   border-radius: 5px;
   border: 1px solid #e4eeff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.084);
+  margin-top: 5px;
   margin-bottom: 10px;
 }
-/* ------------------ Social Icons ------------------ */
+
+/* ==========================================================================
+   3. 소셜 아이콘 (Social Icons)
+   ========================================================================== */
 .social-icons {
   display: flex;
   gap: 70px;
-  margin-top: auto;
   padding: 16px 80px;
   background-color: #fff;
   border: 1px solid #e4eeff;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
-  border: none;
   border-radius: 5px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
   width: 100%;
-  max-width: 450px; /* profile_img와 동일한 max-width */
-  box-sizing: border-box; /* padding 포함해서 너비 계산 */
-
+  max-width: 460px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
 }
 
-/* 아이콘 크기 통일 + 호버 효과 */
 .social-icons img {
   width: 48px;
   height: 48px;
@@ -89,163 +70,416 @@
   transform: scale(1.15);
   filter: brightness(1.1);
 }
-
-.profile-section p {
+/* ==========================================================================
+   4. 프로필 섹션 공통 (Profile Section) 수정본
+   ========================================================================== */
+.section p {
   font-family: "Pretendard", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: #345280;
+  line-height: 1.7;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 5px;
+  text-align: center;
 }
-/* ================================================
-         How I Work 섹션 — 클릭 확장형 카드
-         ================================================ */
-.how-section {
+
+.section-card {
+  background: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* 개별로 들어가 있던 테두리와 배경을 제거하고, 왼쪽에 북마크 라인을 줍니다 */
+.title {
+  font-family: "Pretendard";
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0d3da4;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border: none;
+  border-radius: 0;
+  background: none;
+  border-bottom: 1px solid #e8f0ff; /* 구분선 */
+}
+
+.section-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  padding-left: 25px;
+}
+
+.section-card li {
+  font-family: "Pretendard";
+  font-size: 1.2rem;
+  color: #3a4a6a;
+  line-height: 1.7;
+  display: flex;
+  gap: 8px;
+}
+
+.section-card span {
+  color: #8899bb;
+  font-size: 0.95em;
+}
+/* How I Work 모달 열기 버튼 */
+.how-modal-btn {
+  width: 100%;
+  box-sizing: border-box; /* 패딩 때문에 버튼이 박스 밖으로 튀어나가는 것을 방지 */
+  padding: 10px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d3da4;
+  background-color: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.how-modal-btn:hover {
+  background-color: #f4f8ff;
+  /* border-color: #0d3da4; */
+}
+/* 모달 전체 배경 오버레이 */
+.how-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.how-modal-overlay.active {
+  display: flex;
+}
+
+/* 모달 본체 창 */
+.how-modal-content {
+  background-color: #fff;
+  /* border: 1px solid #e4eeff; */
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: modalFadeIn 0.3s ease;
+}
+
+/* 모달 헤더 — layout-header 동일 스타일 */
+.how-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background-color: #153b81;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 6px 0 6px rgba(0, 100, 255, 0.05);
   flex-shrink: 0;
 }
 
 .how-section-title {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #8899bb;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
 }
 
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* 닫기 버튼 — layout-header .close 동일 스타일 */
+.how-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.how-modal-close:hover {
+  opacity: 0.7;
+}
+
+/* 모달 내부 스크롤 영역 */
+.how-modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+}
+
+.how-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+.how-list li {
+  font-family: "Pretendard";
+  font-size: 1.1rem;
+  color: #3a4a6a;
+  line-height: 1.8;
+  display: flex;
   gap: 8px;
 }
 
-/* ── 닫힌 상태 (기본) ── */
-.how-card {
+/* ==========================================================================
+   타임라인 영역 유연한 세로 확장 및 하단 정렬 최종본
+   ========================================================================== */
+
+/* 타임라인 전체 컨테이너 */
+.timeline-container {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #e4eeff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+  margin-top: 15px;
+  flex: 1; /* 남은 세로 공간 다 채우기 */
+  display: flex;
+  flex-direction: column; /* 자식들을 세로 정렬하여 축을 아래로 밀기 */
+  min-height: 0;
+}
+.timeline-title {
+  font-family: "Pretendard";
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 5px 0 10px 5px;
+  color: #0d3da4;
+  border: none;
+  border-radius: 0;
+  background: none;
+  border-bottom: 1px solid #e8f0ff; /* 구분선 */
+}
+
+/* 이력들이 배치되는 메인 보드 */
+.timeline-board {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  border-bottom: 2px solid #777; /* 하단 축 기준선 */
+}
+
+/* 트랙(막대+깃발) 공통 스타일 */
+.timeline-track {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.timeline-track .bar {
+  width: 100%;
+  height: 20px;
+}
+
+.timeline-track.row2 .flag-label {
+  position: absolute;
+  /* top: 100%; 막대 아래에 붙임 */
+  margin-top: 4px;
+  margin-bottom: 50px;
+}
+
+.flag-label {
+  font-size: 1rem;
+  color: #3a4a6a;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.flag-label span {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 18px 10px;
-  background: #f4f8ff;
-  border: 1.5px solid #dce8ff;
-  border-radius: 14px;
-  cursor: pointer;
-  user-select: none;
+  /* width: 60px; */
+  height: 22px;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px 0 0 3px;
   position: relative;
-  overflow: hidden;
-
-  /* 그리드 확장을 위한 트랜지션 */
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease,
-    grid-column 0s;
 }
 
-.how-card:hover {
-  background: #eaf2ff;
-  border-color: #b8d0ff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 100, 255, 0.09);
-}
-
-/* ── 열린 상태 ── */
-.how-card.open {
-  grid-column: span 2;
-  border: 1.5px solid #4c8dff;
-  box-shadow: 0 6px 16px rgba(0, 100, 255, 0.08);
-  align-items: flex-start;
-  padding: 18px 20px 20px;
-  background: #ffffff;
-  transform: none;
-  cursor: default;
-}
-.how-card::after {
-  display: none;
-}
-/* 상단 강조 라인 */
-/* .how-card::after {
+.flag-label span::after {
   content: "";
   position: absolute;
+  right: -6px;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0064ff, #80b8ff);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-  border-radius: 14px 14px 0 0;
-} */
-.how-card.open::after,
-.how-card:hover::after {
-  transform: scaleX(1);
+  border-width: 11px 0 11px 6px;
+  border-style: solid;
 }
 
-/* ── 아이콘 + 짧은 레이블 행 ── */
-.how-card-top {
-  display: flex;
-  justify-content: center; /* flex-direction: column; */
-  align-items: center;
-  gap: 6px;
-  width: 100%;
+/* --- 트랙별 컬러 색상 설정 --- */
+.edu-high .bar {
+  background-color: #e3f2fd;
 }
-.how-card.open .how-card-top {
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+.edu-high .flag-label span {
+  background-color: #64b5f6;
 }
-.how-icon {
-  font-size: 1.4em;
-  opacity: 0.85;
-}
-.how-card-label {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #4466aa;
-  text-align: center;
-  line-height: 1.3;
-}
-.how-card.open .how-card-label {
-  font-size: 1.4em;
-  color: #0040cc;
-  text-align: left;
+.edu-high .flag-label span::after {
+  border-left-color: #64b5f6;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
 
-/* ── 펼쳐지는 설명 ── */
-.how-card-desc {
-  font-size: 1.2em;
-  color: #3a5a8a;
-  line-height: 1.7;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 1;
-  transition:
-    max-height 0.32s ease,
-    opacity 0.25s ease;
-  width: 100%;
+.edu-univ1 .bar {
+  background-color: #adcfff;
 }
-.how-card.open .how-card-desc {
-  max-height: 120px;
-  opacity: 1;
+.edu-univ1 .flag-label span {
+  background-color: #4285f4;
+}
+.edu-univ1 .flag-label span::after {
+  border-left-color: #4285f4;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
 
-/* 닫기 힌트 (열렸을 때만) */
-.how-card-close {
-  display: none;
+.career .bar {
+  background-color: #8cd876;
+}
+.career .flag-label span {
+  background-color: #4caf50;
+}
+.career .flag-label span::after {
+  border-left-color: #4caf50;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.edu-bank .bar {
+  background-color: #adcfff;
+}
+.edu-bank .flag-label span {
+  background-color: #4285f4;
+}
+.edu-bank .flag-label span::after {
+  border-left-color: #4285f4;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.edu-ai .bar {
+  background-color: #1a63b6;
+}
+.edu-ai .flag-label span {
+  background-color: #1a63b6; /* Microsoft 블루 */
+}
+.edu-ai .flag-label span::after {
+  border-left-color: #1a63b6;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.timeline-point.text-stack {
   position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 1em;
-  color: #aabbdd;
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.15s;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 선 기준 오른쪽으로 글자 배치 */
+  height: 100%;
+  justify-content: flex-end;
 }
-.how-card-close:hover {
-  color: #0064ff;
+
+.point-label-item {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #556688;
 }
-.how-card.open .how-card-close {
-  display: block;
+.point-label-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  padding-left: 6px;
+  margin-bottom: -4px;
+}
+
+.cert-1 .point-label-wrap {
+  bottom: 60%;
+}
+
+.cert-2 .point-label-wrap {
+  bottom: 80%;
+}
+
+.cert-3 .point-label-wrap {
+  bottom: 90%;
+}
+
+.cert-4 .point-label-wrap {
+  bottom: 70%;
+}
+
+.vertical-line {
+  width: 1.5px;
+  z-index: 1;
+  flex: 1;
+  background-color: #e9edf3;
+}
+
+.cert-1 .vertical-line {
+  max-height: 55%;
+}
+.cert-2 .vertical-line {
+  max-height: 75%;
+}
+.cert-3 .vertical-line {
+  max-height: 85%;
+}
+.cert-4 .vertical-line {
+  max-height: 65%;
+}
+/* ─── 🚀 최하단 고정 연도 축 스타일 ─── */
+.timeline-axis {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  color: #666;
+  font-size: 0.9rem;
+  width: 100%;
+  background: #fff;
+  margin-top: auto;
+}
+
+.timeline-axis span {
+  flex: 1;
+  text-align: left;
 }

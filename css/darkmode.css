@@ -269,3 +269,179 @@ body.dark ::-webkit-scrollbar-thumb {
   background: #1a2a4a;
   border-radius: 4px;
 }
+
+/* ==========================================================================
+   Project
+   ========================================================================== */
+
+/* ── 슬라이더 ── */
+body.dark .image-slider {
+  border-color: #1a2a4a;
+}
+
+body.dark .slide-counter,
+body.dark .slide-caption,
+body.dark .slide-btn {
+  background: rgba(10, 24, 40, 0.75);
+  color: #90c8ff;
+}
+
+body.dark .slide-btn:hover {
+  background: #0064ff;
+  color: #fff;
+}
+
+/* ── 개요 ── */
+body.dark .overview {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .overview p {
+  color: #b0ccee;
+}
+
+body.dark .overview p span {
+  color: #6ab0ff;
+}
+
+body.dark .title,
+body.dark .tech-label {
+  color: #6ab0ff;
+}
+
+/* ── 메인 탭바 ── */
+body.dark .dtab {
+  background: #0d1e30;
+  border-color: #90c8ff;
+  color: #4a6a9a;
+}
+
+body.dark .dtab:hover {
+  background: #0a1828;
+  color: #6ab0ff;
+}
+
+body.dark .dtab.active {
+  background: #0a1a38;
+  color: #6ab0ff;
+  border-color: #90c8ff;
+}
+
+/* ── detail body ── */
+body.dark .detail-body {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+/* ── 서브 탭 버튼 ── */
+body.dark .tab-btn {
+  background: #0d1e30;
+  border-color: #1a2a4a;
+  color: #4a6a9a;
+}
+
+body.dark .tab-btn:hover {
+  background: #0a1828;
+  color: #6ab0ff;
+}
+
+body.dark .tab-btn.active {
+  background: #0a1a38;
+  border-color: #90c8ff;
+  color: #90c8ff;
+}
+
+/* ── 서브 탭 콘텐츠 ── */
+body.dark .tab-contents {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+/* ── 리스트 ── */
+body.dark .detail-ul > li,
+body.dark .detail-ul .sub-list li,
+body.dark .detail-ul p {
+  color: #b0ccee;
+}
+
+body.dark .detail-ul li strong,
+body.dark .detail-ul p strong {
+  color: #8aaace;
+}
+
+body.dark .detail-ul p span {
+  color: #6ab0ff;
+}
+
+/* ── Growth ── */
+body.dark .growth-title {
+  color: #6ab0ff;
+  border-color: #1a2a4a;
+}
+
+body.dark .growth-item p {
+  color: #b0ccee;
+  border-color: #1a2a4a;
+}
+
+body.dark .growth-item p span {
+  color: #6ab0ff;
+}
+
+/* ── 역할 그리드 ── */
+body.dark .role-group-label {
+  background: #0a1a38;
+  border-color: #90c8ff;
+  color: #90c8ff;
+}
+
+body.dark .role-group ul {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .role-group li {
+  color: #b0ccee;
+}
+
+/* ── 기술 스택 ── */
+body.dark .tech {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .chip.ai {
+  background-color: #2a1040;
+  color: #c084fc;
+  border-color: #4a1a6a;
+}
+
+body.dark .chip.fe {
+  background-color: #0a2030;
+  color: #38bdf8;
+  border-color: #0c3a50;
+}
+
+body.dark .chip.be {
+  background-color: #0a2014;
+  color: #4ade80;
+  border-color: #0f3020;
+}
+
+body.dark .chip.tool {
+  background-color: #141e2a;
+  color: #94a3b8;
+  border-color: #1e2e3e;
+}
+
+/* ── 아이콘 링크 ── */
+body.dark .icon-btn:hover {
+  background: #0a1a38;
+}
+
+/* ── award badge ── */
+body.dark .award-badge {
+  background: linear-gradient(135deg, #7a5500, #aa7700);
+  color: #ffe0a0;
+}
