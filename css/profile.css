@@ -11,7 +11,7 @@
 .visual {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 5px;
 }
 
 .info {
@@ -31,7 +31,7 @@
 .profile_img {
   width: 100%;
   max-width: 460px;
-  min-height: 510px;
+  min-height: 600px;
   aspect-ratio: 9 / 11;
   height: auto;
   background: url("../images/profile.png") center/cover no-repeat;
