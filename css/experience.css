@@ -278,23 +278,56 @@
     font-size: 1.1rem;
   }
 }
+/* ================================================
+   768px 이하 — Career 페이지 전용
+   ================================================ */
+@media (max-width: 768px) {
+  /* 패널 2개짜리 트랙(width:200%)이므로 자식은 50% */
+  .track > .md-layout {
+    width: 50%;
+    height: auto;
+  }
 
-/* 모바일 (640px 이하) */
-@media (max-width: 640px) {
+  /* 좌: 목록 / 우: 상세 → 위아래 1열로 */
+  .md-layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    height: auto;
+  }
+
+  /* 항목이 7개라 그대로 두면 화면을 다 잡아먹음 → 자체 스크롤 */
+  .md-list {
+    max-height: 220px;
+  }
+
+  .md-item {
+    padding: 10px 14px;
+  }
+
+  .md-item-title {
+    font-size: 1.2rem;
+  }
+
+  .md-item-chevron {
+    width: 16px;
+    height: 16px;
+  }
+
   .md-detail {
-    gap: 12px;
+    gap: 10px;
   }
 
   .md-detail-body {
-    padding: 14px 16px;
+    padding: 14px;
   }
 
   .md-detail-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .md-detail-sub {
     font-size: 1.1rem;
+    padding-bottom: 12px;
   }
 
   .md-detail-ul li {
@@ -302,8 +335,8 @@
   }
 
   .md-keypoints {
-    gap: 12px;
-    padding: 16px;
+    padding: 12px 14px;
+    gap: 10px;
   }
 
   .md-keypoints-label {
@@ -311,18 +344,12 @@
   }
 
   .md-keypoints-grid {
-    flex-direction: column;
     margin: 0;
-    gap: 8px;
+    gap: 6px;
   }
 
   .md-keypoint {
-    padding: 12px;
     font-size: 1.1rem;
-    text-align: left;
-  }
-
-  .md-item-title {
-    font-size: 1.2rem;
+    padding: 10px 0;
   }
 }

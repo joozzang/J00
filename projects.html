@@ -7,8 +7,8 @@
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/darkmode.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/project.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body>
     <button id="theme-toggle" class="theme-toggle">🌙</button>
@@ -1180,6 +1180,47 @@
       }
 
       ["drawry", "law", "jeju"].forEach(setupProjSlider);
+      function injectMobileSectionTitles() {
+        // Link 버튼 줄에도 "Link" 제목 삽입
+        document.querySelectorAll(".detail-tabs").forEach((tabs) => {
+          if (tabs.querySelector(".mobile-section-title")) return;
+          const links = tabs.querySelector(".tab-links");
+          if (!links) return;
+          const title = document.createElement("div");
+          title.className = "mobile-section-title";
+          title.textContent = "Link";
+          tabs.insertBefore(title, links);
+        });
+
+        // 기존 2단계, 3단계 루프는 그대로 유지
+        document.querySelectorAll(".detail").forEach((detail) => {
+          detail.querySelectorAll(".dtab").forEach((btn) => {
+            const content = detail.querySelector(
+              `.dtab-content[id$="-${btn.dataset.dtab}"]`,
+            );
+            if (!content || content.querySelector(".mobile-section-title"))
+              return;
+            const title = document.createElement("div");
+            title.className = "mobile-section-title";
+            title.textContent = btn.textContent.trim();
+            content.insertBefore(title, content.firstChild);
+          });
+        });
+
+        document.querySelectorAll(".tab-group").forEach((group) => {
+          group.querySelectorAll(".tab-btn").forEach((btn) => {
+            const content = document.getElementById(btn.dataset.tab);
+            if (!content || content.querySelector(".mobile-section-title"))
+              return;
+            const title = document.createElement("div");
+            title.className = "mobile-section-title";
+            title.textContent = btn.textContent.trim();
+            content.insertBefore(title, content.firstChild);
+          });
+        });
+      }
+
+      injectMobileSectionTitles();
     </script>
   </body>
 </html>

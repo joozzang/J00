@@ -77,15 +77,23 @@
   display: block;
 }
 
-.slide img {
+/* .slide img {
   width: 100%;
   height: 295px;
   aspect-ratio: 2 / 1;
   object-fit: cover;
   display: block;
   object-position: center;
-}
+} */
 
+.slide img {
+  width: 100%;
+  height: 295px;
+  object-fit: contain;
+  display: block;
+  object-position: center;
+  background-color: #fff; /* 여백 색상 (레터박스) */
+}
 .slide-counter,
 .slide-caption,
 .slide-btn {
@@ -693,175 +701,204 @@
   .slide img {
     height: 240px;
   }
+} /* 데스크톱에서는 숨김 (JS가 삽입하는 모바일 전용 제목) */
+.mobile-section-title {
+  display: none;
 }
 
-/* ── 태블릿 세로 (≤900px): 1열 전환 ── */
-@media (max-width: 900px) {
-  /* 뷰포트 세로 스크롤 허용 */
-  .viewport {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .track {
-    height: auto;
-  }
-
-  /* 각 패널도 높이 auto */
+/* ================================================
+   768px 이하 — Project 페이지 전용
+   ================================================ */
+/* ================================================
+   768px 이하 — Project 페이지 전용
+   ================================================ */
+@media (max-width: 768px) {
   .track > .md-layout {
     width: 33.333%;
     height: auto;
   }
 
-  /* 2열 → 1열 */
+  /* ══ 구조 플래튼 ══ */
   .md-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 14px;
     overflow: visible;
     height: auto;
   }
 
   .md-left,
-  .md-right {
-    height: auto;
-    overflow: visible;
-    min-height: unset;
-  }
-
-  /* 이미지 슬라이더를 텍스트 위에 표시 */
-  .md-right {
-    order: -1;
-  }
-
-  /* detail 최소 높이 확보 + 스크롤 */
-  .detail {
-    min-height: 360px;
-  }
-
+  .md-right,
+  .detail,
   .detail-body {
-    overflow-y: auto;
-    max-height: 400px;
+    display: contents;
   }
 
-  /* tech는 고정 높이 불필요 */
+  .image-slider {
+    order: 1;
+  }
+  .overview {
+    order: 2;
+  }
+  .tech {
+    order: 3;
+  }
+  .detail-tabs {
+    order: 4;
+  }
+  .dtab-content[id$="-role"] {
+    order: 5;
+  }
+  .dtab-content[id$="-workflow"] {
+    order: 6;
+  }
+  .dtab-content[id$="-ps"] {
+    order: 7;
+  }
+  .dtab-content[id$="-growth"] {
+    order: 8;
+  }
+
+  /* ══ 높이 리셋 (데스크톱 flex 채우기 해제) ══ */
   .tech {
     flex: none;
     min-height: auto;
   }
 
-  /* 역할 그리드 1열 */
+  .role-group ul,
+  .growth-list,
+  .growth-item {
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+  }
+
   .role-flat {
     grid-template-columns: 1fr;
     height: auto;
   }
 
-  /* Drawry Growth 2×2 → 1열 */
-  #drawry-growth .tab-buttons {
-    grid-template-columns: 1fr;
-  }
-
   .slide img {
-    height: 250px;
+    height: 200px;
   }
-}
 
-/* ── 모바일 (≤600px) ── */
-@media (max-width: 600px) {
-  /* 스위처 */
-  .switcher {
+  /* ══ Link 줄 ══ */
+  .detail-tabs {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border: 1px solid #e4eeff;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0;
+  }
+
+  .detail-tabs .dtab {
+    display: none;
+  }
+
+  .tab-links {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 0;
+  }
+
+  .icon-btn:hover {
+    background: #fff;
+  }
+
+  /* ══ 탭 → 전부 펼침 ══ */
+  .dtab-content {
+    display: flex !important;
+    flex-direction: column;
+    height: auto; /* ← 데스크톱 height:100% 해제 */
+    border: 1px solid #e4eeff;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0;
+  }
+
+  .tab-buttons,
+  .tab-btn,
+  #drawry-growth .tab-buttons {
+    /* ← ID 우선순위 때문에 따로 명시 */
+    display: none;
+  }
+
+  /* ══ 서브탭 내부 래퍼 해제 ══
+     .tab-contents 의 데스크톱 padding(10px 20px)이 남아 있으면
+     .dtab-content padding 과 겹쳐 박스가 안쪽으로 밀린다 */
+  .tab-group {
+    flex: none;
+    min-height: auto;
+  }
+
+  .tab-contents {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    min-height: auto;
+    padding: 0;
+    overflow: visible;
+    border: none;
+    background: none;
     gap: 10px;
   }
 
-  /* 메인 탭바 줄바꿈 허용 */
+  .tab-content,
+  .tab-content.active {
+    display: flex !important;
+    flex-direction: column;
+    flex: none;
+    justify-content: flex-start;
+    border: 1px solid #e4eeff;
+    border-radius: 5px;
+    background: #f7faff;
+  }
+
+  .mobile-section-title {
+    display: block;
+    font-weight: 600;
+    color: #0d3da4;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .dtab-content > .mobile-section-title {
+    margin-bottom: 16px;
+  }
+
+  /* ══ 패딩 / 폰트 ══ */
+  .overview,
+  .tech,
+  .dtab-content,
+  .tab-content,
   .detail-tabs {
-    flex-wrap: wrap;
-    gap: 4px;
+    padding: 14px 20px;
   }
 
-  .dtab {
-    padding: 7px 12px;
-    font-size: 1rem;
-  }
-
-  .dtab.active {
-    font-size: 1rem;
-  }
-
-  /* 탭 링크 아이콘 줄 처리 */
-  .tab-links {
-    width: 100%;
-    margin-left: 0;
-    padding-bottom: 2px;
-  }
-
-  /* overview */
-  .overview {
-    padding: 14px 16px;
+  .overview p {
+    line-height: 1.7;
   }
 
   .overview p,
   .title,
-  .tech-label {
-    font-size: 1.1rem;
+  .tech-label,
+  .mobile-section-title {
+    font-size: 1.2rem;
   }
 
-  /* detail body */
-  .detail-body {
-    padding: 12px 14px;
-    max-height: 360px;
-  }
-
-  /* 리스트 폰트 */
+  .overview p,
+  .tab-content .mobile-section-title,
   .detail-ul > li,
   .detail-ul .sub-list li,
   .detail-ul p,
-  .tab-btn,
-  .role-group li,
   .growth-item p,
-  .growth-title {
-    font-size: 1.05rem;
-  }
-
-  /* 서브 탭 버튼 전체 폭 */
-  .tab-btn {
-    flex: 1 1 100%;
-    white-space: normal;
-    text-align: center;
-    padding: 8px 10px;
-  }
-
-  /* 슬라이더 */
-  .slide img {
-    height: 200px;
-    aspect-ratio: unset;
-  }
-
-  .slide-caption {
-    font-size: 0.85rem;
-    padding: 3px 8px;
-  }
-
-  /* 기술 스택 */
-  .tech {
-    padding: 14px 16px;
-  }
-
-  .chip {
-    font-size: 0.9rem;
-    padding: 4px 10px;
-  }
-
-  /* 이미지 모달 닫기 버튼 */
-  .modal-close {
-    font-size: 30px;
-    right: 16px;
-    top: 12px;
-  }
-
-  /* award badge */
-  .award-badge {
-    font-size: 0.85rem;
-    width: auto;
-    padding: 2px 8px;
+  .growth-title,
+  .role-group-label,
+  .role-group li {
+    font-size: 1.1rem;
   }
 }

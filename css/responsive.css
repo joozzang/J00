@@ -16,8 +16,8 @@
   }
 
   .tab {
-    padding: 22px 24px;
-    gap: 14px;
+    padding: 20px 24px;
+    gap: 8px;
   }
 
   .tab-name {
@@ -195,24 +195,42 @@
 }
 
 /* ================================================
-   768px 이하 — 모바일
+   768px 이하 — 모바일 (전 페이지 공통)
    ================================================ */
 @media (max-width: 768px) {
+  /* ── 헤더 / 컨테이너 : 3개 페이지 전부 사용 ── */
   .layout-header {
     left: 10px;
     right: 10px;
     top: 10px;
-    padding: 14px 16px;
+    padding: 16px 16px;
   }
 
   .layout-header h1 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+  }
+
+  /* 모바일은 뒤로가기 제스처가 있어 ✕ 불필요 */
+  .layout-header .close {
+    display: none;
+  }
+
+  .bookmark {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+
+  .theme-toggle {
+    top: 12px;
+    right: 20px;
+    font-size: 1.3em;
+    z-index: 200;
   }
 
   .layout-container {
     left: 10px;
     right: 10px;
-    top: 90px;
+    top: 60px;
     bottom: 10px;
   }
 
@@ -221,90 +239,44 @@
     gap: 12px;
   }
 
-  .switcher {
-    flex-direction: column;
-    gap: 8px;
+  /* ── 슬라이드 뷰포트 : projects + experience 공통 ──
+     데스크톱은 패널 내부가 스크롤되지만,
+     모바일은 뷰포트 전체가 세로로 길어지므로 여기서 스크롤을 받는다 */
+  .viewport {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
   }
 
-  .tab {
-    padding: 14px 16px;
-    gap: 8px;
-    border-radius: 10px;
+  .track {
+    height: auto; /* 데스크톱 100% 고정 해제 */
+  }
+  .switcher {
+    flex-wrap: nowrap; /* 좁아져도 줄바꿈 없이 가로 유지 */
+    gap: 8px; /* ← 탭 사이 간격 */
+  }
+
+  .switcher .tab-title,
+  .switcher .tab-period {
+    display: none;
+  }
+
+  .switcher .tab {
+    min-width: 0; /* flex 아이템 축소 허용 (ellipsis 필수 조건) */
+    padding: 10px 6px;
+    align-items: center;
+  }
+
+  .switcher .tab-main {
+    justify-content: center;
+    width: 100%;
   }
 
   .tab-name {
-    font-size: 1.4rem;
-  }
-  .tab-title {
     font-size: 1.2rem;
-  }
-  .tab-period {
-    font-size: 1.2rem;
-  }
-
-  .md-layout {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .md-list {
-    max-height: 220px;
-  }
-
-  .md-item {
-    padding: 10px 14px;
-  }
-
-  .md-item-title {
-    font-size: 1.2rem;
-  }
-  .md-item-chevron {
-    width: 16px;
-    height: 16px;
-  }
-
-  .md-detail-body {
-    padding: 14px;
-  }
-
-  .md-detail {
-    gap: 10px;
-  }
-
-  .md-detail-title {
-    font-size: 1.3rem;
-  }
-  .md-detail-sub {
-    font-size: 1.1rem;
-    padding-bottom: 12px;
-  }
-
-  .md-detail-ul li {
-    font-size: 1.1rem;
-  }
-
-  .md-keypoints {
-    padding: 12px 14px;
-    gap: 10px;
-  }
-
-  .md-keypoints-label {
-    font-size: 1.2rem;
-  }
-  .md-keypoints-grid {
-    margin: 0;
-    gap: 6px;
-  }
-  .md-keypoint {
-    font-size: 1.1rem;
-    padding: 10px 0;
-  }
-
-  .panel {
-    padding: 12px 14px;
-  }
-
-  .viewport {
-    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 }

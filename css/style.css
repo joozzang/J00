@@ -196,6 +196,7 @@ nav a:hover {
   font-size: 1.8em;
   cursor: pointer;
   transition: background 0.3s;
+  z-index: 200;
 }
 .theme-toggle:hover {
   background: none;
