@@ -278,78 +278,147 @@
     font-size: 1.1rem;
   }
 }
+.md-card {
+  display: none;
+}
 /* ================================================
    768px 이하 — Career 페이지 전용
    ================================================ */
 @media (max-width: 768px) {
-  /* 패널 2개짜리 트랙(width:200%)이므로 자식은 50% */
+  .track {
+    width: 100%;
+    transform: none !important;
+  }
+
   .track > .md-layout {
-    width: 50%;
+    width: 100%;
+    display: none;
+  }
+
+  .track > .md-layout.panel-active {
+    display: block;
     height: auto;
   }
 
-  /* 좌: 목록 / 우: 상세 → 위아래 1열로 */
-  .md-layout {
-    grid-template-columns: 1fr;
+  .md-layout.panel-active > .md-list,
+  .md-layout.panel-active > .md-detail {
+    display: none;
+  }
+
+  .md-card {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .md-card-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 34px 12px 14px;
+    border: 1px solid #e4eeff;
+    border-radius: 5px;
+    background: #f7faff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .md-card-head .md-item-chevron {
+    display: none;
+  }
+
+  .md-card-head .md-item-title {
+    font-size: 1.15rem;
+    text-align: center;
+    font-weight: 600;
+    color: #0d3da4;
+    padding: 5px 10px;
+    word-break: keep-all;
+  }
+
+  .md-card.open > .md-card-head {
+    background: #fff;
+    margin-bottom: 8px;
+  }
+
+  .md-card.open > .md-card-head .md-item-title {
+    color: #0d3da4;
+  }
+
+  .md-card-head::after {
+    content: "▾";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #345280;
+    transition: transform 0.25s ease;
+  }
+
+  .md-card.open > .md-card-head::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .md-card-body {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    height: auto;
+    transition: max-height 0.3s ease;
   }
 
-  /* 항목이 7개라 그대로 두면 화면을 다 잡아먹음 → 자체 스크롤 */
-  .md-list {
-    max-height: 220px;
+  .md-card.open > .md-card-body {
+    max-height: 2000px;
   }
 
-  .md-item {
-    padding: 10px 14px;
+  .md-card .md-detail-title {
+    display: none;
   }
 
-  .md-item-title {
+  .md-card .md-detail-sub {
+    display: none;
+  }
+
+  .md-card .md-detail-content {
+    display: flex !important;
+    flex-direction: column;
+    border: 1px solid #e4eeff;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px 10px 20px 10px;
+    word-break: keep-all;
+  }
+
+  .md-card .md-detail-ul li {
     font-size: 1.2rem;
+    margin: 5px 20px 5px 20px;
+    /* text-align: center; */
   }
 
-  .md-item-chevron {
-    width: 16px;
-    height: 16px;
-  }
-
-  .md-detail {
-    gap: 10px;
-  }
-
-  .md-detail-body {
+  .md-card .md-keypoints {
+    display: flex !important;
     padding: 14px;
-  }
-
-  .md-detail-title {
-    font-size: 1.3rem;
-  }
-
-  .md-detail-sub {
-    font-size: 1.1rem;
-    padding-bottom: 12px;
-  }
-
-  .md-detail-ul li {
-    font-size: 1.1rem;
-  }
-
-  .md-keypoints {
-    padding: 12px 14px;
     gap: 10px;
   }
 
-  .md-keypoints-label {
+  .md-card .md-keypoints-label {
     font-size: 1.2rem;
   }
-
-  .md-keypoints-grid {
+  .md-card .md-keypoints-grid {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     gap: 6px;
   }
 
-  .md-keypoint {
-    font-size: 1.1rem;
+  .md-card .md-keypoint {
+    font-size: 1.2rem;
     padding: 10px 0;
+  }
+  .md-card-head {
+    border-left: 3px solid #c3d5f5;
+  }
+  .md-card.open > .md-card-head {
+    border-left-color: #0d3da4;
   }
 }

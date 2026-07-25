@@ -192,7 +192,7 @@
                         Photoluminescence 및 외관 분석
                       </div>
                       <div class="md-detail-sub">
-                        광학 현미경 기반 외관 검사 · 파장·스펙트럼 분석
+                        광학 현미경 기반 외관 검사 · 파장 · 스펙트럼 분석
                       </div>
                     </div>
                     <ul class="md-detail-ul">
@@ -661,15 +661,30 @@
 
     <script src="script.js"></script>
     <script>
+      /* ── 상단 스위처 (활성 패널만 표시) ── */
       const tabs = document.querySelectorAll(".tab");
       const track = document.querySelector(".track");
+      const panels = document.querySelectorAll(".track > .md-layout");
+      const viewport = document.querySelector(".viewport");
+
+      function setActivePanel(i) {
+        panels.forEach((p, idx) =>
+          p.classList.toggle("panel-active", idx === i),
+        );
+      }
+      setActivePanel(0);
+
       tabs.forEach((tab, i) => {
         tab.addEventListener("click", () => {
           tabs.forEach((t) => t.classList.remove("active"));
           tab.classList.add("active");
           track.style.transform = `translateX(${i === 0 ? "0" : "-50%"})`;
+          setActivePanel(i);
+          if (viewport) viewport.scrollTop = 0;
         });
       });
+
+      /* ── 웹: 목록 클릭 → 우측 상세 전환 ── */
       document.querySelectorAll(".md-item").forEach((item) => {
         item.addEventListener("click", () => {
           const panel = item.dataset.panel;
@@ -697,6 +712,45 @@
           if (kTarget) kTarget.classList.add("visible");
         });
       });
+
+      /* ── 768 이하: 목록 항목을 아코디언 카드로 재조립 (전부 닫힘) ── */
+      function buildMobileAccordion() {
+        document.querySelectorAll(".md-layout").forEach((layout) => {
+          if (layout.classList.contains("stacked")) return;
+          layout.classList.add("stacked");
+
+          layout.querySelectorAll(".md-item").forEach((item) => {
+            const panel = item.dataset.panel;
+            const idx = item.dataset.idx;
+
+            const detail = layout.querySelector(
+              `.md-detail-content[data-panel="${panel}"][data-for="${idx}"]`,
+            );
+            const key = layout.querySelector(
+              `.md-keypoints[data-panel="${panel}"][data-for="${idx}"]`,
+            );
+
+            const card = document.createElement("div");
+            card.className = "md-card acc";
+
+            const head = item.cloneNode(true);
+            head.className = "md-card-head acc-head";
+
+            const body = document.createElement("div");
+            body.className = "md-card-body acc-body";
+            if (detail) body.appendChild(detail.cloneNode(true));
+            if (key) body.appendChild(key.cloneNode(true));
+
+            card.appendChild(head);
+            card.appendChild(body);
+            layout.appendChild(card);
+
+            head.addEventListener("click", () => card.classList.toggle("open"));
+          });
+        });
+      }
+
+      buildMobileAccordion();
     </script>
   </body>
 </html>
