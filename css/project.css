@@ -702,23 +702,25 @@
     height: 240px;
   }
 } /* 데스크톱에서는 숨김 (JS가 삽입하는 모바일 전용 제목) */
+
 .mobile-section-title {
   display: none;
 }
-
-/* ================================================
-   768px 이하 — Project 페이지 전용
-   ================================================ */
-/* ================================================
-   768px 이하 — Project 페이지 전용
-   ================================================ */
 @media (max-width: 768px) {
-  .track > .md-layout {
-    width: 33.333%;
-    height: auto;
+  .track {
+    width: 100%;
+    transform: none !important;
   }
 
-  /* ══ 구조 플래튼 ══ */
+  .track > .md-layout {
+    width: 100%;
+    display: none;
+  }
+
+  .track > .md-layout.panel-active {
+    display: flex;
+  }
+
   .md-layout {
     display: flex;
     flex-direction: column;
@@ -759,7 +761,6 @@
     order: 8;
   }
 
-  /* ══ 높이 리셋 (데스크톱 flex 채우기 해제) ══ */
   .tech {
     flex: none;
     min-height: auto;
@@ -782,7 +783,6 @@
     height: 200px;
   }
 
-  /* ══ Link 줄 ══ */
   .detail-tabs {
     flex-wrap: wrap;
     flex-direction: column;
@@ -792,6 +792,7 @@
     border-radius: 5px;
     background: #fff;
     margin: 0;
+    padding: 14px 20px;
   }
 
   .detail-tabs .dtab {
@@ -810,27 +811,23 @@
     background: #fff;
   }
 
-  /* ══ 탭 → 전부 펼침 ══ */
   .dtab-content {
     display: flex !important;
     flex-direction: column;
-    height: auto; /* ← 데스크톱 height:100% 해제 */
+    height: auto;
     border: 1px solid #e4eeff;
     border-radius: 5px;
     background: #fff;
     margin: 0;
+    padding: 14px 20px;
   }
 
   .tab-buttons,
   .tab-btn,
   #drawry-growth .tab-buttons {
-    /* ← ID 우선순위 때문에 따로 명시 */
     display: none;
   }
 
-  /* ══ 서브탭 내부 래퍼 해제 ══
-     .tab-contents 의 데스크톱 padding(10px 20px)이 남아 있으면
-     .dtab-content padding 과 겹쳐 박스가 안쪽으로 밀린다 */
   .tab-group {
     flex: none;
     min-height: auto;
@@ -845,7 +842,7 @@
     overflow: visible;
     border: none;
     background: none;
-    gap: 10px;
+    gap: 5px;
   }
 
   .tab-content,
@@ -854,9 +851,138 @@
     flex-direction: column;
     flex: none;
     justify-content: flex-start;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .acc-head {
+    position: relative;
+    padding: 10px 30px 10px 12px;
+    background: #fff;
     border: 1px solid #e4eeff;
     border-radius: 5px;
+    color: #345280;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0;
+  }
+
+  .acc-head.acc-head {
+    color: #345280;
+  }
+
+  .acc-head::after {
+    content: "▾";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #345280;
+    transition: transform 0.25s ease;
+  }
+
+  .acc.open > .acc-head {
     background: #f7faff;
+    color: #0d3da4;
+    margin-bottom: 8px;
+  }
+
+  .tab-content > .mobile-section-title {
+    color: #345280;
+  }
+
+  .acc.open > .acc-head::after {
+    transform: translateY(-50%) rotate(180deg);
+    color: #345280;
+  }
+
+  .role-group.acc > .acc-head {
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .role-group.acc > .acc-body {
+    justify-content: flex-start;
+  }
+
+  .role-group.acc > .acc-body li {
+    text-align: left;
+    justify-content: flex-start;
+    line-height: 1.7;
+  }
+
+  .growth-item.acc > .acc-head {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .growth-item.acc.open > .acc-head {
+    margin-bottom: 8px;
+  }
+
+  .acc > .acc-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border: 1px solid #e4eeff;
+    border-width: 0;
+    border-radius: 5px;
+    background: #fff;
+    transition:
+      max-height 0.3s ease,
+      padding 0.25s ease,
+      border-width 0.25s ease;
+  }
+
+  .acc.open > .acc-body {
+    max-height: 1500px;
+    padding: 14px 20px;
+    border-width: 1px;
+  }
+
+  #law-growth .growth-item.acc > .acc-body,
+  #jeju-growth .growth-item.acc > .acc-body {
+    max-height: 0;
+    padding: 0 20px;
+    border-width: 0;
+  }
+
+  #law-growth .growth-item.acc.open > .acc-body,
+  #jeju-growth .growth-item.acc.open > .acc-body {
+    max-height: 1500px;
+    padding: 14px 20px;
+    border-width: 1px;
+  }
+
+  .detail-ul > li {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .detail-ul > li > strong {
+    flex-shrink: 0;
+  }
+
+  .detail-ul .sub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .role-group.acc > .acc-body li,
+  .detail-ul .sub-list li {
+    position: relative;
+    padding-left: 14px;
+  }
+
+  .role-group.acc > .acc-body li::before,
+  .detail-ul .sub-list li::before {
+    content: "·";
+    position: absolute;
+    left: 3px;
+    color: #345280;
+    font-weight: 700;
   }
 
   .mobile-section-title {
@@ -866,16 +992,13 @@
     border-radius: 5px;
     margin-bottom: 10px;
   }
+
   .dtab-content > .mobile-section-title {
     margin-bottom: 16px;
   }
 
-  /* ══ 패딩 / 폰트 ══ */
   .overview,
-  .tech,
-  .dtab-content,
-  .tab-content,
-  .detail-tabs {
+  .tech {
     padding: 14px 20px;
   }
 
@@ -884,21 +1007,37 @@
   }
 
   .overview p,
+  .detail-ul > li,
+  .detail-ul .sub-list li,
+  .detail-ul p,
+  .role-group li,
+  .growth-title,
+  .role-group-label,
+  .mobile-section-title {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /* L3 — 섹션 대제목 (Overview, Tech Stack, Link, Role & Contributions, Workflow, Problem-Solving, Growth) */
   .title,
   .tech-label,
-  .mobile-section-title {
+  .dtab-content > .mobile-section-title,
+  .detail-tabs > .mobile-section-title {
     font-size: 1.2rem;
   }
 
+  /* L4 — 아코디언 버튼 (팀장/PM, 이미지 정확도, 처음 마주한 팀장…) */
+  .acc-head.acc-head {
+    font-size: 1.1rem;
+  }
+
+  /* L5 — 본문 내용 */
   .overview p,
-  .tab-content .mobile-section-title,
   .detail-ul > li,
   .detail-ul .sub-list li,
   .detail-ul p,
   .growth-item p,
-  .growth-title,
-  .role-group-label,
   .role-group li {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }

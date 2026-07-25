@@ -1090,15 +1090,29 @@
     <script src="script.js"></script>
     <script>
       /* ── 1. 상단 프로젝트 탭 전환 ── */
+      /* ── 1. 상단 프로젝트 탭 전환 ── */
       const coTabs = document.querySelectorAll(".tab");
       const coTrack = document.querySelector(".track");
+      const coPanels = document.querySelectorAll(".track > .md-layout");
+      const coViewport = document.querySelector(".viewport");
+
+      function setActivePanel(i) {
+        coPanels.forEach((p, idx) =>
+          p.classList.toggle("panel-active", idx === i),
+        );
+      }
+      setActivePanel(0); // 초기: 첫 패널
 
       coTabs.forEach((tab, i) => {
         tab.addEventListener("click", () => {
           coTabs.forEach((t) => t.classList.remove("active"));
           tab.classList.add("active");
+
           const offsets = ["0", "-33.333%", "-66.666%"];
-          coTrack.style.transform = `translateX(${offsets[i]})`;
+          coTrack.style.transform = `translateX(${offsets[i]})`; // 데스크톱용
+
+          setActivePanel(i);
+          if (coViewport) coViewport.scrollTop = 0; // 전환 시 맨 위로
         });
       });
 
@@ -1202,7 +1216,9 @@
               return;
             const title = document.createElement("div");
             title.className = "mobile-section-title";
-            title.textContent = btn.textContent.trim();
+            title.textContent = btn.textContent
+              .trim()
+              .replace(/\s+/, "\u00A0\u00A0");
             content.insertBefore(title, content.firstChild);
           });
         });
@@ -1214,13 +1230,63 @@
               return;
             const title = document.createElement("div");
             title.className = "mobile-section-title";
-            title.textContent = btn.textContent.trim();
+            title.textContent = btn.textContent
+              .trim()
+              .replace(/\s+/, "\u00A0\u00A0");
             content.insertBefore(title, content.firstChild);
           });
         });
       }
-
       injectMobileSectionTitles();
+      setupPsGrowthAccordion();
+      setupRoleAccordion();
+      setupGrowthItemAccordion();
+      /* ── 768 이하: Role 아코디언 (전부 닫힘) ── */
+      function setupRoleAccordion() {
+        document.querySelectorAll(".role-group").forEach((item) => {
+          if (item.classList.contains("acc")) return;
+          const head = item.querySelector(":scope > .role-group-label");
+          const body = item.querySelector(":scope > .detail-ul");
+          if (!head || !body) return;
+
+          item.classList.add("acc");
+          head.classList.add("acc-head");
+          body.classList.add("acc-body");
+
+          head.addEventListener("click", () => item.classList.toggle("open"));
+        });
+      }
+      /* ── 768 이하: PS·Growth 소제목 아코디언 (전부 닫힘) ── */
+      function setupPsGrowthAccordion() {
+        document.querySelectorAll(".tab-contents").forEach((group) => {
+          group.querySelectorAll(".tab-content").forEach((item) => {
+            if (item.classList.contains("acc")) return;
+            const head = item.querySelector(":scope > .mobile-section-title");
+            const body = item.querySelector(":scope > .detail-ul");
+            if (!head || !body) return;
+
+            item.classList.add("acc");
+            head.classList.add("acc-head");
+            body.classList.add("acc-body");
+
+            head.addEventListener("click", () => item.classList.toggle("open"));
+          });
+        });
+      } /* ── 768 이하: Growth(law·jeju) 아코디언 (전부 닫힘) ── */
+      function setupGrowthItemAccordion() {
+        document.querySelectorAll(".growth-item").forEach((item) => {
+          if (item.classList.contains("acc")) return;
+          const head = item.querySelector(":scope > .growth-title");
+          const body = item.querySelector(":scope > .detail-ul, :scope > p");
+          if (!head || !body) return;
+
+          item.classList.add("acc");
+          head.classList.add("acc-head");
+          body.classList.add("acc-body");
+
+          head.addEventListener("click", () => item.classList.toggle("open"));
+        });
+      }
     </script>
   </body>
 </html>

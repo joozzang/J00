@@ -207,7 +207,7 @@
   }
 
   .layout-header h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   /* 모바일은 뒤로가기 제스처가 있어 ✕ 불필요 */
@@ -273,7 +273,7 @@
   }
 
   .tab-name {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
