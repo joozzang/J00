@@ -681,6 +681,48 @@
 .mobile-section-title {
   display: none;
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .md-layout {
+    grid-template-columns: 1.8fr 1fr;
+    gap: 16px;
+  }
+
+  .overview p,
+  .detail-ul > li,
+  .detail-ul .sub-list li,
+  .detail-ul p,
+  .growth-item p,
+  .role-group li {
+    font-size: 1.05rem;
+  }
+
+  .title,
+  .tech-label,
+  .dtab.active {
+    font-size: 1.2rem;
+  }
+
+  .dtab {
+    padding: 8px 18px;
+    font-size: 1.1rem;
+  }
+
+  .tab-btn,
+  .growth-title,
+  .role-group-label {
+    font-size: 1.1rem;
+  }
+
+  .slide img {
+    height: 240px;
+  }
+
+  .chip {
+    font-size: 0.9rem;
+    padding: 4px 10px;
+  }
+}
 @media (max-width: 768px) {
   .track {
     width: 100%;

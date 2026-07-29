@@ -1,19 +1,40 @@
-/* ================================================
-   darkmode.css — 전체 다크모드 스타일
-   ================================================ */
+/* ============================================================================
+   darkmode.css — 전체 다크모드 스타일 (정리본)
+   ----------------------------------------------------------------------------
+   목차
+     01. 기본 (body / 테마 토글)
+     02. 홈 (name / nav)
+     03. 레이아웃 공통 (header / container / content / close)
+     04. 북마크
+     05. 탭 스위처 (experience · project 공통)
+     06. 뷰포트 / 스크롤바
+     07. md-list / md-item
+     08. md-detail / md-keypoints
+     09. 모달 (공통)
+     10. Profile 페이지
+     11. Project — 슬라이더 / 개요 / 탭 / 상세
+     12. Project — 리스트 / Growth / 역할 / 기술스택 / 기타
+     13. Profile — 소개 / 카드 / How I Work
+     14. Profile — 타임라인
+     15. 모바일 — 아코디언 (acc)
+     16. 모바일 — 카드 아코디언 (md-card) / 바깥 박스
+   ========================================================================== */
 
-/* ── body / 배경 ── */
+/* ==========================================================================
+   01. 기본
+   ========================================================================== */
 body.dark {
   background-color: #06101e;
   color: #c8dcff;
 }
 
-/* ── 테마 토글 ── */
 body.dark .theme-toggle {
   color: #c8dcff;
 }
 
-/* ── 홈 메인 ── */
+/* ==========================================================================
+   02. 홈
+   ========================================================================== */
 body.dark .name {
   color: #6ab0ff;
   text-shadow:
@@ -32,7 +53,9 @@ body.dark nav a:hover {
   color: #ffffff;
 }
 
-/* ── 레이아웃 공통 ── */
+/* ==========================================================================
+   03. 레이아웃 공통
+   ========================================================================== */
 body.dark .layout-header {
   background-color: #0a1a38;
   border: 1px solid #90c8ff;
@@ -40,6 +63,16 @@ body.dark .layout-header {
 
 body.dark .layout-header h1 {
   color: #90c8ff;
+}
+
+body.dark .layout-container {
+  background-color: #080f1a;
+  border-color: #90c8ff;
+}
+
+body.dark .layout-content {
+  background-color: #080f1a;
+  z-index: 1;
 }
 
 body.dark .close {
@@ -50,17 +83,9 @@ body.dark .close:hover {
   color: #6ab0ff !important;
 }
 
-body.dark .layout-container {
-  border-color: #90c8ff;
-  background-color: #080f1a;
-}
-
-body.dark .layout-content {
-  background-color: #080f1a;
-  z-index: 1;
-}
-
-/* ── 북마크 ── */
+/* ==========================================================================
+   04. 북마크
+   ========================================================================== */
 body.dark .bookmark {
   background-color: #0a1a38;
   border-color: #0a1a38;
@@ -73,11 +98,13 @@ body.dark .bookmark:hover {
 
 body.dark .bookmark.active {
   background-color: #080f1a;
-  color: #6ab0ff;
   border-color: #1a3a6a;
+  color: #6ab0ff;
 }
 
-/* ── 탭 스위처 (experience / project 공통) ── */
+/* ==========================================================================
+   05. 탭 스위처 (experience · project 공통)
+   ========================================================================== */
 body.dark .tab {
   background: #0d1520;
   border-color: #1a2a4a;
@@ -113,13 +140,31 @@ body.dark .tab.active .tab-name {
   color: #90c8ff;
 }
 
-/* ── viewport ── */
+/* ==========================================================================
+   06. 뷰포트 / 스크롤바
+   ========================================================================== */
 body.dark .viewport {
   background: #080f1a;
   border-color: #90c8ff;
 }
 
-/* ── md-list ── */
+body.dark ::-webkit-scrollbar {
+  width: 6px;
+  background: #080f1a;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #1a2a4a;
+  border-radius: 4px;
+}
+
+body.dark .viewport::-webkit-scrollbar-thumb {
+  background: rgba(144, 200, 255, 0.25);
+}
+
+/* ==========================================================================
+   07. md-list / md-item
+   ========================================================================== */
 body.dark .md-list {
   background: #0d1520;
   border-color: #1a2a4a;
@@ -158,10 +203,16 @@ body.dark .md-item.active .md-item-chevron {
   color: #90c8ff;
 }
 
-/* ── md-detail-body ── */
+body.dark .md-section-title {
+  color: #90c8ff;
+}
+
+/* ==========================================================================
+   08. md-detail / md-keypoints
+   ========================================================================== */
 body.dark .md-detail-body {
   background: #0a1a38;
-  border-color: #90c8ff;
+  border-color: #1a2a4a; /* 병합: 초기 #90c8ff → 이후 패치에서 #1a2a4a */
   box-shadow: none;
 }
 
@@ -171,6 +222,10 @@ body.dark .md-detail-title {
 
 body.dark .md-detail-sub {
   color: #3a5a8a;
+  border-bottom-color: #1a2a4a;
+}
+
+body.dark .md-detail-header {
   border-bottom-color: #1a2a4a;
 }
 
@@ -186,10 +241,9 @@ body.dark .md-detail-ul li strong {
   color: #6ab0ff;
 }
 
-/* ── md-keypoints ── */
 body.dark .md-keypoints {
   background: #0a1a38;
-  border-color: #90c8ff;
+  border-color: #1a2a4a; /* 병합: 초기 #90c8ff → 이후 패치에서 #1a2a4a */
   box-shadow: none;
 }
 
@@ -198,12 +252,31 @@ body.dark .md-keypoints-label {
 }
 
 body.dark .md-keypoint {
-  background: #0a1a38;
-  border-color: #90c8ff;
+  background: #0d1520; /* 병합: 초기 #0a1a38 → 이후 패치에서 #0d1520 */
+  border-color: #1a2a4a; /* 병합: 초기 #90c8ff → 이후 패치에서 #1a2a4a */
   color: #c8dcff;
 }
 
-/* ── Profile 페이지 ── */
+/* ==========================================================================
+   09. 모달 (공통)
+   ========================================================================== */
+body.dark .modal {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body.dark .modal-content {
+  background-color: #0d1520;
+  border: 1px solid #1a2a4a;
+  color: #c8dcff;
+}
+
+body.dark .modal-content h1 {
+  color: #90c8ff;
+}
+
+/* ==========================================================================
+   10. Profile 페이지
+   ========================================================================== */
 body.dark .profile-header {
   background-color: #0a1a38;
   border-bottom: 2px solid #1a2a4a;
@@ -220,11 +293,6 @@ body.dark .profile-body {
 body.dark .profile-left {
   background-color: #0d1520;
   border-right: 1px solid #1a2a4a;
-}
-
-body.dark .profile_img {
-  border-color: #1a3a6a;
-  background-color: #0a1a38;
 }
 
 body.dark .profile-right {
@@ -244,34 +312,13 @@ body.dark .profile-right ul li span {
   color: #3a5a8a;
 }
 
-/* ── 모달 공통 ── */
-body.dark .modal {
-  background: rgba(0, 0, 0, 0.75);
-}
-
-body.dark .modal-content {
-  background-color: #0d1520;
-  border: 1px solid #1a2a4a;
-  color: #c8dcff;
-}
-
-body.dark .modal-content h1 {
-  color: #90c8ff;
-}
-
-/* ── 스크롤바 ── */
-body.dark ::-webkit-scrollbar {
-  width: 6px;
-  background: #080f1a;
-}
-
-body.dark ::-webkit-scrollbar-thumb {
-  background: #1a2a4a;
-  border-radius: 4px;
+body.dark .profile_img {
+  background-color: #0a1a38;
+  border-color: #90c8ff; /* 병합: 초기 #1a3a6a → 이후 패치에서 #90c8ff */
 }
 
 /* ==========================================================================
-   Project
+   11. Project — 슬라이더 / 개요 / 탭 / 상세
    ========================================================================== */
 
 /* ── 슬라이더 ── */
@@ -305,9 +352,10 @@ body.dark .overview p span {
   color: #6ab0ff;
 }
 
-body.dark .title,
+/* .title 은 Profile 카드 규칙(#90c8ff)과 클래스명이 겹쳐 최종적으로 #90c8ff 로
+   적용됩니다. 아래 tech-label 만 파랑(#6ab0ff)을 유지합니다. (13번 섹션 참고) */
 body.dark .tech-label {
-  color: #6ab0ff;
+  color: #90c8ff;
 }
 
 /* ── 메인 탭바 ── */
@@ -324,8 +372,8 @@ body.dark .dtab:hover {
 
 body.dark .dtab.active {
   background: #0a1a38;
-  color: #6ab0ff;
   border-color: #90c8ff;
+  color: #6ab0ff;
 }
 
 /* ── detail body ── */
@@ -336,7 +384,7 @@ body.dark .detail-body {
 
 /* ── 서브 탭 버튼 ── */
 body.dark .tab-btn {
-  background: #0d1e30;
+  background: #0d1520;
   border-color: #1a2a4a;
   color: #4a6a9a;
 }
@@ -355,8 +403,17 @@ body.dark .tab-btn.active {
 /* ── 서브 탭 콘텐츠 ── */
 body.dark .tab-contents {
   background: #0a1a38;
-  border-color: #90c8ff;
+  border-color: #1a2a4a; /* 병합: 초기 #90c8ff → 이후 패치에서 #1a2a4a */
 }
+
+body.dark .tab-content {
+  background: #0d1520;
+  border-color: #1a2a4a;
+}
+
+/* ==========================================================================
+   12. Project — 리스트 / Growth / 역할 / 기술스택 / 기타
+   ========================================================================== */
 
 /* ── 리스트 ── */
 body.dark .detail-ul > li,
@@ -374,15 +431,23 @@ body.dark .detail-ul p span {
   color: #6ab0ff;
 }
 
-/* ── Growth ── */
-body.dark .growth-title {
-  color: #6ab0ff;
+body.dark .detail-ul .sub-list {
   border-color: #1a2a4a;
 }
 
-body.dark .growth-item p {
-  color: #b0ccee;
+/* ── Growth ── */
+body.dark .growth-title {
+  background: #0d1e30; /* 병합: 초기엔 배경 없이 color:#6ab0ff → 이후 패치 반영 */
   border-color: #1a2a4a;
+  color: #c8dcff;
+}
+
+body.dark .growth-item p,
+body.dark #law-growth .growth-item p,
+body.dark #jeju-growth .growth-item p {
+  background: #0a1a38; /* 병합: 초기 color:#b0ccee → 이후 패치에서 배경/보더 추가 */
+  border-color: #90c8ff;
+  color: #c8dcff;
 }
 
 body.dark .growth-item p span {
@@ -393,10 +458,11 @@ body.dark .growth-item p span {
 body.dark .role-group-label {
   background: #0a1a38;
   border-color: #90c8ff;
-  color: #90c8ff;
+  color: #c8dcff; /* 병합: 초기 #90c8ff → 이후 패치에서 #c8dcff */
 }
 
-body.dark .role-group ul {
+body.dark .role-group ul,
+body.dark .role-flat {
   background: #0a1a38;
   border-color: #90c8ff;
 }
@@ -414,25 +480,25 @@ body.dark .tech {
 body.dark .chip.ai {
   background-color: #2a1040;
   color: #c084fc;
-  border-color: #4a1a6a;
+  border-color: #90c8ff;
 }
 
 body.dark .chip.fe {
   background-color: #0a2030;
   color: #38bdf8;
-  border-color: #0c3a50;
+  border-color: #90c8ff;
 }
 
 body.dark .chip.be {
   background-color: #0a2014;
   color: #4ade80;
-  border-color: #0f3020;
+  border-color: #90c8ff;
 }
 
 body.dark .chip.tool {
   background-color: #141e2a;
   color: #94a3b8;
-  border-color: #1e2e3e;
+  border-color: #90c8ff;
 }
 
 /* ── 아이콘 링크 ── */
@@ -445,8 +511,9 @@ body.dark .award-badge {
   background: linear-gradient(135deg, #7a5500, #aa7700);
   color: #ffe0a0;
 }
+
 /* ==========================================================================
-   Profile
+   13. Profile — 소개 / 카드 / How I Work
    ========================================================================== */
 
 /* ── 소개 문구 ── */
@@ -469,19 +536,19 @@ body.dark .section-card {
   border-color: #90c8ff;
 }
 
-body.dark .title {
-  color: #90c8ff;
-  border-bottom-color: #1a2a4a;
-}
-body.dark .profile_img {
-  border-color: #90c8ff;
-}
 body.dark .section-card li {
   color: #b0ccee;
 }
 
 body.dark .section-card span {
   color: #3a5a8a;
+}
+
+/* .title 최종값 (11번 tech-label 주석 참고). Project 개요와 Profile 카드가
+   같은 .title 클래스를 쓰므로 마지막 선언인 #90c8ff 가 전역 적용됩니다. */
+body.dark .title {
+  color: #90c8ff;
+  border-bottom-color: #1a2a4a;
 }
 
 /* ── How I Work 버튼 ── */
@@ -519,7 +586,9 @@ body.dark .how-list li {
   color: #b0ccee;
 }
 
-/* ── 타임라인 컨테이너 ── */
+/* ==========================================================================
+   14. Profile — 타임라인
+   ========================================================================== */
 body.dark .timeline-container {
   background: #0a1a38;
   border-color: #90c8ff;
@@ -530,17 +599,15 @@ body.dark .timeline-title {
   border-bottom-color: #1a2a4a;
 }
 
-/* ── 타임라인 보드 기준선 ── */
 body.dark .timeline-board {
   border-bottom-color: #3a5a8a;
 }
 
-/* ── 타임라인 트랙 깃발 라벨 ── */
 body.dark .flag-label {
   color: #b0ccee;
 }
 
-/* ── 트랙 색상 (다크모드 — 살짝 어둡게) ── */
+/* ── 트랙 색상 (살짝 어둡게) ── */
 body.dark .edu-high .bar {
   background-color: #0d2a4a;
 }
@@ -606,40 +673,92 @@ body.dark .timeline-axis {
   background: #0a1a38;
   color: #3a5a8a;
 }
-/* ── 모바일 아코디언 (PS·Growth·Role 공통) ── */
-body.dark .acc-head {
-  background: #0d1e30;
-  border-color: #90c8ff;
-  color: #4a6a9a;
+
+/* ==========================================================================
+   15. 모바일 — 아코디언 (PS · Growth · Role 공통)
+   ========================================================================== */
+body.dark .mobile-section-title {
+  color: #90c8ff;
 }
 
-body.dark .acc-head.acc-head {
-  color: #4a6a9a;
+body.dark .acc-head {
+  background: #0d1e30;
+  border-color: #c8dcff; /* 병합: 초기 #90c8ff → 이후 패치에서 #2a4a7a */
+  color: #c8dcff; /* 유지: 기존 .acc-head.acc-head 특이성 핵으로 실제 적용되던 값 */
 }
 
 body.dark .acc-head::after {
-  color: #4a6a9a;
+  color: #8fb4e8; /* 병합: 초기 #4a6a9a → 이후 패치에서 #8fb4e8 */
 }
 
 body.dark .acc.open > .acc-head {
-  background: #0a1a38;
-  color: #90c8ff;
+  border-color: #90c8ff;
+  background: #12294a; /* 병합: 초기 #0a1a38 → 이후 패치에서 #12294a */
+  color: #c8dcff; /* 병합: 초기 #90c8ff → 이후 패치에서 #c8dcff */
 }
 
 body.dark .acc.open > .acc-head::after {
-  color: #90c8ff;
+  color: #8fb4e8; /* 병합: 초기 #90c8ff → 이후 패치에서 #8fb4e8 */
 }
 
 body.dark .acc > .acc-body {
-  background: #0a1a38;
   border-color: #90c8ff;
+  background: #0a1a38;
 }
 
-/* 불릿 (Role·sub-list) */
+/* 불릿 (Role · sub-list) */
 body.dark .role-group.acc > .acc-body li::before,
 body.dark .detail-ul .sub-list li::before {
   color: #6ab0ff;
 }
-body.dark .md-section-title {
-  color: #90c8ff;
+
+/* ==========================================================================
+   16. 모바일 — 카드 아코디언 (Career) / 바깥 박스
+   ========================================================================== */
+
+/* ── 바깥 박스 (dtab-content / detail-tabs) ── */
+body.dark .dtab-content,
+body.dark .detail-tabs {
+  background: #0a1230;
+  border-color: #90c8ff;
+}
+
+/* ── 카드 헤더 ── */
+body.dark .md-card-head {
+  background: #0d1520;
+  border-color: #c8dcff;
+}
+
+body.dark .md-card-head .md-item-title {
+  color: #c8dcff;
+}
+
+body.dark .md-card-head::after {
+  color: #c8dcff;
+}
+
+body.dark .md-card.open > .md-card-head {
+  color: #c8dcff;
+}
+
+body.dark .md-card.open > .md-card-head .md-item-title {
+  color: #c8dcff;
+}
+
+/* ── 카드 본문 ── */
+body.dark .md-card .md-detail-content {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+body.dark .md-card .md-keypoints {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+/* ── 열림 상태 왼쪽 컬러 바 ── */
+body.dark .md-card.open > .md-card-head,
+body.dark .md-card.open > .md-card-body > .md-detail-content,
+body.dark .md-card.open > .md-card-body > .md-keypoints {
+  border-left-color: #1a4a8a;
 }
