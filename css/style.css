@@ -391,3 +391,24 @@ body.modal-open .layout-header {
   pointer-events: none;
   transition: opacity 0.2s ease; /* 부드럽게 사라지도록 효과 추가 */
 }
+.viewport {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 61, 164, 0.25) transparent;
+}
+
+.viewport::-webkit-scrollbar {
+  width: 3px;
+}
+
+.viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.viewport::-webkit-scrollbar-thumb {
+  background: rgba(13, 61, 164, 0.3);
+  border-radius: 10px;
+}
+
+.viewport::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 61, 164, 0.45);
+}

@@ -719,6 +719,10 @@
           if (layout.classList.contains("stacked")) return;
           layout.classList.add("stacked");
 
+          const heading = document.createElement("div");
+          heading.className = "md-section-title";
+          heading.textContent = "💡 Key Responsibilities";
+          layout.appendChild(heading);
           layout.querySelectorAll(".md-item").forEach((item) => {
             const panel = item.dataset.panel;
             const idx = item.dataset.idx;

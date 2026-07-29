@@ -899,7 +899,7 @@
 
   .role-group.acc > .acc-head {
     text-align: left;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .role-group.acc > .acc-body {
@@ -987,7 +987,7 @@
 
   .mobile-section-title {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
     color: #0d3da4;
     border-radius: 5px;
     margin-bottom: 10px;

@@ -606,3 +606,40 @@ body.dark .timeline-axis {
   background: #0a1a38;
   color: #3a5a8a;
 }
+/* ── 모바일 아코디언 (PS·Growth·Role 공통) ── */
+body.dark .acc-head {
+  background: #0d1e30;
+  border-color: #90c8ff;
+  color: #4a6a9a;
+}
+
+body.dark .acc-head.acc-head {
+  color: #4a6a9a;
+}
+
+body.dark .acc-head::after {
+  color: #4a6a9a;
+}
+
+body.dark .acc.open > .acc-head {
+  background: #0a1a38;
+  color: #90c8ff;
+}
+
+body.dark .acc.open > .acc-head::after {
+  color: #90c8ff;
+}
+
+body.dark .acc > .acc-body {
+  background: #0a1a38;
+  border-color: #90c8ff;
+}
+
+/* 불릿 (Role·sub-list) */
+body.dark .role-group.acc > .acc-body li::before,
+body.dark .detail-ul .sub-list li::before {
+  color: #6ab0ff;
+}
+body.dark .md-section-title {
+  color: #90c8ff;
+}

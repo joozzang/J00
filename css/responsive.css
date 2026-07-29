@@ -263,8 +263,11 @@
 
   .switcher .tab {
     min-width: 0; /* flex 아이템 축소 허용 (ellipsis 필수 조건) */
-    padding: 10px 6px;
+    padding: 14px 18px;
     align-items: center;
+  }
+  .switcher .tab.active {
+    border: 1px solid #c3d5f5;
   }
 
   .switcher .tab-main {
@@ -274,6 +277,7 @@
 
   .tab-name {
     font-size: 1.25rem;
+    font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
