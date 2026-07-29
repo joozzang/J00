@@ -1,216 +1,45 @@
-/* ================================================
-   1440px 이하 — 약간 좁아질 때
-   ================================================ */
-@media (max-width: 1440px) {
-  .layout-header {
-    left: 40px;
-    right: 140px;
-    padding: 24px 28px;
-  }
-
-  .layout-container {
-    left: 40px;
-    right: 140px;
-    top: 140px;
-    bottom: 40px;
-  }
-
-  .tab {
-    padding: 20px 24px;
-    gap: 8px;
-  }
-
-  .tab-name {
-    font-size: 1.6rem;
-  }
-  .tab-title {
-    font-size: 1.4rem;
-  }
-  .tab-period {
-    font-size: 1.4rem;
-  }
-
-  .md-item-title {
-    font-size: 1.4rem;
-  }
-  .md-detail-title {
-    font-size: 1.5rem;
-  }
-  .md-detail-sub {
-    font-size: 1.3rem;
-  }
-  .md-detail-ul li {
-    font-size: 1.3rem;
-  }
-  .md-keypoint {
-    font-size: 1.3rem;
-  }
-}
-
-/* ================================================
-   1280px 이하 — 레이아웃 여백 더 줄이기
-   ================================================ */
-@media (max-width: 1280px) {
-  .layout-header {
-    left: 20px;
-    right: 120px;
-    padding: 20px 24px;
-  }
-
-  .layout-container {
-    left: 20px;
-    right: 120px;
-    top: 130px;
-    bottom: 30px;
-  }
-
-  .md-layout {
-    gap: 14px;
-  }
-
-  .md-detail {
-    gap: 14px;
-  }
-
-  .md-detail-body {
-    padding: 16px 18px;
-  }
-
-  .md-detail-title {
-    font-size: 1.4rem;
-  }
-  .md-detail-sub {
-    font-size: 1.2rem;
-    padding-bottom: 16px;
-  }
-  .md-detail-ul li {
-    font-size: 1.2rem;
-  }
-  .md-keypoint {
-    font-size: 1.2rem;
-    padding: 14px 0;
-  }
-  .md-keypoints-label {
-    font-size: 1.4rem;
-  }
-  .md-item-title {
-    font-size: 1.3rem;
-  }
-}
-
-/* ================================================
-   1024px 이하 — 2열 → 1열 전환
-   ================================================ */
-@media (max-width: 1024px) {
-  .layout-header {
-    left: 16px;
-    right: 16px;
-    top: 16px;
-    border-radius: 12px 12px 0 0;
-    padding: 18px 20px;
-  }
-
-  .layout-container {
-    left: 16px;
-    right: 16px;
-    top: 110px;
-    bottom: 16px;
-  }
-
-  /* 북마크 숨기기 — 좁은 화면에서 공간 확보 */
-  .bookmark-tabs {
-    display: none;
-  }
-
-  /* 상단 탭 스위처 — 세로로 */
-  .switcher {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .tab {
-    padding: 16px 20px;
-    gap: 10px;
-  }
-
-  .tab-name {
-    font-size: 1.5rem;
-  }
-  .tab-title {
-    font-size: 1.3rem;
-  }
-  .tab-period {
-    font-size: 1.3rem;
-  }
-
-  /* md-layout 2열 → 1열 */
-  .md-layout {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* list 높이 고정 */
-  .md-list {
-    height: auto;
-    max-height: 280px;
-  }
-
-  .md-item {
-    flex: none;
-    padding: 12px 16px;
-  }
-
-  .md-item-title {
-    font-size: 1.3rem;
-  }
-
-  .md-detail-body {
-    flex: none;
-    padding: 16px;
-  }
-
-  .md-detail-title {
-    font-size: 1.4rem;
-  }
-  .md-detail-sub {
-    font-size: 1.2rem;
-  }
-  .md-detail-ul li {
-    font-size: 1.2rem;
-  }
-
-  .md-keypoints {
-    flex: none;
-    padding: 14px 16px;
-  }
-
-  .md-keypoints-grid {
-    margin: 0;
-  }
-
-  .md-keypoint {
-    font-size: 1.2rem;
-    padding: 12px 0;
-  }
-}
-
-/* ================================================
-   768px 이하 — 모바일 (전 페이지 공통)
-   ================================================ */
 @media (max-width: 768px) {
-  /* ── 헤더 / 컨테이너 : 3개 페이지 전부 사용 ── */
+  .container {
+    height: 100dvh;
+    gap: 40px;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 3rem;
+    margin: 0; /* 60px 60px 0 → 0 (중앙에서 안 밀리게) */
+    text-shadow:
+      0 4px 5px #d5e6ff,
+      0 -1px 1px #0d3da4;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 18px 0;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+  }
+  .show-nav .name {
+    transform: none;
+  }
   .layout-header {
     left: 10px;
     right: 10px;
     top: 10px;
     padding: 16px 16px;
   }
-
   .layout-header h1 {
     font-size: 1.3rem;
   }
-
-  /* 모바일은 뒤로가기 제스처가 있어 ✕ 불필요 */
   .layout-header .close {
     display: none;
   }
@@ -238,10 +67,6 @@
     padding: 12px;
     gap: 12px;
   }
-
-  /* ── 슬라이드 뷰포트 : projects + experience 공통 ──
-     데스크톱은 패널 내부가 스크롤되지만,
-     모바일은 뷰포트 전체가 세로로 길어지므로 여기서 스크롤을 받는다 */
   .viewport {
     overflow-y: auto;
     overflow-x: hidden;
@@ -249,11 +74,11 @@
   }
 
   .track {
-    height: auto; /* 데스크톱 100% 고정 해제 */
+    height: auto;
   }
   .switcher {
-    flex-wrap: nowrap; /* 좁아져도 줄바꿈 없이 가로 유지 */
-    gap: 8px; /* ← 탭 사이 간격 */
+    flex-wrap: nowrap;
+    gap: 8px;
   }
 
   .switcher .tab-title,
@@ -262,7 +87,7 @@
   }
 
   .switcher .tab {
-    min-width: 0; /* flex 아이템 축소 허용 (ellipsis 필수 조건) */
+    min-width: 0;
     padding: 14px 18px;
     align-items: center;
   }
